@@ -61,10 +61,10 @@ public class SpaceshipMovement : MonoBehaviour
     private void LateUpdate()
     {
         if (_inputs.IsYawing)
-            LerpRotate(Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, _zRotationOnSwing * _inputs.Yaw * -1f));
+            transform.rotation = LerpRotate(transform.rotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, _zRotationOnSwing * _inputs.Yaw * -1f));
 
         if(!_inputs.IsRolling && !_inputs.IsYawing)
-            LerpRotate(Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, GetClosestMultipleAngleOf(transform.localEulerAngles.z, _zRotationSnap)));
+            transform.localRotation = LerpRotate(transform.localRotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, GetClosestMultipleAngleOf(transform.localEulerAngles.z, _zRotationSnap)));
     }
 
     private void Movement()
@@ -112,12 +112,12 @@ public class SpaceshipMovement : MonoBehaviour
         _rb.AddForce(force, ForceMode.Force);
     }
 
-    private void LerpRotate(Quaternion endRotation)
+    private Quaternion LerpRotate(Quaternion rotation, Quaternion endRotation)
     {
-        transform.localRotation = 
+        return
             Quaternion.Lerp
             (
-            transform.localRotation,
+            rotation,
             endRotation,
             _resettingSpeed * Time.deltaTime
             );

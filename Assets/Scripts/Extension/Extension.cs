@@ -7,7 +7,6 @@ namespace Extension
 {
     namespace Methods
     {
-
         /// <summary>
         /// This class is an extension methods holder abount findings GameObjects in the scene.
         /// </summary>

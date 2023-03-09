@@ -456,6 +456,8 @@ MonoBehaviour:
   _rollRelativeRotation: 1
   _yawRelativeRotation: 0
   _pitchRelativeRotation: 1
+  _zRotationSnap: 90
+  _zRotationOnSwing: 45
   _resettingSpeed: 1
   _frequency: 2
   _amplitude: 0.5
@@ -472,9 +474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c2414f3e5ed6b409807b880e9f194f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertPitchAxis: 1
-  invertYawAxis: 1
-  invertRollAxis: 1
+  pitchAxis: 1
+  yawAxis: 1
+  rollAxis: 1
 --- !u!1 &1821799525
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,9 @@ public class SpaceshipInputsController : MonoBehaviour
     }
 
     [Header("Axes")]
-    public AxisType invertPitchAxis = AxisType.Normal;
-    public AxisType invertYawAxis = AxisType.Normal;
-    public AxisType invertRollAxis = AxisType.Normal;
+    public AxisType pitchAxis = AxisType.Normal;
+    public AxisType yawAxis = AxisType.Normal;
+    public AxisType rollAxis = AxisType.Normal;
 
     public Inputs Inputs { get => _inputs; set => _inputs = value; }
 
@@ -28,11 +28,11 @@ public class SpaceshipInputsController : MonoBehaviour
 
     internal Vector3 MovementAxis => _inputs.Aircraft.Movement.ReadValue<Vector3>();
 
-    internal float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>() * (float)invertYawAxis;
+    internal float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>() * (float)yawAxis;
 
-    internal float Roll => _inputs.Aircraft.Roll.ReadValue<float>() * (float)invertRollAxis;
+    internal float Roll => _inputs.Aircraft.Roll.ReadValue<float>() * (float)rollAxis;
 
-    internal float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>() * (float)invertPitchAxis;
+    internal float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>() * (float)pitchAxis;
 
     internal bool IsRolling => Roll != 0;
     internal bool IsPitching => Pitch != 0;
