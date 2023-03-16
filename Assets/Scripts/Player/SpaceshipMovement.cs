@@ -26,9 +26,9 @@ public class SpaceshipMovement : MonoBehaviour
     private Space _pitchRelativeRotation;
 
     [SerializeField]
-    private float _zRotationSnap = 90f;
+    [Range(0, 360)] private ushort _zRotationSnap = 90;
     [SerializeField]
-    private float _zRotationOnSwing = 45f;
+    [Range(0, 360)] private ushort _zRotationOnSwing = 45;
 
     [Header("Settling")]
     [SerializeField]
