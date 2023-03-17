@@ -19,11 +19,14 @@ public class SpaceshipMovement : MonoBehaviour
     [SerializeField]
     private float _pitchSpeed = 30f;
     [SerializeField]
+    private float _zTurnSpeed = 30f;
+    [SerializeField]
     private Space _rollRelativeRotation;
     [SerializeField]
     private Space _yawRelativeRotation;
     [SerializeField]
     private Space _pitchRelativeRotation;
+
 
     [SerializeField]
     [Range(0, 360)] private ushort _zRotationSnap = 90;
@@ -62,10 +65,10 @@ public class SpaceshipMovement : MonoBehaviour
         RotationOnPrincipalAxes();
 
         if (_inputs.IsYawing)
-            transform.rotation = LerpRotate(transform.rotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, _zRotationOnSwing * _inputs.Yaw * -1f));
+            transform.rotation = LerpRotate(transform.rotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, _zRotationOnSwing * _inputs.Yaw * -1f), _zTurnSpeed);
 
         if(!_inputs.IsRotating)
-            transform.localRotation = LerpRotate(transform.localRotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, GetClosestMultipleAngleOf(transform.localEulerAngles.z, _zRotationSnap)));
+            transform.localRotation = LerpRotate(transform.localRotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, GetClosestMultipleAngleOf(transform.localEulerAngles.z, _zRotationSnap)), _resettingSpeed);
     }
 
     private void Movement()
@@ -85,7 +88,7 @@ public class SpaceshipMovement : MonoBehaviour
         Roll(_rollRelativeRotation);
         Yaw(_yawRelativeRotation);
     }
-
+    
     private void Pitch(Space space)
     {
         float pitchX = _inputs.Pitch * _pitchSpeed * Time.deltaTime;
@@ -113,14 +116,14 @@ public class SpaceshipMovement : MonoBehaviour
         _rb.AddForce(force, ForceMode.Force);
     }
 
-    private Quaternion LerpRotate(Quaternion rotation, Quaternion endRotation)
+    private Quaternion LerpRotate(Quaternion rotation, Quaternion endRotation, float speed)
     {
         return
             Quaternion.Lerp
             (
             rotation,
             endRotation,
-            _resettingSpeed * Time.deltaTime
+            speed * Time.deltaTime
             );
     }
 

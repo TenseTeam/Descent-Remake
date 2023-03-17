@@ -453,6 +453,7 @@ MonoBehaviour:
   _rollSpeed: 30
   _yawSpeed: 30
   _pitchSpeed: 30
+  _zTurnSpeed: 10
   _rollRelativeRotation: 1
   _yawRelativeRotation: 0
   _pitchRelativeRotation: 1
