@@ -13,11 +13,11 @@ public class SpaceshipMovement : MonoBehaviour
 
     [Header("Principal Rotation Axes")]
     [SerializeField]
-    private float _rollSpeed = 2f;
+    private float _rollSpeed = 30f;
     [SerializeField]
-    private float _yawSpeed = 2f;
+    private float _yawSpeed = 30f;
     [SerializeField]
-    private float _pitchSpeed = 2f;
+    private float _pitchSpeed = 30f;
     [SerializeField]
     private Space _rollRelativeRotation;
     [SerializeField]
@@ -54,16 +54,17 @@ public class SpaceshipMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
-        RotationOnPrincipalAxes();
         Oscillation();
     }
 
     private void LateUpdate()
     {
+        RotationOnPrincipalAxes();
+
         if (_inputs.IsYawing)
             transform.rotation = LerpRotate(transform.rotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, _zRotationOnSwing * _inputs.Yaw * -1f));
 
-        if(!_inputs.IsRolling && !_inputs.IsYawing)
+        if(!_inputs.IsRotating)
             transform.localRotation = LerpRotate(transform.localRotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, GetClosestMultipleAngleOf(transform.localEulerAngles.z, _zRotationSnap)));
     }
 
@@ -87,19 +88,19 @@ public class SpaceshipMovement : MonoBehaviour
 
     private void Pitch(Space space)
     {
-        float pitchX = _inputs.Pitch * _pitchSpeed;
+        float pitchX = _inputs.Pitch * _pitchSpeed * Time.deltaTime;
         transform.Rotate(Vector3.right, pitchX, space);
     }
 
     private void Roll(Space space)
     {
-        float rollZ = _inputs.Roll * _rollSpeed;
+        float rollZ = _inputs.Roll * _rollSpeed * Time.deltaTime;
         transform.Rotate(Vector3.forward, rollZ, space);
     }
 
     private void Yaw(Space space)
     {
-        float yawY = _inputs.Yaw * _yawSpeed;
+        float yawY = _inputs.Yaw * _yawSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up, yawY, space);
     }
 

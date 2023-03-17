@@ -450,9 +450,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   _movementAcceleration: {x: 5, y: 5, z: 5}
-  _rollSpeed: 1
-  _yawSpeed: 1
-  _pitchSpeed: 1
+  _rollSpeed: 30
+  _yawSpeed: 30
+  _pitchSpeed: 30
   _rollRelativeRotation: 1
   _yawRelativeRotation: 0
   _pitchRelativeRotation: 1

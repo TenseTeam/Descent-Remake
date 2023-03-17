@@ -38,5 +38,5 @@ public class SpaceshipInputsController : MonoBehaviour
     internal bool IsPitching => Pitch != 0;
     internal bool IsYawing => Yaw != 0;
 
-    internal bool IsInputRotating => IsRolling && IsPitching && IsYawing;
+    internal bool IsRotating => IsRolling || IsPitching || IsYawing;
 }
