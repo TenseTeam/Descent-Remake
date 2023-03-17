@@ -16,7 +16,9 @@ namespace AI.PathFinding
         private float _nodeDiameter;
         private int gridSizeX, gridSizeY;
 
-        private void Start()
+        public int MaxGridSize => gridSizeX * gridSizeY;
+
+        private void Awake()
         {
             _nodeDiameter = nodeRadius * 2f;
             gridSizeX = Mathf.RoundToInt(gridWorldSize.x / _nodeDiameter);
@@ -41,7 +43,7 @@ namespace AI.PathFinding
             }
         }
 
-        internal List<Node> GetNeighbours(Node node)
+        public List<Node> GetNeighbours(Node node)
         {
             List<Node> neighbours = new List<Node>();
 
@@ -65,7 +67,7 @@ namespace AI.PathFinding
             return neighbours;
         }
 
-        internal Node NodeFromWorldPoint(Vector3 worldPoint)
+        public Node NodeFromWorldPoint(Vector3 worldPoint)
         {
             float percentX = (worldPoint.x + gridWorldSize.x / 2) / gridWorldSize.x;
             float percentY = (worldPoint.z + gridWorldSize.y / 2) / gridWorldSize.y;
@@ -80,8 +82,6 @@ namespace AI.PathFinding
         }
 
 #if DEBUG
-        internal List<Node> path;
-
         void OnDrawGizmos()
         {
             Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 0, gridWorldSize.y));
@@ -91,12 +91,6 @@ namespace AI.PathFinding
                 foreach(Node node in _grid)
                 {
                     Gizmos.color = node.isWalkable ? Color.white : Color.red;
-                    if(path != null)
-                    {
-                        if (path.Contains(node))
-                            Gizmos.color = Color.yellow;
-                    }
-                    
                     Gizmos.DrawCube(node.worldPosition, Vector3.one * (_nodeDiameter - .1f));
                 }
             }
