@@ -5,14 +5,16 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int PlayerShield = 100;
+    [Tooltip("Max shield reachable")]
     public int MaxShield = 150;
     public int PlayerLives;
     public int PlayerEnergy = 100;
+    [Tooltip("Max energy reachable")]
     public int MaxEnergy = 200;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Sield Recharge"))
+        if (other.gameObject.CompareTag("Sield Recharge"))
         {
             if (PlayerShield < MaxShield)
             {
@@ -20,7 +22,7 @@ public class PlayerStats : MonoBehaviour
 
             }
         }
-        if (collision.gameObject.CompareTag("Energy Recharge"))
+        if (other.gameObject.CompareTag("Energy Recharge"))
         {
             if (PlayerEnergy < MaxShield)
             {
