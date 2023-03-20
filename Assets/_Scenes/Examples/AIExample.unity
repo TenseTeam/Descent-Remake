@@ -1162,8 +1162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609216375e5b4134f83338ee6f61f36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2092050929}
-  triggerRange: 10
+  _target: {fileID: 2092050929}
+  _detectionRange: 40
 --- !u!114 &2103517744
 MonoBehaviour:
   m_ObjectHideFlags: 0
