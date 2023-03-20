@@ -50,7 +50,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""6dac0cb7-97d5-4839-a17c-051cd2770b0c"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.2,max=0.925)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -59,7 +59,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""400077e7-241a-4853-bb42-23fe6d59984c"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.2,max=0.925)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -101,7 +101,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""bf80345e-091a-4d87-a291-d9ed72f6050b"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -112,7 +112,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""7ccd94a4-ccd1-4c4b-b5d2-942fc64353f8"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -220,6 +220,39 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Mouse"",
+                    ""id"": ""8fdb4a19-1960-4cc6-8741-0a44ab1f83dd"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7bc532ba-0016-42df-8d29-5d39e5a6f699"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""48554f58-5d66-4569-a8d8-8c5af6281878"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""Keys"",
                     ""id"": ""2c4e6694-7b9e-415d-b503-bb35da4c0c79"",
                     ""path"": ""1DAxis"",
@@ -233,7 +266,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""096abc9d-9bc2-4231-9867-0695d9baf8ef"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -244,7 +277,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""10865d1c-48c8-44d6-9e71-ad4e529905f9"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -282,6 +315,39 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""id"": ""0644cebe-8347-44a3-9fe9-ae0661c4b616"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1153a36e-ec75-4589-b6ac-a5c0c74a07d8"",
+                    ""path"": ""<Mouse>/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""0d195d80-2bf8-46f4-84d1-2cb7f662b602"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
