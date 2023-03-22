@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using ProjectDescent.InputsManagement;
 
 [RequireComponent(typeof(Rigidbody), typeof(SpaceshipInputsController))]
 public class SpaceshipMovement : MonoBehaviour

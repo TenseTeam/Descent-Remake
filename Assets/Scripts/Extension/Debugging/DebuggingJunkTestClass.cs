@@ -3,15 +3,12 @@
 using Extension.Finders;
 using UnityEngine;
 
-public class DebuggingJunkTestClass : MonoBehaviour
+public class DebuggingJunkTestClass
 {
-    float a = 50;
-    GameObject go;
-
-    private void Start()
+    [RuntimeInitializeOnLoadMethod]
+    public void Log()
     {
-        go = new GameObject("a");
-        go.DestroyLastComponentOfType<Collider>();
+        Debug.Log("AD");
     }
 }
 

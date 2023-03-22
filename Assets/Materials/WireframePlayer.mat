@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wireframe
-  m_Shader: {fileID: 4800000, guid: 76d1755896b735e448c40b9a232dc226, type: 3}
+  m_Name: WireframePlayer
+  m_Shader: {fileID: 4800000, guid: e8b802ac01d87144b91f12f40c1f2659, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -115,6 +115,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WireThickness: 0
     - _WireframeAliasing: 2
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -124,5 +125,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _WireframeBackColour: {r: 0.47246158, g: 1, b: 0, a: 1}
-    - _WireframeFrontColour: {r: 0.47058827, g: 1, b: 0, a: 1}
+    - _WireframeFrontColour: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
