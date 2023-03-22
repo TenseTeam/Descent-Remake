@@ -101,7 +101,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""bf80345e-091a-4d87-a291-d9ed72f6050b"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -112,7 +112,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""7ccd94a4-ccd1-4c4b-b5d2-942fc64353f8"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -221,10 +221,10 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Mouse"",
-                    ""id"": ""8fdb4a19-1960-4cc6-8741-0a44ab1f83dd"",
+                    ""id"": ""b9106eb1-407b-4d85-bc8c-23d6e210f298"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Yaw"",
                     ""isComposite"": true,
@@ -232,7 +232,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""7bc532ba-0016-42df-8d29-5d39e5a6f699"",
+                    ""id"": ""6b1cc0bc-abac-4cb7-b006-70710fb98ca5"",
                     ""path"": ""<Mouse>/delta/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -243,7 +243,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""48554f58-5d66-4569-a8d8-8c5af6281878"",
+                    ""id"": ""f593f0fb-6035-4a6a-aa6a-af0aea5ef238"",
                     ""path"": ""<Mouse>/delta/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -266,7 +266,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""096abc9d-9bc2-4231-9867-0695d9baf8ef"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -277,7 +277,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""10865d1c-48c8-44d6-9e71-ad4e529905f9"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -320,10 +320,10 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Mouse"",
-                    ""id"": ""0644cebe-8347-44a3-9fe9-ae0661c4b616"",
+                    ""id"": ""77df1879-45cf-4a4f-9b64-58f4a88dafbb"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pitch"",
                     ""isComposite"": true,
@@ -331,7 +331,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""1153a36e-ec75-4589-b6ac-a5c0c74a07d8"",
+                    ""id"": ""c1aed96c-168e-475f-b5c7-067d07125fc3"",
                     ""path"": ""<Mouse>/delta/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -342,7 +342,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""0d195d80-2bf8-46f4-84d1-2cb7f662b602"",
+                    ""id"": ""6f9e74f5-9d47-4841-b996-2b9103eeecb1"",
                     ""path"": ""<Mouse>/delta/down"",
                     ""interactions"": """",
                     ""processors"": """",
