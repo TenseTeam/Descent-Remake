@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  _movementAcceleration: {x: 0, y: 5, z: 5}
+  _movementAcceleration: {x: 5, y: 5, z: 5}
   _rollSpeed: 30
   _yawSpeed: 30
   _pitchSpeed: 30
@@ -475,7 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c2414f3e5ed6b409807b880e9f194f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotatationLerpVelocity: 40
   pitchAxis: 1
   yawAxis: 1
   rollAxis: 1
