@@ -11,6 +11,7 @@ public class HomingMissiles : SecondarySwitch
     public float HomingMissilesSpeed;
     public float HomingMissilesFireRate;
     public int HomingAmmo;
+    public int HomingAmmoRecharge = 2;
 
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class HomingMissiles : SecondarySwitch
     {
         if (other.gameObject.CompareTag("Homing Ammo"))
         {
-            HomingAmmo++;
+            HomingAmmo += HomingAmmoRecharge;
         }
     }
 }

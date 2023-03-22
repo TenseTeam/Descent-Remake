@@ -9,6 +9,7 @@ public class VulcanGun : WeaponBase
     public GameObject VulcanCannon;
     public float VulcanFireRate;
     public int VulcanAmmo;
+    public int VulcanAmmoRecharge;
     [Tooltip("time before the vulcan gun starts to shoot")]
     public float VulcanCharging;
     private bool m_IsActive = false;
@@ -42,6 +43,13 @@ public class VulcanGun : WeaponBase
         }
         --VulcanAmmo;
         FireRate(VulcanFireRate);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Vulcan Ammo"))
+        {
+            VulcanAmmo += VulcanAmmoRecharge;
+        }
     }
 
 }

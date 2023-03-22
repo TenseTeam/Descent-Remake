@@ -11,6 +11,7 @@ public class ConcussionMissiles : SecondarySwitch
     public float ConcussionMissilesSpeed;
     public float ConcussionMissilesFireRate;
     public int ConcussionAmmo;
+    public int ConcussionAmmoRecharge;
 
 
     // Update is called once per frame
@@ -37,6 +38,14 @@ public class ConcussionMissiles : SecondarySwitch
         p1.GetComponent<Rigidbody>().AddForce(Vector3.forward * ConcussionMissilesSpeed * Time.deltaTime);
         --ConcussionAmmo;
         FireRate(ConcussionMissilesFireRate);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Concussion Ammo"))
+        {
+            ConcussionAmmo += ConcussionAmmoRecharge;
+        }
     }
 }
 
