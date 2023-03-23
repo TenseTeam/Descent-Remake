@@ -25,19 +25,18 @@ public class LaserCannon : WeaponBase
     private void Update()
     {
         //============================================ Shooting
-        if (m_IsActive)
+
+        //mouse click
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //mouse click
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                StartCoroutine(WeaponShoot());
-            }
-            //mouse hold
-            if (Input.GetKey(KeyCode.Mouse0))
-            {
-                StartCoroutine(WeaponShoot());
-            }
+            StartCoroutine(WeaponShoot());
         }
+        //mouse hold
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            StartCoroutine(WeaponShoot());
+        }
+
 
     }
 

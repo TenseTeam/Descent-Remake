@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConcussionMissiles : SecondarySwitch
+public class ConcussionMissiles : WeaponSwitch
 {
     //====================================== Concussion missles stats
     [Header("Concussion Missiles")]

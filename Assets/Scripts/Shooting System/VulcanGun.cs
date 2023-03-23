@@ -22,18 +22,16 @@ public class VulcanGun : WeaponBase
     private void Update()
     {
         //============================================ Shooting
-        if (m_IsActive)
+
+        //mouse hold
+        if (Input.GetKey(KeyCode.Mouse0) && VulcanAmmo > 0 && !m_IsHolding)
         {
-            //mouse hold
-            if (Input.GetKey(KeyCode.Mouse0) && VulcanAmmo > 0 && !m_IsHolding)
-            {
-                StartCoroutine(Charging());
-            }
-            if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                m_IsHolding = false;
-                StopAllCoroutines();
-            }
+            StartCoroutine(Charging());
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            m_IsHolding = false;
+            StopAllCoroutines();
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingMissiles : SecondarySwitch
+public class HomingMissiles : WeaponSwitch
 {
     //====================================== Homing missles stats
     [Header("Homing Missiles")]
