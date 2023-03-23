@@ -1,6 +1,7 @@
-namespace AStarAI.Data.StateMachine
+namespace ProjectDescent.AI.StateMachine
 {
     using System.Collections.Generic;
+    using ProjectDescent.AI.States;
     using UnityEngine;
 
     public class FiniteStateMachine : MonoBehaviour
@@ -28,12 +29,12 @@ namespace AStarAI.Data.StateMachine
                 CurrentState.Process();
         }
 
-        protected void ChangeState(State state)
+        protected void ChangeState(string stateKey)
         {
-            if (state != CurrentState)
+            if (States[stateKey] != CurrentState)
             {
                 CurrentState.Exit();
-                CurrentState = state;
+                CurrentState = States[stateKey];
                 CurrentState.Enter();
             }
         }

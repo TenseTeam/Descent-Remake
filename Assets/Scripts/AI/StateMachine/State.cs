@@ -1,6 +1,6 @@
-﻿namespace AStarAI.Data.StateMachine
+﻿namespace ProjectDescent.AI.States
 {
-    using AStarAI.Data.Interfaces;
+    using ProjectDescent.AI.Interfaces;
 
     public abstract class State : IEventState
     {

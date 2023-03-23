@@ -1,9 +1,6 @@
 ﻿namespace ProjectDescent.AI.States
 {
     using UnityEngine;
-    using AStarAI.Data.StateMachine;
-    using AStarAI.Agents;
-
 
     public class IdleState : State
     {

@@ -1,4 +1,4 @@
-﻿namespace AStarAI.Data.Interfaces
+﻿namespace ProjectDescent.AI.Interfaces
 {
     internal interface IEventState
     {
