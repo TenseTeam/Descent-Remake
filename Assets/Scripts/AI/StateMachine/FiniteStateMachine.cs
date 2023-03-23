@@ -7,7 +7,6 @@ namespace ProjectDescent.AI.StateMachine
     public class FiniteStateMachine : MonoBehaviour
     {
         public State CurrentState { get; private set; }
-        protected State InitialState { get; set; }
         protected Dictionary<string, State> States { get; set; }
 
         protected virtual void InitStates()
@@ -18,24 +17,21 @@ namespace ProjectDescent.AI.StateMachine
         protected virtual void Start()
         {
             InitStates();
-            CurrentState = InitialState;
-            if (CurrentState != null)
-                CurrentState.Enter();
+            CurrentState?.Enter();
         }
 
         protected virtual void Update()
         {
-            if (CurrentState != null)
-                CurrentState.Process();
+            CurrentState?.Process();
         }
 
         protected void ChangeState(string stateKey)
         {
             if (States[stateKey] != CurrentState)
             {
-                CurrentState.Exit();
+                CurrentState?.Exit();
                 CurrentState = States[stateKey];
-                CurrentState.Enter();
+                CurrentState?.Enter();
             }
         }
     }
