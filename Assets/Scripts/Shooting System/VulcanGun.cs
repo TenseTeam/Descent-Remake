@@ -16,7 +16,6 @@ public class VulcanGun : WeaponBase
 
     public float VulcanDamage;
 
-    private bool m_IsActive = false;
     private bool m_IsHolding = false;
 
     // Update is called once per frame
@@ -36,10 +35,6 @@ public class VulcanGun : WeaponBase
                 StopAllCoroutines();
             }
         }
-
-        //====================================================== Active ordisactive the weapon
-        if (Input.GetKeyDown(KeyCode.Alpha1)) m_IsActive = false;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) m_IsActive = true;
     }
 
     protected override IEnumerator WeaponShoot()

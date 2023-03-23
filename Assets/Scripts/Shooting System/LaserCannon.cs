@@ -9,7 +9,6 @@ public class LaserCannon : WeaponBase
     public GameObject LaserProjectile;
     public float LaserFireRate;
     public int LaserAmmos;
-    private bool m_IsActive = true;
     private PlayerStats LaserAmmo;
 
     //================================= Projectile stats
@@ -40,9 +39,6 @@ public class LaserCannon : WeaponBase
             }
         }
 
-        //====================================================== Active ordisactive the weapon
-        if (Input.GetKeyDown(KeyCode.Alpha1)) m_IsActive = true;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) m_IsActive = false;
     }
 
     protected override IEnumerator WeaponShoot()
