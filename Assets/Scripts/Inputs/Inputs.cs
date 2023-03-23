@@ -50,7 +50,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""6dac0cb7-97d5-4839-a17c-051cd2770b0c"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.2,max=0.925)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -59,7 +59,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""400077e7-241a-4853-bb42-23fe6d59984c"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.2,max=0.925)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -220,6 +220,39 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Mouse"",
+                    ""id"": ""b9106eb1-407b-4d85-bc8c-23d6e210f298"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""6b1cc0bc-abac-4cb7-b006-70710fb98ca5"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f593f0fb-6035-4a6a-aa6a-af0aea5ef238"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""Keys"",
                     ""id"": ""2c4e6694-7b9e-415d-b503-bb35da4c0c79"",
                     ""path"": ""1DAxis"",
@@ -282,6 +315,39 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""id"": ""77df1879-45cf-4a4f-9b64-58f4a88dafbb"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c1aed96c-168e-475f-b5c7-067d07125fc3"",
+                    ""path"": ""<Mouse>/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""6f9e74f5-9d47-4841-b996-2b9103eeecb1"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -418,6 +484,281 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Minimap"",
+            ""id"": ""0bdda36a-0a78-470f-adde-6a7385c0021d"",
+            ""actions"": [
+                {
+                    ""name"": ""Axes"",
+                    ""type"": ""Value"",
+                    ""id"": ""8f1f9989-8437-465f-8353-d56898846673"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pan"",
+                    ""type"": ""Button"",
+                    ""id"": ""91c9e5e8-9ea0-4924-8a26-4a64058cbc90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""ccb8352c-e656-41e0-8fd7-bbf987975d73"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""94fee346-6a56-4bcd-8aef-7df563ce0da0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Mouse"",
+                    ""id"": ""b9dff3a4-9256-4180-933a-f24ba9b9101b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6d4cc2a9-4327-4319-9b5f-9e08474564cf"",
+                    ""path"": ""<Mouse>/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0a312794-aacc-4f54-9899-8a6a58b39c00"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""04986d62-4fde-47d4-8c64-a653e2d49ed4"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e45a9cd6-43e0-4040-b8d5-dfe91ebbf5d0"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keys"",
+                    ""id"": ""4e48bc27-b4d7-47cf-b1af-963d5baf7b5b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6e81db26-be9d-4096-8b77-3ac881171598"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e579ad9d-f85a-47c9-b00f-c394dc2893ce"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""60fcbd26-0026-465b-9321-bb70809a9801"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8f443b43-327b-4a7e-8cbf-4d8c1ace553d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9417fa24-8f3f-4902-aef3-9235cbe7deec"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Axes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aada4a2a-ffc2-4883-b721-ce393c8568de"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f144064d-13f6-47e6-8a6c-42db8fbf7523"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""id"": ""e7fd38d5-e9cb-41f8-8fd1-611624c233d5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""785554a8-3b34-4df7-906a-14ab09325601"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""43c88a0e-1540-4065-8b7b-a82a963eeaf2"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""4238ed2b-2d56-4e19-be9a-a7c19a2f5342"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9f4a86b6-ec06-46f2-93cc-a1f70edca31c"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8e5ba3a3-ac56-4e5b-af6a-195ef63d351b"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""548ef47d-d113-4109-a2e8-d13d1cad51a3"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df39559a-3ebc-46be-b73f-6308c3d9e24a"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -428,6 +769,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Aircraft_Roll = m_Aircraft.FindAction("Roll", throwIfNotFound: true);
         m_Aircraft_Yaw = m_Aircraft.FindAction("Yaw", throwIfNotFound: true);
         m_Aircraft_Pitch = m_Aircraft.FindAction("Pitch", throwIfNotFound: true);
+        // Minimap
+        m_Minimap = asset.FindActionMap("Minimap", throwIfNotFound: true);
+        m_Minimap_Axes = m_Minimap.FindAction("Axes", throwIfNotFound: true);
+        m_Minimap_Pan = m_Minimap.FindAction("Pan", throwIfNotFound: true);
+        m_Minimap_Zoom = m_Minimap.FindAction("Zoom", throwIfNotFound: true);
+        m_Minimap_OpenClose = m_Minimap.FindAction("OpenClose", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -555,11 +902,88 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         }
     }
     public AircraftActions @Aircraft => new AircraftActions(this);
+
+    // Minimap
+    private readonly InputActionMap m_Minimap;
+    private List<IMinimapActions> m_MinimapActionsCallbackInterfaces = new List<IMinimapActions>();
+    private readonly InputAction m_Minimap_Axes;
+    private readonly InputAction m_Minimap_Pan;
+    private readonly InputAction m_Minimap_Zoom;
+    private readonly InputAction m_Minimap_OpenClose;
+    public struct MinimapActions
+    {
+        private @Inputs m_Wrapper;
+        public MinimapActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Axes => m_Wrapper.m_Minimap_Axes;
+        public InputAction @Pan => m_Wrapper.m_Minimap_Pan;
+        public InputAction @Zoom => m_Wrapper.m_Minimap_Zoom;
+        public InputAction @OpenClose => m_Wrapper.m_Minimap_OpenClose;
+        public InputActionMap Get() { return m_Wrapper.m_Minimap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MinimapActions set) { return set.Get(); }
+        public void AddCallbacks(IMinimapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MinimapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MinimapActionsCallbackInterfaces.Add(instance);
+            @Axes.started += instance.OnAxes;
+            @Axes.performed += instance.OnAxes;
+            @Axes.canceled += instance.OnAxes;
+            @Pan.started += instance.OnPan;
+            @Pan.performed += instance.OnPan;
+            @Pan.canceled += instance.OnPan;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
+            @OpenClose.started += instance.OnOpenClose;
+            @OpenClose.performed += instance.OnOpenClose;
+            @OpenClose.canceled += instance.OnOpenClose;
+        }
+
+        private void UnregisterCallbacks(IMinimapActions instance)
+        {
+            @Axes.started -= instance.OnAxes;
+            @Axes.performed -= instance.OnAxes;
+            @Axes.canceled -= instance.OnAxes;
+            @Pan.started -= instance.OnPan;
+            @Pan.performed -= instance.OnPan;
+            @Pan.canceled -= instance.OnPan;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
+            @OpenClose.started -= instance.OnOpenClose;
+            @OpenClose.performed -= instance.OnOpenClose;
+            @OpenClose.canceled -= instance.OnOpenClose;
+        }
+
+        public void RemoveCallbacks(IMinimapActions instance)
+        {
+            if (m_Wrapper.m_MinimapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMinimapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MinimapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MinimapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MinimapActions @Minimap => new MinimapActions(this);
     public interface IAircraftActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
         void OnPitch(InputAction.CallbackContext context);
+    }
+    public interface IMinimapActions
+    {
+        void OnAxes(InputAction.CallbackContext context);
+        void OnPan(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
+        void OnOpenClose(InputAction.CallbackContext context);
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceshipInputsController : MonoBehaviour
@@ -9,7 +7,7 @@ public class SpaceshipInputsController : MonoBehaviour
         Nullified = 0,
         Normal = 1,
         Inverted = -1
-    }
+    }    
 
     [Header("Axes")]
     public AxisType pitchAxis = AxisType.Normal;
@@ -26,17 +24,16 @@ public class SpaceshipInputsController : MonoBehaviour
         _inputs.Enable();
     }
 
-    internal Vector3 MovementAxis => _inputs.Aircraft.Movement.ReadValue<Vector3>();
+    public Vector3 MovementAxis => _inputs.Aircraft.Movement.ReadValue<Vector3>();
 
-    internal float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>() * (float)yawAxis;
+    public float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>();
 
-    internal float Roll => _inputs.Aircraft.Roll.ReadValue<float>() * (float)rollAxis;
+    public float Roll => _inputs.Aircraft.Roll.ReadValue<float>();
 
-    internal float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>() * (float)pitchAxis;
+    public float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>();
 
-    internal bool IsRolling => Roll != 0;
-    internal bool IsPitching => Pitch != 0;
-    internal bool IsYawing => Yaw != 0;
-
-    internal bool IsInputRotating => IsRolling && IsPitching && IsYawing;
+    public bool IsRolling => Roll != 0;
+    public bool IsPitching => Pitch != 0;
+    public bool IsYawing => Yaw != 0;
+    public bool IsRotating => IsRolling || IsPitching || IsYawing;
 }
