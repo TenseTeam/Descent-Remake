@@ -15,9 +15,18 @@
         [Header("Ranges")]
         [SerializeField]
         private float _detectionRange = 10f;
-
         [SerializeField]
         private float _attackRange = 10f;
+        [SerializeField]
+        private float _rotationSpeed = 2f;
+
+        [Header("Shooting")]
+        [SerializeField]
+        private float _fireRate = 0.5f;
+        [SerializeField]
+        private GameObject _bullet;
+        [SerializeField]
+        private Transform[] _spawnPoints;
 
         private NavMeshAgent _agent;
 
@@ -29,6 +38,7 @@
 
             States.Add("Idle", null);
             States.Add("Chase", new ChaseTargetState("Chase", _agent, _target));
+            States.Add("Shoot", new ShootState("Shoot", transform, _target, _spawnPoints, _fireRate, _rotationSpeed, _bullet));
         }
 
         protected override void Start()
@@ -40,9 +50,6 @@
         protected override void Update()
         {
             base.Update();
-#if DEBUG
-            Debug.Log(Vector3.Distance(transform.position, _target.position));
-#endif
             float distance = Vector3.Distance(transform.position, _target.position);
 
             if (distance < _detectionRange)
@@ -50,7 +57,7 @@
                 ChangeState("Chase");
 
                 if (distance < _attackRange)
-                    Debug.Log("Attack"); // To change with shooting
+                    ChangeState("Shoot");
             }
             else
             {

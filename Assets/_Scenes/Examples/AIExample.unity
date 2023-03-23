@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 10205245}
   - component: {fileID: 10205244}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10205243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.3, y: 0.40722656, z: 57.7}
+  m_LocalPosition: {x: 19.3, y: 0.40722656, z: 22.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -355,7 +355,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 10205247}
   _detectionRange: 20
-  _attackRange: 2
+  _attackRange: 10
+  _rotationSpeed: 2
+  _fireRate: 0.5
+  _bullet: {fileID: 0}
+  _spawnPoints: []
 --- !u!1 &1040282173
 GameObject:
   m_ObjectHideFlags: 0

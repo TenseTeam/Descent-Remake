@@ -4,11 +4,11 @@
 
     public abstract class State : IEventState
     {
-        public string Name { get; private set; }
+        public string StateName { get; private set; }
 
         protected State(string name)
         {
-            Name = name;
+            StateName = name;
         }
 
         public abstract void Enter();
