@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Monitor Screen
+  m_Name: Monitor Screen 1
   m_Shader: {fileID: -6465566751694194690, guid: 98927f2b0f24b0b4cb88f7ddc552b934, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Animation_Speed: 0.8
+    - _Animation_Speed: 1.5
     - _Noise_Movement_Speed: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0

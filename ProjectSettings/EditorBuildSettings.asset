@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Main/OfficialDescentRemake.unity
+    guid: 455da11603f9745429be592647dcce46
   m_configObjects: {}
