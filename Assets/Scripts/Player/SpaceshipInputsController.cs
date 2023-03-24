@@ -26,11 +26,11 @@ public class SpaceshipInputsController : MonoBehaviour
 
     public Vector3 MovementAxis => _inputs.Aircraft.Movement.ReadValue<Vector3>();
 
-    public float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>();
+    public float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>() * (int)yawAxis;
 
-    public float Roll => _inputs.Aircraft.Roll.ReadValue<float>();
+    public float Roll => _inputs.Aircraft.Roll.ReadValue<float>() * (int)rollAxis;
 
-    public float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>();
+    public float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>() * (int)pitchAxis;
 
     public bool IsRolling => Roll != 0;
     public bool IsPitching => Pitch != 0;
