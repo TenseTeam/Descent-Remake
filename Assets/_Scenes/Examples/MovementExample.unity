@@ -460,6 +460,8 @@ MonoBehaviour:
   _frequency: 2
   _amplitude: 0.5
   _oscillationForceMagnitude: 2
+  _rb: {fileID: 0}
+  _inputs: {fileID: 0}
 --- !u!114 &834952993
 MonoBehaviour:
   m_ObjectHideFlags: 0
