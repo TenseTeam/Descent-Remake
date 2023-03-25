@@ -445,7 +445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 834952985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d80f58372fc58e4abd4c44b35c02ecb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b63d4008ffdae049bb5ace311ad9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxSpeed>k__BackingField: 5
@@ -453,15 +453,13 @@ MonoBehaviour:
   <RollSpeed>k__BackingField: 0.2
   <YawSpeed>k__BackingField: 0.2
   <PitchSpeed>k__BackingField: 0.2
-  <TiltAngleRotation>k__BackingField: 15
+  <TiltAngleRotation>k__BackingField: 25
   <TiltSpeed>k__BackingField: 1
   <ResettingRotationAngle>k__BackingField: 90
   <ResettingSpeed>k__BackingField: 1
   _frequency: 2
   _amplitude: 0.5
   _oscillationForceMagnitude: 2
-  _rb: {fileID: 0}
-  _inputs: {fileID: 0}
 --- !u!114 &834952993
 MonoBehaviour:
   m_ObjectHideFlags: 0
