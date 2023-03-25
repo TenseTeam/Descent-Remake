@@ -76,7 +76,7 @@ namespace ProjectDescent.Player.Movement
         {
             Vector3 movementAxis = _inputs.MovementAxis;
 
-            Vector3 move = new Vector3(movementAxis.x * MovementAcceleration.x, movementAxis.y * MovementAcceleration.y, movementAxis.z * MovementAcceleration.z); ;
+            Vector3 move = new Vector3(movementAxis.x * MovementAcceleration.x, movementAxis.y * MovementAcceleration.y, movementAxis.z * MovementAcceleration.z);
             move = transform.right * move.x + Vector3.up * move.y + transform.forward * move.z;
 
             if (_rb.velocity.magnitude <= MaxSpeed)

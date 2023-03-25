@@ -245,8 +245,6 @@ GameObject:
   - component: {fileID: 786541763}
   - component: {fileID: 786541762}
   - component: {fileID: 786541761}
-  - component: {fileID: 786541760}
-  - component: {fileID: 786541758}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -254,43 +252,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &786541758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786541757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6d4ea9ef48bcd4e8faa8f493724e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Deadzone>k__BackingField: 0.2
---- !u!114 &786541760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786541757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d80f58372fc58e4abd4c44b35c02ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 5
-  <MovementAcceleration>k__BackingField: {x: 10, y: 10, z: 10}
-  <RollSpeed>k__BackingField: 0.2
-  <YawSpeed>k__BackingField: 0.2
-  <PitchSpeed>k__BackingField: 0.2
-  <TiltAngleRotation>k__BackingField: 25
-  <TiltSpeed>k__BackingField: 1
-  <ResettingRotationAngle>k__BackingField: 90
-  <ResettingSpeed>k__BackingField: 1
-  _frequency: 2
-  _amplitude: 0.5
-  _oscillationForceMagnitude: 2
 --- !u!54 &786541761
 Rigidbody:
   m_ObjectHideFlags: 0

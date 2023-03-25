@@ -1,46 +1,45 @@
 ﻿namespace Extension.SerializableClasses.Mathematics
 {
+    using System;
     using UnityEngine;
 
     [System.Serializable]
-    public class IntRange
+    public class Range<T> where T : struct, IComparable<T>
     {
-        public int min;
-        public int max;
+        [field: SerializeField]
+        public T Max { get; private set; }
+        [field: SerializeField]
+        public T Min { get; private set; }
 
-        public IntRange(int min = 0, int max = 1)
+        /// <summary>
+        /// Constructor Range class.
+        /// </summary>
+        /// <param name="min">Inclusive minimum number.</param>
+        /// <param name="max">Inclusive maximum number.</param>
+        public Range(T min, T max)
         {
-            max = Mathf.Max(min, max);
-            min = Mathf.Min(min, max);
-
-            this.min = min;
-            this.max = max;
+            Set(min, max);
         }
 
-        public int Random()
+        /// <summary>
+        /// Sets the minimum and maximum numbers.
+        /// </summary>
+        /// <param name="min">Inclusive minimum number.</param>
+        /// <param name="max">Inclusive maximum number.</param>
+        public void Set(T min, T max)
         {
-            return UnityEngine.Random.Range(min, max + 1);
-        }
-    }
-
-    [System.Serializable]
-    public class FloatRange
-    {
-        public float min;
-        public float max;
-
-        public FloatRange(float min = 0, float max = 1)
-        {
-            max = Mathf.Max(min, max);
-            min = Mathf.Min(min, max);
-
-            this.min = min;
-            this.max = max;
+            Max = max.CompareTo(min) > 0 ? max : min;
+            Min = min.CompareTo(max) < 0 ? min : max;
         }
 
-        public float Random()
+        /// <summary>
+        /// Gets a random T number.
+        /// </summary>
+        /// <returns>Random number of type T.</returns>
+        public T Random()
         {
-            return UnityEngine.Random.Range(min, max + 1);
+            float randomValue = UnityEngine.Random.Range(Convert.ToSingle(Min), Convert.ToSingle(Max));
+            return (T)Convert.ChangeType(randomValue, typeof(T));
         }
     }
 }
