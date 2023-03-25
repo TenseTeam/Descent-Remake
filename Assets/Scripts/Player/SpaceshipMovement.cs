@@ -1,134 +1,124 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-[RequireComponent(typeof(Rigidbody), typeof(SpaceshipInputsController))]
-public class SpaceshipMovement : MonoBehaviour
+namespace ProjectDescent.Player.Movement
 {
-    [Header("Movement")]
-    public float maxSpeed = 5f;
-    [SerializeField]
-    private Vector3 _movementAcceleration;
+    using Extension.Mathematics;
+    using ProjectDescent.InputControllers;
+    using UnityEngine;
 
-    [Header("Principal Rotation Axes")]
-    [SerializeField]
-    private float _rollSpeed = 30f;
-    [SerializeField]
-    private float _yawSpeed = 30f;
-    [SerializeField]
-    private float _pitchSpeed = 30f;
-    [SerializeField]
-    private float _zTurnSpeed = 30f;
-    [SerializeField]
-    private Space _rollRelativeRotation;
-    [SerializeField]
-    private Space _yawRelativeRotation;
-    [SerializeField]
-    private Space _pitchRelativeRotation;
-
-
-    [SerializeField]
-    [Range(0, 360)] private ushort _zRotationSnap = 90;
-    [SerializeField]
-    [Range(0, 360)] private ushort _zRotationOnSwing = 45;
-
-    [Header("Settling")]
-    [SerializeField]
-    private float _resettingSpeed = 2f;
-
-    [Header("Oscillation")]
-    [SerializeField]
-    private float _frequency = 2f;
-    [SerializeField]
-    private float _amplitude = .5f;
-    [SerializeField]
-    private float _oscillationForceMagnitude = 2f;
-
-    private Rigidbody _rb;
-    private SpaceshipInputsController _inputs;
-
-    private void Start()
+    [RequireComponent(typeof(Rigidbody), typeof(SpaceshipInputsController))]
+    public class SpaceshipMovement : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody>();
-        _inputs = GetComponent<SpaceshipInputsController>();
-    }
+        [field: Header("Movement"), SerializeField]
+        public float MaxSpeed { get; set; } = 5f;
 
-    private void FixedUpdate()
-    {
-        Movement();
-        Oscillation();
-    }
+        [field: SerializeField]
+        public Vector3 MovementAcceleration { get; set; } = Vector3.one * 10f;
 
-    private void LateUpdate()
-    {
-        RotationOnPrincipalAxes();
+        [field: Header("Principal Rotation Axes"), SerializeField]
+        public float RollSpeed { get; private set; } = .2f;
 
-        if (_inputs.IsYawing)
-            transform.rotation = LerpRotate(transform.rotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, _zRotationOnSwing * _inputs.Yaw * -1f), _zTurnSpeed);
+        [field: SerializeField]
+        public float YawSpeed { get; private set; } = .2f;
 
-        if(!_inputs.IsRotating)
-            transform.localRotation = LerpRotate(transform.localRotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, GetClosestMultipleAngleOf(transform.localEulerAngles.z, _zRotationSnap)), _resettingSpeed);
-    }
+        [field: SerializeField]
+        public float PitchSpeed { get; private set; } = .2f;
 
-    private void Movement()
-    {
-        Vector3 movementAxis = _inputs.MovementAxis;
+        [field: Header("Tilt"), SerializeField, Range(0, 360)]
+        public ushort TiltAngleRotation { get; private set; } = 25;
 
-        Vector3 move = new Vector3(movementAxis.x * _movementAcceleration.x, movementAxis.y * _movementAcceleration.y, movementAxis.z * _movementAcceleration.z);
-        move = transform.right * move.x + Vector3.up * move.y + transform.forward * move.z;
+        [field: SerializeField]
+        public float TiltSpeed { get; private set; } = 1f;
 
-        if (_rb.velocity.magnitude <= maxSpeed)
-            _rb.AddForce(move, ForceMode.Acceleration);
-    }
+        [field: Header("Resetting"), SerializeField, Range(0, 360)]
+        public ushort ResettingRotationAngle { get; private set; } = 90;
 
-    private void RotationOnPrincipalAxes()
-    {
-        Pitch(_pitchRelativeRotation);
-        Roll(_rollRelativeRotation);
-        Yaw(_yawRelativeRotation);
-    }
-    
-    private void Pitch(Space space)
-    {
-        float pitchX = _inputs.Pitch * _pitchSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.right, pitchX, space);
-    }
+        [field: SerializeField]
+        public float ResettingSpeed { get; private set; } = 1f;
 
-    private void Roll(Space space)
-    {
-        float rollZ = _inputs.Roll * _rollSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.forward, rollZ, space);
-    }
+        [Header("Oscillation")]
+        [SerializeField]
+        private float _frequency = 2f;
 
-    private void Yaw(Space space)
-    {
-        float yawY = _inputs.Yaw * _yawSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up, yawY, space);
-    }
+        [SerializeField]
+        private float _amplitude = .5f;
 
-    private void Oscillation()
-    {
-        float yPos = Mathf.Sin(Time.time * _frequency) * _amplitude;
+        [SerializeField]
+        private float _oscillationForceMagnitude = 2f;
 
-        Vector3 force = new Vector3(0f, yPos, 0f) * _oscillationForceMagnitude;
+        private Rigidbody _rb;
+        private SpaceshipInputsController _inputs;
 
-        _rb.AddForce(force, ForceMode.Force);
-    }
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody>();
+            _inputs = GetComponent<SpaceshipInputsController>();
+        }
 
-    private Quaternion LerpRotate(Quaternion rotation, Quaternion endRotation, float speed)
-    {
-        return
-            Quaternion.Lerp
-            (
-            rotation,
-            endRotation,
-            speed * Time.deltaTime
-            );
-    }
+        private void FixedUpdate()
+        {
+            RotationOnPrincipalAxes();
+            Movement();
+            Oscillation();
+        }
 
-    private float GetClosestMultipleAngleOf(float angle, float multiple)
-    {
-        return Mathf.Round(angle / multiple) * multiple;
+        private void LateUpdate()
+        {
+            if (_inputs.IsMouseYawing)
+                TiltOnRotation();
+
+            if (!_inputs.IsMouseRotating)
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, Math.GetClosestMultipleAngle(transform.localEulerAngles.z, ResettingRotationAngle)), ResettingSpeed * Time.deltaTime);
+        }
+
+        /// <summary>
+        /// Moves the rigidbody by the SpaceshipInputsController inputs.
+        /// </summary>
+        private void Movement()
+        {
+            Vector3 movementAxis = _inputs.MovementAxis;
+
+            Vector3 move = new Vector3(movementAxis.x * MovementAcceleration.x, movementAxis.y * MovementAcceleration.y, movementAxis.z * MovementAcceleration.z); ;
+            move = transform.right * move.x + Vector3.up * move.y + transform.forward * move.z;
+
+            if (_rb.velocity.magnitude <= MaxSpeed)
+                _rb.AddForce(move, ForceMode.Acceleration);
+        }
+
+        /// <summary>
+        /// Rotates the rigidbody by the SpaceshipInputsController inputs.
+        /// </summary>
+        private void RotationOnPrincipalAxes()
+        {
+            float yaw = _inputs.MouseYaw;
+            float pitch = _inputs.MousePitch;
+            float roll = _inputs.Roll;
+
+            _rb.AddRelativeTorque(Vector3.up * yaw * YawSpeed);
+            _rb.AddRelativeTorque(Vector3.right * pitch * PitchSpeed);
+            _rb.AddRelativeTorque(Vector3.forward * roll * RollSpeed);
+        }
+
+        /// <summary>
+        /// Applies an oscillation to the rigidbody.
+        /// </summary>
+        private void Oscillation()
+        {
+            float yPos = Mathf.Sin(Time.time * _frequency) * _amplitude;
+
+            Vector3 force = new Vector3(0f, yPos, 0f) * _oscillationForceMagnitude;
+
+            _rb.AddForce(force, ForceMode.Force);
+        }
+
+        /// <summary>
+        /// Lerp Rotates the transform by the TiltAngleRotation.
+        /// </summary>
+        private void TiltOnRotation()
+        {
+            float tiltAngle = Mathf.Lerp(0f, TiltAngleRotation, Mathf.Abs(_inputs.MouseYaw));
+
+            Vector3 eulerAngles = transform.localEulerAngles;
+            eulerAngles.z = Mathf.LerpAngle(eulerAngles.z, -tiltAngle * Mathf.Sign(_inputs.MouseYaw), TiltSpeed * Time.deltaTime);
+            transform.localEulerAngles = eulerAngles;
+        }
     }
 }

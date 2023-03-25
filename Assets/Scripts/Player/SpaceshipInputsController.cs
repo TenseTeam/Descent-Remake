@@ -1,39 +1,57 @@
-using UnityEngine;
-
-public class SpaceshipInputsController : MonoBehaviour
+namespace ProjectDescent.InputControllers
 {
-    public enum AxisType : sbyte
+    using UnityEngine;
+
+
+    /// <summary>
+    /// Class for managing the inputs of the spaceship
+    /// </summary>
+    public class SpaceshipInputsController : MonoBehaviour
     {
-        Nullified = 0,
-        Normal = 1,
-        Inverted = -1
-    }    
+        [field: SerializeField, Range(0f, 1f)]
+        public float Deadzone { get; private set; } = 0.2f;
 
-    [Header("Axes")]
-    public AxisType pitchAxis = AxisType.Normal;
-    public AxisType yawAxis = AxisType.Normal;
-    public AxisType rollAxis = AxisType.Normal;
+        [field: SerializeField]
+        public Inputs Inputs { get; private set; }
 
-    public Inputs Inputs { get => _inputs; set => _inputs = value; }
+        private void Awake()
+        {
+            Inputs = new Inputs();
+            Inputs.Enable();
+        }
 
-    private Inputs _inputs;
+        public Vector3 MovementAxis => Inputs.Aircraft.Movement.ReadValue<Vector3>();
+        public float Pitch => Inputs.Aircraft.Pitch.ReadValue<float>();
+        public float Yaw => Inputs.Aircraft.Yaw.ReadValue<float>();
+        public float Roll => Inputs.Aircraft.Roll.ReadValue<float>();
+        public float MousePitch => ApplyDeadzone((Pitch - Screen.height * .5f) / (Screen.height * .5f), Deadzone) * -1f;
+        public float MouseYaw => ApplyDeadzone((Yaw - Screen.width * .5f) / (Screen.width * .5f), Deadzone);
 
-    private void Awake()
-    {
-        _inputs = new Inputs();
-        _inputs.Enable();
+
+        public bool IsMouseYawing => Mathf.Abs(MouseYaw) > 0f;
+        public bool IsMousePitching => Mathf.Abs(MousePitch) > 0f;
+
+        public bool IsRolling => Inputs.Aircraft.Roll.IsPressed();
+        public bool IsYawing => Inputs.Aircraft.Yaw.IsPressed(); 
+        public bool IsPitching => Inputs.Aircraft.Pitch.IsPressed();
+
+        public bool IsMouseRotating => IsMousePitching || IsMouseYawing || IsRolling;
+        public bool IsRotating => IsPitching || IsYawing || IsRolling;
+
+        /// <summary>
+        /// Applies a deadzone to a given value.
+        /// </summary>
+        /// <param name="value">Value.</param>
+        /// <param name="deadzone">Deadzone threshold.</param>
+        /// <returns>Value clamped by the given deadzone.</returns>
+        private float ApplyDeadzone(float value, float deadzone)
+        {
+            if (Mathf.Abs(value) > deadzone)
+            {
+                return value;
+            }
+
+            return 0f;
+        }
     }
-
-    public Vector3 MovementAxis => _inputs.Aircraft.Movement.ReadValue<Vector3>();
-
-    public float Yaw => _inputs.Aircraft.Yaw.ReadValue<float>() * (int)yawAxis;
-
-    public float Roll => _inputs.Aircraft.Roll.ReadValue<float>() * (int)rollAxis;
-
-    public float Pitch => _inputs.Aircraft.Pitch.ReadValue<float>() * (int)pitchAxis;
-
-    public bool IsRolling => Roll != 0;
-    public bool IsPitching => Pitch != 0;
-    public bool IsYawing => Yaw != 0;
-    public bool IsRotating => IsRolling || IsPitching || IsYawing;
 }
