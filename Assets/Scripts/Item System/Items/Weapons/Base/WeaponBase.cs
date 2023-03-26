@@ -1,14 +1,13 @@
-﻿namespace ProjectDescent.WeaponSystem.Weapons
+﻿namespace ProjectDescent.ItemSystem.Items.Weapons
 {
     using System.Collections;
     using Extension.SerializableClasses.Mathematics;
-    using ProjectDescent.WeaponSystem.Bullets;
     using UnityEngine;
 
     public abstract class WeaponBase : MonoBehaviour
     {
         [field: SerializeField, Header("Damage")]
-        public Range<float> BaseDamage { get; set; }
+        public Range<float> Damage { get; set; }
 
         [field: SerializeField]
         public float FireRate { get; set; } = 0.2f;
@@ -31,8 +30,6 @@
 
         protected bool HasAmmo => CurrentAmmunition - AmmunitionCostPerShot >= 0f;
 
-        protected Range<float> CurrentDamage { get; set; }
-
         private void Start()
         {
             SetupWeapon();
@@ -40,11 +37,10 @@
 
         protected virtual void SetupWeapon()
         {
-            CurrentDamage = BaseDamage;
             CurrentAmmunition = StartingAmmunition > MaxAmmunition ? MaxAmmunition : StartingAmmunition;
         }
 
-        protected virtual void Shoot()
+        protected virtual void PullTrigger()
         {
             if (HasAmmo && !IsShooting)
             {
@@ -60,11 +56,11 @@
                 CurrentAmmunition = MaxAmmunition;
         }
 
-        protected abstract void OnBulletGeneration();
+        protected abstract void OnShoot();
 
         private IEnumerator ShootingRoutine()
         {
-            OnBulletGeneration();
+            OnShoot();
             CurrentAmmunition -= AmmunitionCostPerShot;
             IsShooting = true;
             yield return new WaitForSeconds(FireRate);
@@ -75,7 +71,7 @@
         [ContextMenu("Debug Shoot")]
         private void DebugShoot()
         {
-            Shoot();
+            PullTrigger();
         }
 #endif
     }

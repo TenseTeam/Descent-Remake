@@ -2,7 +2,7 @@
 {
     using UnityEngine;
     using UnityEngine.AI;
-    using ProjectDescent.AI.StateMachine;
+    using Extension.StateMachine;
 
     public class ChaseTargetState : State
     {

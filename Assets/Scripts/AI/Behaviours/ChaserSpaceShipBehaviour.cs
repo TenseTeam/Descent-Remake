@@ -1,12 +1,12 @@
 ﻿namespace ProjectDescent.AI.Behaviours
 {
-    using ProjectDescent.AI.StateMachine;
+    using Extension.StateMachine;
     using ProjectDescent.AI.States;
     using UnityEngine;
     using UnityEngine.AI;
 
     [RequireComponent(typeof(NavMeshAgent))]
-    public class ChaserSpaceShipBehaviour : FiniteStateMachine
+    public class ChaserSpaceShipBehaviour : StateMachine
     {
         [Header("Target")]
         [SerializeField]

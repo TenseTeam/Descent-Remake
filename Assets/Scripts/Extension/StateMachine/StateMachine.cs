@@ -1,10 +1,9 @@
-namespace ProjectDescent.AI.StateMachine
+namespace Extension.StateMachine
 {
     using System.Collections.Generic;
-    using ProjectDescent.AI.States;
     using UnityEngine;
 
-    public class FiniteStateMachine : MonoBehaviour
+    public class StateMachine : MonoBehaviour
     {
         public State CurrentState { get; private set; }
         protected Dictionary<string, State> States { get; set; }

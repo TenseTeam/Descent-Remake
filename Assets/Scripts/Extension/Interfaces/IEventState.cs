@@ -1,4 +1,4 @@
-﻿namespace ProjectDescent.AI.Interfaces
+﻿namespace Extension.Interfaces
 {
     internal interface IEventState
     {

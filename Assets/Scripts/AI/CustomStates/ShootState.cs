@@ -2,6 +2,7 @@ namespace ProjectDescent.AI.States
 {
     using System.Collections;
     using System.Collections.Generic;
+    using Extension.StateMachine;
     using UnityEngine;
 
     public class ShootState : State

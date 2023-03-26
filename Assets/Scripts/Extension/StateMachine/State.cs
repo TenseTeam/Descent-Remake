@@ -1,6 +1,6 @@
-﻿namespace ProjectDescent.AI.States
+﻿namespace Extension.StateMachine
 {
-    using ProjectDescent.AI.Interfaces;
+    using Extension.Interfaces;
 
     public abstract class State : IEventState
     {
