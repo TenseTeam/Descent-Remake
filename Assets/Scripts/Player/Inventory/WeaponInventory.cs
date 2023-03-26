@@ -15,6 +15,8 @@ namespace ProjectDescent.Player.Inventory
         private int IndexWeapon { get; set; }
         private WeponInventoryInputsController _inputs;
 
+        private string GetWeaponStateName(int index) => Weapons[index].GetType().Name + "---" + index.ToString();
+
         private void Awake()
         {
             _inputs = GetComponent<WeponInventoryInputsController>();
@@ -25,14 +27,16 @@ namespace ProjectDescent.Player.Inventory
             base.InitStates();
 
             for (int i = 0; i < Weapons.Count; i++)
-                States.Add(Weapons[i].GetType().Name, new WeaponState(Weapons[i].GetType().Name, Weapons[i], () => _inputs.IsShooting));
+            {
+                States.Add(GetWeaponStateName(i), new WeaponState(GetWeaponStateName(i), Weapons[i], () => _inputs.IsShooting));
+            }
         }
 
         protected override void Start()
         {
             base.Start();
             IndexWeapon = 0;
-            ChangeState(Weapons[IndexWeapon].GetType().Name);
+            ChangeState(GetWeaponStateName(IndexWeapon));
         }
 
         protected override void Update()
@@ -40,17 +44,17 @@ namespace ProjectDescent.Player.Inventory
             base.Update();
 
 #if DEBUG
-            Debug.Log($"Current Weapon State of {transform.name} -> {Weapons[IndexWeapon].GetType().Name}");
+            Debug.Log($"Current Weapon State of {transform.name} -> {GetWeaponStateName(IndexWeapon)}");
 #endif
 
             if (_inputs.SwitchWeapon < 0 && IndexWeapon - 1 >= 0)
             {
-                    ChangeState(Weapons[--IndexWeapon].GetType().Name);
+                ChangeState(GetWeaponStateName(--IndexWeapon));
             }
 
-            if (_inputs.SwitchWeapon > 0 && IndexWeapon - 1 >= 0)
+            if (_inputs.SwitchWeapon > 0 && IndexWeapon + 1 < Weapons.Count)
             {
-                ChangeState(Weapons[--IndexWeapon].GetType().Name);
+                ChangeState(GetWeaponStateName(++IndexWeapon));
             }
         }
     }
