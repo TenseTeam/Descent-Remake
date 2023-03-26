@@ -12,7 +12,7 @@
         [field: SerializeField]
         public LayerMask RayShootableMask { get; set; }
 
-        protected override void OnShoot()
+        protected override void BulletGeneration()
         {
             foreach (Transform barrel in BarrelsPoints)
             {

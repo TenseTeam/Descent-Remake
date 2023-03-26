@@ -1,4 +1,4 @@
-namespace ProjectDescent.InputsManagement
+namespace ProjectDescent.InputControllers
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -14,10 +14,7 @@ namespace ProjectDescent.InputsManagement
             Inputs.Enable();
         }
 
-
-
         public Vector3 Axes => Inputs.Minimap.Axes.ReadValue<Vector2>();
         public float Zoom => Inputs.Minimap.Zoom.ReadValue<float>();
-        public bool IsPanning => Inputs.Minimap.Pan.ReadValue<float>() > 0.5f;
     }
 }

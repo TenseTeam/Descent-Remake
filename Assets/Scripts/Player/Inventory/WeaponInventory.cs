@@ -1,0 +1,57 @@
+namespace ProjectDescent.Player.Inventory
+{
+    using System.Collections.Generic;
+    using ProjectDescent.InputControllers;
+    using ProjectDescent.ItemSystem.Items.Weapons;
+    using Extension.StateMachine;
+    using UnityEngine;
+
+    [RequireComponent(typeof(WeponInventoryInputsController))]
+    public class WeaponInventory : StateMachine
+    {
+        [field: SerializeField]
+        public List<WeaponBase> Weapons { get; set; }
+
+        private int IndexWeapon { get; set; }
+        private WeponInventoryInputsController _inputs;
+
+        private void Awake()
+        {
+            _inputs = GetComponent<WeponInventoryInputsController>();
+        }
+
+        protected override void InitStates()
+        {
+            base.InitStates();
+
+            for (int i = 0; i < Weapons.Count; i++)
+                States.Add(Weapons[i].GetType().Name, new WeaponState(Weapons[i].GetType().Name, Weapons[i], () => _inputs.IsShooting));
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            IndexWeapon = 0;
+            ChangeState(Weapons[IndexWeapon].GetType().Name);
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+#if DEBUG
+            Debug.Log($"Current Weapon State of {transform.name} -> {Weapons[IndexWeapon].GetType().Name}");
+#endif
+
+            if (_inputs.SwitchWeapon < 0 && IndexWeapon - 1 >= 0)
+            {
+                    ChangeState(Weapons[--IndexWeapon].GetType().Name);
+            }
+
+            if (_inputs.SwitchWeapon > 0 && IndexWeapon - 1 >= 0)
+            {
+                ChangeState(Weapons[--IndexWeapon].GetType().Name);
+            }
+        }
+    }
+}

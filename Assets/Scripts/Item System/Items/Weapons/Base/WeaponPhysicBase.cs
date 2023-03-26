@@ -12,7 +12,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
         [field: SerializeField]
         public float BulletSpeed { get; set; }
 
-        protected override void OnShoot()
+        protected override void BulletGeneration()
         {
             foreach (Transform barrel in BarrelsPoints)
             {

@@ -9,6 +9,6 @@ namespace ProjectDescent.ItemSystem.Interfaces
     {
         public uint MaxLevel { get; set; }
         public uint CurrentLevel { get; set; }
-        public void IncreaseLevel(uint levelsToAdd);
+        public void IncreaseLevel(uint levelsToAdd = 1);
     }
 }

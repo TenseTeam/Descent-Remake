@@ -1,6 +1,6 @@
 namespace ProjectDescent.UI.Minimap
 {
-    using ProjectDescent.InputsManagement;
+    using ProjectDescent.InputControllers;
     using System;
     using UnityEngine;
     using UnityEngine.InputSystem;

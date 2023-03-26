@@ -1,20 +1,19 @@
 ﻿namespace ProjectDescent.ItemSystem.Items.Weapons
 {
-    using Extension.SerializableClasses.Mathematics;
     using ProjectDescent.ItemSystem.Interfaces;
     using UnityEngine;
 
-    public class LevelableWeaponPhysic : WeaponPhysicBase, ILevelableWeapon
+    public class LevelableWeaponRaycast : WeaponRaycastBase, ILevelableWeapon
     {
         [field: SerializeField, Header("Levels")]
-        public uint MaxLevel { get; set; } = 4;
+        public uint MaxLevel { get; set; }
 
         [field: SerializeField]
-        public float DamageIncreasePerLevel { get; set; } = 1f;
+        public float DamageIncreasePerLevel { get; set; }
 
         public uint CurrentLevel { get; set; } = 1;
 
-        public void IncreaseLevel(uint levelsToAdd)
+        public void IncreaseLevel(uint levelsToAdd = 1)
         {
             CurrentLevel += levelsToAdd;
             if (CurrentLevel > MaxLevel)
@@ -26,14 +25,5 @@
             Damage.Min += DamageIncreasePerLevel;
             Damage.Max += DamageIncreasePerLevel;
         }
-
-
-#if DEBUG || UNITY_EDITOR
-        [ContextMenu("LevelUp")]
-        private void LevelUp()
-        {
-            IncreaseLevel(1);
-        }
-#endif
     }
 }

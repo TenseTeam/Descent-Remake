@@ -249,8 +249,257 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &387774278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 387774279}
+  - component: {fileID: 387774283}
+  - component: {fileID: 387774282}
+  - component: {fileID: 387774281}
+  - component: {fileID: 387774280}
+  m_Layer: 3
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &387774279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387774278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1642563163}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387774280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387774278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d985a02041224934286c489e9b05997c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Damage>k__BackingField:
+    <Max>k__BackingField: 5
+    <Min>k__BackingField: 1
+  <FireRate>k__BackingField: 0.1
+  <MaxAmmunition>k__BackingField: 1000
+  <StartingAmmunition>k__BackingField: 800
+  <AmmunitionCostPerShot>k__BackingField: 1
+  <BarrelsPoints>k__BackingField:
+  - {fileID: 101550094}
+  - {fileID: 1790644140}
+  <RaycastShootRange>k__BackingField: 20
+  <RayShootableMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  <MaxLevel>k__BackingField: 4
+  <DamageIncreasePerLevel>k__BackingField: 1
+--- !u!114 &387774281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387774278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc8bf144c78fd848bcb543a26ec1d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Damage>k__BackingField:
+    <Max>k__BackingField: 10
+    <Min>k__BackingField: 1
+  <FireRate>k__BackingField: 0.5
+  <MaxAmmunition>k__BackingField: 500
+  <StartingAmmunition>k__BackingField: 500
+  <AmmunitionCostPerShot>k__BackingField: 1.5
+  <BarrelsPoints>k__BackingField:
+  - {fileID: 101550094}
+  - {fileID: 1790644140}
+  <BulletPrefab>k__BackingField: {fileID: 3945769436829848310, guid: 7bcd1ed54b6fb044499b8235946ca35e, type: 3}
+  <BulletSpeed>k__BackingField: 50
+  <MaxLevel>k__BackingField: 4
+  <DamageIncreasePerLevel>k__BackingField: 1
+--- !u!114 &387774282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387774278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ce3f2e278247745a89b21e6825cfbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Damage>k__BackingField:
+    <Max>k__BackingField: 20
+    <Min>k__BackingField: 10
+  <FireRate>k__BackingField: 1.5
+  <MaxAmmunition>k__BackingField: 50
+  <StartingAmmunition>k__BackingField: 50
+  <AmmunitionCostPerShot>k__BackingField: 1
+  <BarrelsPoints>k__BackingField:
+  - {fileID: 1790644140}
+  <BulletPrefab>k__BackingField: {fileID: 3945769436829848310, guid: 7bcd1ed54b6fb044499b8235946ca35e, type: 3}
+  <BulletSpeed>k__BackingField: 10
+  <MaxLevel>k__BackingField: 4
+  <DamageIncreasePerLevel>k__BackingField: 1
+--- !u!114 &387774283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387774278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214985e31cb817d41b08b4d61cfe8a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Damage>k__BackingField:
+    <Max>k__BackingField: 10
+    <Min>k__BackingField: 10
+  <FireRate>k__BackingField: 1
+  <MaxAmmunition>k__BackingField: 100
+  <StartingAmmunition>k__BackingField: 100
+  <AmmunitionCostPerShot>k__BackingField: 1
+  <BarrelsPoints>k__BackingField:
+  - {fileID: 101550094}
+  <BulletPrefab>k__BackingField: {fileID: 3945769436829848310, guid: 7bcd1ed54b6fb044499b8235946ca35e, type: 3}
+  <BulletSpeed>k__BackingField: 10
+  <MaxLevel>k__BackingField: 4
+  <DamageIncreasePerLevel>k__BackingField: 1
+--- !u!1 &439647365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439647366}
+  - component: {fileID: 439647367}
+  - component: {fileID: 439647368}
+  m_Layer: 3
+  m_Name: Secondary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439647366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439647365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1642563163}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439647367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439647365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56052dcf856eaf64897483d582c7e945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Weapons>k__BackingField:
+  - {fileID: 387774281}
+  - {fileID: 387774280}
+--- !u!114 &439647368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439647365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00497904862212745ad5599ca6b9f2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ShootAction>k__BackingField:
+    m_Name: Shoot
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 25a51862-17d3-4d1b-aacd-23d91a5572d3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: de8b10e5-202c-418f-ac35-30d25e2f91f3
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot
+      m_Flags: 0
+    m_Flags: 0
+  <SwitchAction>k__BackingField:
+    m_Name: Switch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2145ec35-3690-4d40-b3ca-203b5eab7b06
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: Keys
+      m_Id: 58385ff0-1250-4bbd-8b6d-fb7b259bc964
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: b35b1ed2-113a-42de-9295-d4b5b939f919
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: d6d41e26-b95d-4a57-b96a-814157b8a74c
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 8
+    m_Flags: 0
 --- !u!1 &569700557
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &834952986
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -545,6 +794,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 661468414}
+  - {fileID: 1642563163}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -601,6 +851,116 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Deadzone>k__BackingField: 0.2
+--- !u!1 &1519793223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519793224}
+  - component: {fileID: 1519793226}
+  - component: {fileID: 1519793225}
+  m_Layer: 3
+  m_Name: Primary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519793224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519793223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1642563163}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1519793225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519793223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00497904862212745ad5599ca6b9f2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ShootAction>k__BackingField:
+    m_Name: Shoot
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: c787173f-94ad-459a-950b-92092866db3c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 137250ad-74d4-42a7-badd-6eddf4fd103d
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot
+      m_Flags: 0
+    m_Flags: 0
+  <SwitchAction>k__BackingField:
+    m_Name: Switch
+    m_Type: 0
+    m_ExpectedControlType: Axis
+    m_Id: 9cd9d15b-b494-45e2-9168-83f215335179
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: Mouse
+      m_Id: 3c28de34-2cbf-447f-bd19-ada20749377f
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: c583890a-4340-4c32-bcbe-50e6d12e48d6
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: aba8ad3d-e6bc-4e34-abd1-0601e4366878
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 8
+    m_Flags: 0
+--- !u!114 &1519793226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519793223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56052dcf856eaf64897483d582c7e945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Weapons>k__BackingField:
+  - {fileID: 387774283}
+  - {fileID: 387774282}
 --- !u!1 &1527081900
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +974,7 @@ GameObject:
   - component: {fileID: 1527081903}
   - component: {fileID: 1527081902}
   m_Layer: 3
-  m_Name: Cube (1)
+  m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,7 +994,7 @@ Transform:
   m_Children:
   - {fileID: 101550094}
   m_Father: {fileID: 1642563163}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1527081902
 BoxCollider:
@@ -708,106 +1068,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1642563163}
-  - component: {fileID: 1642563162}
-  - component: {fileID: 1642563161}
-  - component: {fileID: 1642563160}
-  - component: {fileID: 1642563159}
   m_Layer: 3
-  m_Name: Shooter
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1642563159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642563158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c5b5cc376a2c74daa0caf76143c357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Damage>k__BackingField:
-    <Max>k__BackingField: 10
-    <Min>k__BackingField: 1
-  <FireRate>k__BackingField: 0.2
-  <MaxAmmunition>k__BackingField: 100
-  <StartingAmmunition>k__BackingField: 500
-  <AmmunitionCostPerShot>k__BackingField: 0.5
-  <BarrelsPoints>k__BackingField:
-  - {fileID: 101550094}
-  - {fileID: 1790644140}
-  <BulletPrefab>k__BackingField: {fileID: 3945769436829848310, guid: 7bcd1ed54b6fb044499b8235946ca35e, type: 3}
-  <BulletSpeed>k__BackingField: 10
-  <MaxLevel>k__BackingField: 4
-  <DamageIncreasePerLevel>k__BackingField: 1
---- !u!65 &1642563160
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642563158}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1642563161
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642563158}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1642563162
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642563158}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1642563163
 Transform:
   m_ObjectHideFlags: 0
@@ -816,14 +1083,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642563158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 320.65143, y: 0.8434002, z: 369.47568}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1519793224}
+  - {fileID: 439647366}
+  - {fileID: 387774279}
   - {fileID: 1527081901}
   - {fileID: 1802010653}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 834952989}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1790644139
 GameObject:
@@ -869,7 +1139,7 @@ GameObject:
   - component: {fileID: 1802010655}
   - component: {fileID: 1802010654}
   m_Layer: 3
-  m_Name: Cube (2)
+  m_Name: Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,7 +1159,7 @@ Transform:
   m_Children:
   - {fileID: 1790644140}
   m_Father: {fileID: 1642563163}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1802010654
 BoxCollider:

@@ -37,10 +37,13 @@
 
         protected virtual void SetupWeapon()
         {
-            CurrentAmmunition = StartingAmmunition > MaxAmmunition ? MaxAmmunition : StartingAmmunition;
+            if (StartingAmmunition > MaxAmmunition)
+                StartingAmmunition = MaxAmmunition;
+
+            CurrentAmmunition = StartingAmmunition;
         }
 
-        protected virtual void PullTrigger()
+        public virtual void PullTrigger()
         {
             if (HasAmmo && !IsShooting)
             {
@@ -56,11 +59,11 @@
                 CurrentAmmunition = MaxAmmunition;
         }
 
-        protected abstract void OnShoot();
+        protected abstract void BulletGeneration();
 
         private IEnumerator ShootingRoutine()
         {
-            OnShoot();
+            BulletGeneration();
             CurrentAmmunition -= AmmunitionCostPerShot;
             IsShooting = true;
             yield return new WaitForSeconds(FireRate);
