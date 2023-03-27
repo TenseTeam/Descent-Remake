@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class ActivateGameObjectOnTrigger : MonoBehaviour
+namespace ProjectDescent.UI
 {
-    public string triggerTag = "Player";
-    public GameObject gameObjectToEnable;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-    private void OnTriggerEnter(Collider other)
+    public class ActivateGameObjectOnTrigger : MonoBehaviour
     {
-        if(other.CompareTag(triggerTag))
-            gameObjectToEnable.SetActive(true);
+        public string triggerTag = "Player";
+        public GameObject gameObjectToEnable;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(triggerTag))
+                gameObjectToEnable.SetActive(true);
+        }
     }
 }

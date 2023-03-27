@@ -15,7 +15,7 @@ namespace ProjectDescent.Player.Inventory
         private int IndexWeapon { get; set; }
         private WeponInventoryInputsController _inputs;
 
-        private string GetWeaponStateName(int index) => Weapons[index].GetType().Name + "---" + index.ToString();
+        private string GetWeaponStateName(int index) => Weapons[index].GetType().Name + " " + index.ToString();
 
         private void Awake()
         {
@@ -42,10 +42,6 @@ namespace ProjectDescent.Player.Inventory
         protected override void Update()
         {
             base.Update();
-
-#if DEBUG
-            Debug.Log($"Current Weapon State of {transform.name} -> {GetWeaponStateName(IndexWeapon)}");
-#endif
 
             if (_inputs.SwitchWeapon < 0 && IndexWeapon - 1 >= 0)
             {

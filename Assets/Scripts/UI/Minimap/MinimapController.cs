@@ -1,4 +1,4 @@
-namespace ProjectDescent.UI.Minimap
+namespace ProjectDescent.UI
 {
     using ProjectDescent.InputControllers;
     using System;

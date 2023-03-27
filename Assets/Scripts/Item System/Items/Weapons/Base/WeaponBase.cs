@@ -61,6 +61,8 @@
 
         protected abstract void BulletGeneration();
 
+        public virtual void Select() { } // Not sure about it, it can't be abstract otherwise it will constrain every child to implement this method
+
         private IEnumerator ShootingRoutine()
         {
             BulletGeneration();
