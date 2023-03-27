@@ -42,17 +42,27 @@
             Damage.Min += DamageIncreasePerLevel * levelsToAdd;
             Damage.Max += DamageIncreasePerLevel * levelsToAdd;
 
-            UpdateLevelText();
+            if(IsSelected)
+                UpdateLevelText();
+        }
+
+        public override void AddAmmunition(float ammoToAdd)
+        {
+            base.AddAmmunition(ammoToAdd);
+
+            if(IsSelected)
+                UpdateAmmoText();
         }
 
         public override void Select()
         {
+            base.Select();
             UpdateAllWeaponUI();
         }
 
-        protected override void BulletGeneration()
+        public override void PullTrigger()
         {
-            base.BulletGeneration();
+            base.PullTrigger();
             UpdateAmmoText();
         }
 

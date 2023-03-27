@@ -2,6 +2,8 @@
 {
     using System.Collections;
     using Extension.SerializableClasses.Mathematics;
+    using Extension.SerializableClasses.Audio;
+    using Extension.Audio;
     using UnityEngine;
 
     public abstract class WeaponBase : MonoBehaviour
@@ -12,6 +14,7 @@
         [field: SerializeField]
         public float FireRate { get; set; } = 0.2f;
 
+
         [field: SerializeField, Header("Munitions")]
         public float MaxAmmunition { get; set; }
 
@@ -21,9 +24,13 @@
         [field: SerializeField]
         public float AmmunitionCostPerShot { get; set; }
 
+        [field: SerializeField, Header("Audio")]
+        public AudioSFX OnShootAudio { get; private set; }
+
         [field: SerializeField, Header("Barrels")]
         public Transform[] BarrelsPoints { get; set; }
 
+        public bool IsSelected { get; private set; }
         public bool IsShooting { get; private set; }
 
         protected float CurrentAmmunition { get; set; }
@@ -51,7 +58,7 @@
             }
         }
 
-        public virtual void AddAmmunition(uint ammoToAdd)
+        public virtual void AddAmmunition(float ammoToAdd)
         {
             CurrentAmmunition += ammoToAdd;
 
@@ -59,9 +66,20 @@
                 CurrentAmmunition = MaxAmmunition;
         }
 
-        protected abstract void BulletGeneration();
+        protected virtual void BulletGeneration()
+        {
+            OnShootAudio.PlayClipAtPoint(transform.position);
+        }
 
-        public virtual void Select() { } // Not sure about it, it can't be abstract otherwise it will constrain every child to implement this method
+        public virtual void Select() 
+        {
+            IsSelected = true;
+        } // Not sure about it, it can't be abstract otherwise it will constrain every child to implement this method
+
+        public virtual void Deselect()
+        {
+            IsSelected = false;
+        }
 
         private IEnumerator ShootingRoutine()
         {

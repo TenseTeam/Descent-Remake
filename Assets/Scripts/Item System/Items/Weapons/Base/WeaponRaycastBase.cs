@@ -2,7 +2,9 @@
 {
     using System.Collections;
     using Extension.SerializableClasses.Mathematics;
+    using Extension.Audio;
     using UnityEngine;
+    using ProjectDescent.EntitySystem.Interfaces;
 
     public class WeaponRaycastBase : WeaponBase
     {
@@ -16,10 +18,14 @@
         {
             foreach (Transform barrel in BarrelsPoints)
             {
+#if DEBUG
                 Debug.DrawRay(barrel.position, barrel.forward * RaycastShootRange);
-                if(Physics.Raycast(barrel.position, barrel.forward, out RaycastHit hit, RaycastShootRange, RayShootableMask))
+#endif
+                OnShootAudio.PlayClipAtPoint(barrel.transform.position);
+                if (Physics.Raycast(barrel.position, barrel.forward, out RaycastHit hit, RaycastShootRange, RayShootableMask)
+                    && hit.transform.TryGetComponent(out IVulnerable ent))
                 {
-                    //if(hit.transform.TryGetComponent<>) Hit method on IDamageable interface
+                    ent.TakeDamage(Damage.Random());
                 }
             }
         }

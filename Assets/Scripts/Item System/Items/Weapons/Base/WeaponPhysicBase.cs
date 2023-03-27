@@ -2,6 +2,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 {
     using System.Collections;
     using Extension.SerializableClasses.Mathematics;
+    using Extension.Audio;
     using ProjectDescent.ItemSystem.Items.Bullets;
     using UnityEngine;
 
@@ -38,6 +39,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
             if (Instantiate(BulletPrefab, barrel.transform.position, barrel.transform.rotation).TryGetComponent(out Bullet bull))
             {
                 bull.Init(Damage.Random(), BulletSpeed);
+                OnShootAudio.PlayClipAtPoint(barrel.transform.position);
             }
         }
     }

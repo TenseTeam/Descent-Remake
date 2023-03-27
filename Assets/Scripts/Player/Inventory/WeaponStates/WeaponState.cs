@@ -12,8 +12,6 @@ namespace ProjectDescent.Player.Inventory
         public WeaponBase Gun { get; private set; } // Maybe changing WeaponBase to the leveled one that has UpdateUI !
         public InputCheckDelegate InputCheck { get; private set; }
 
-        public bool HasUI { get; private set; }
-
         public WeaponState(string name, WeaponBase gun, InputCheckDelegate inputCheck) : base(name)
         {
             Gun = gun;
@@ -27,6 +25,7 @@ namespace ProjectDescent.Player.Inventory
 
         public override void Exit()
         {
+            Gun.Deselect();
         }
 
         public override void Process()
@@ -34,9 +33,6 @@ namespace ProjectDescent.Player.Inventory
             if (InputCheck())
             {
                 Gun.PullTrigger();
-
-                if(HasUI)
-                    ((IWeaponUI)Gun).UpdateAmmoText();
             }
         }
     }
