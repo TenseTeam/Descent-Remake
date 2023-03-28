@@ -14,6 +14,9 @@
         [field: SerializeField]
         public LayerMask RayShootableMask { get; set; }
 
+        [field: SerializeField, Header("VFX")]
+        public GameObject VFXOnHit { get; set; }
+
         protected override void BulletGeneration()
         {
             foreach (Transform barrel in BarrelsPoints)
@@ -22,10 +25,13 @@
                 Debug.DrawRay(barrel.position, barrel.forward * RaycastShootRange);
 #endif
                 OnShootAudio.PlayClipAtPoint(barrel.transform.position);
-                if (Physics.Raycast(barrel.position, barrel.forward, out RaycastHit hit, RaycastShootRange, RayShootableMask)
-                    && hit.transform.TryGetComponent(out IVulnerable ent))
+                if (Physics.Raycast(barrel.position, barrel.forward, out RaycastHit hit, RaycastShootRange, RayShootableMask))
                 {
-                    ent.TakeDamage(Damage.Random());
+                    Instantiate(VFXOnHit, hit.point, Quaternion.identity);
+                    if (hit.transform.TryGetComponent(out IVulnerable ent))
+                    {
+                        ent.TakeDamage(Damage.Random());
+                    }
                 }
             }
         }

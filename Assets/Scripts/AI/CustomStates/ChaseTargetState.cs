@@ -3,16 +3,22 @@
     using UnityEngine;
     using UnityEngine.AI;
     using Extension.StateMachine;
+    using Extension.TransformExtensions;
 
     public class ChaseTargetState : State
     {
-        public NavMeshAgent Agent { get; private set; }
-        public Transform Target { get; set; }
+        private Transform _self;
+        private Transform _target;
 
-        public ChaseTargetState(string name, NavMeshAgent agent, Transform target) : base(name)
+        private float _rotationSpeed;
+        private float _speed;
+
+        public ChaseTargetState(string name, Transform self, Transform target, float rotationSpeed, float speed) : base(name)
         {
-            Agent = agent;
-            Target = target;
+            _self = self;
+            _target = target;
+            _rotationSpeed = rotationSpeed;
+            _speed = speed;
         }
 
         public override void Enter()
@@ -21,12 +27,12 @@
 
         public override void Exit()
         {
-            Agent.SetDestination(Agent.transform.position);
         }
 
         public override void Process()
         {
-            Agent.SetDestination(Target.position);
+            _self.LookAtLerp(_target, _rotationSpeed * Time.deltaTime);
+            _self.position = Vector3.MoveTowards(_self.position, _target.position, _speed * Time.deltaTime);
         }
     }
 }

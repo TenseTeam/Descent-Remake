@@ -16,6 +16,9 @@
 
 
         [field: SerializeField, Header("Munitions")]
+        public bool HasIfiniteAmmo { get; set; } = false;
+
+        [field: SerializeField]
         public float MaxAmmunition { get; set; }
 
         [field: SerializeField]
@@ -35,7 +38,7 @@
 
         protected float CurrentAmmunition { get; set; }
 
-        protected bool HasAmmo => CurrentAmmunition - AmmunitionCostPerShot >= 0f;
+        protected bool HasAmmo => (CurrentAmmunition - AmmunitionCostPerShot >= 0f) || HasIfiniteAmmo;
 
         private void Start()
         {

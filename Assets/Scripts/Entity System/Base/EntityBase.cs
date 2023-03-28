@@ -5,8 +5,8 @@
 
     public class EntityBase : MonoBehaviour, IEntityVulnerable
     {
-        [field: SerializeField]
-        public float MaxHitPoints { get; set; }
+        [field: SerializeField, Header("Stats")]
+        public float maxHitPoints;
 
         public float HitPoints { get; set; }
 
@@ -17,12 +17,12 @@
 
         protected virtual void SetupHP()
         {
-            HitPoints = MaxHitPoints;
+            HitPoints = maxHitPoints;
         }
 
         public virtual void TakeDamage(float hitDamage = 1f)
         {
-            HitPoints -= hitDamage;
+            HitPoints -= Mathf.Abs(hitDamage);
 
             if (HitPoints < 0f)
             {
@@ -31,12 +31,12 @@
             }
         }
 
-        public void HealHitPoints(float healPoints)
+        public virtual void HealHitPoints(float healPoints)
         {
-            HitPoints += healPoints;
+            HitPoints += Mathf.Abs(healPoints);
 
-            if (HitPoints > MaxHitPoints)
-                HitPoints = MaxHitPoints;
+            if (HitPoints > maxHitPoints)
+                HitPoints = maxHitPoints;
         }
 
         public virtual void Death()

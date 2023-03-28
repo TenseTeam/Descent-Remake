@@ -6,15 +6,18 @@
     [RequireComponent(typeof(Collider), typeof(Rigidbody))]
     public class Bullet : MonoBehaviour
     {
+        [field: SerializeField, Header("VFX")]
+        public GameObject VFXOnHit { get; set; }
+
         [field: SerializeField, Header("Dispose")]
         public float TimeBeforeDestruction { get; set; }
 
         protected float Damage { get; set; } = 1f;
         protected float Speed { get; set; } = 1f;
 
-        private Rigidbody _rb;
+        protected Rigidbody Rigidbody { get; set; }
 
-        public void Init(float damage, float speed)
+        public virtual void Init(float damage, float speed)
         {
             Damage = damage;
             Speed = speed;
@@ -23,19 +26,24 @@
         private void Start()
         {
             GetComponent<Collider>().isTrigger = true;
-            _rb = GetComponent<Rigidbody>();
+            Rigidbody = GetComponent<Rigidbody>();
 
             Destroy(gameObject, TimeBeforeDestruction);
-            MoveBullet();
+            SetupBullet();
 #if DEBUG
             if (gameObject.layer == 0)
                 Debug.LogWarning($"Bullet {transform.name} layer not setted. Remember to set the bullet layer in Project_Settings -> Physics -> Collision Matrix.");
 #endif
         }
 
+        protected virtual void SetupBullet()
+        {
+            MoveBullet();
+        }
+
         protected virtual void MoveBullet()
         {
-            _rb.velocity = transform.forward * Speed;
+            Rigidbody.velocity = transform.forward * Speed;
         }
 
         protected virtual void OnHit(Transform hittedTransform)
@@ -45,6 +53,7 @@
                 ent.TakeDamage(Damage);
             }
 
+            Instantiate(VFXOnHit, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5697096514380726683}
   - component: {fileID: 5697096514380726680}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 5697096514784772515}
   - component: {fileID: 5697096514784775773}
   - component: {fileID: 5697096514784772514}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: LaserExample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,4 +207,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215d2ef9b83159444a2b57cb9ade0b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <VFXOnHit>k__BackingField: {fileID: 8633959118235103003, guid: 324924283da40d04abee7ab04ffacbd3, type: 3}
   <TimeBeforeDestruction>k__BackingField: 10

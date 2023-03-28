@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3945769436829848305}
   - component: {fileID: 3945769436829848317}
   - component: {fileID: 6847669743184016507}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BulletExample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215d2ef9b83159444a2b57cb9ade0b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <VFXOnHit>k__BackingField: {fileID: 8633959118235103003, guid: f0ed7cde3e538e247a6d69d7e63c22e3, type: 3}
   <TimeBeforeDestruction>k__BackingField: 10
 --- !u!54 &6847669743184016507
 Rigidbody:
