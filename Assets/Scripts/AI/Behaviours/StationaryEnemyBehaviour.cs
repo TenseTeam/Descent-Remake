@@ -18,6 +18,7 @@
         [field: SerializeField, Header("Ranges")]
         public float AttackRange { get; private set; } = 10f;
 
+        public LayerMask layerMaskPathRaycast;
 
         [field: SerializeField, Header("Speeds")]
         public float RotationSpeed { get; private set; } = 2f;
@@ -35,7 +36,7 @@
             base.Update();
             float distance = Vector3.Distance(transform.position, Target.position);
 
-            if (distance < AttackRange && transform.IsPathClear(Target, AttackRange))
+            if (distance < AttackRange && transform.IsPathClear(Target, AttackRange, layerMaskPathRaycast))
             {
                 ChangeState("Shoot");
             }

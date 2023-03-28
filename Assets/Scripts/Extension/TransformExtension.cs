@@ -11,11 +11,11 @@
             self.rotation = Quaternion.Lerp(self.rotation, toRotation, t);
         }
 
-        public static bool IsPathClear(this Transform source, Transform target, float distance)
+        public static bool IsPathClear(this Transform source, Transform target, float distance, LayerMask mask)
         {
             Vector3 direction = target.position - source.position;
 
-            return (Physics.Raycast(source.position, direction, out RaycastHit hit, distance) && hit.transform == target);
+            return (Physics.Raycast(source.position, direction, out RaycastHit hit, distance, mask) && hit.transform == target);
         }
     }
 }
