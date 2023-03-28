@@ -4,6 +4,7 @@ namespace ProjectDescent.Player.Entity
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.UI;
+    using UnityEngine.SceneManagement;
     using TMPro;
     using ProjectDescent.EntitySystem;
 
@@ -12,24 +13,31 @@ namespace ProjectDescent.Player.Entity
         public float maxShieldHitPoints = 200f;
         public float ShieldHitPoints { get; private set; }
 
+        [field: SerializeField]
+        public int SceneBuildIndexToLoadOnDefiniteDeath { get; set; } = 0;
+
         [field: SerializeField, Header("UI")]
         public TMP_Text HPText { get; private set; }
         [field: SerializeField]
         public TMP_Text ShieldText { get; private set; }
+        [field: SerializeField]
+        public TMP_Text RemainingLivesText { get; private set; }
 
         [field: SerializeField]
         public Image HPImage { get; private set; }
 
         [field: SerializeField]
         public List<Sprite> ShieldPhaseSprites { get; set; }
-        //private Queue<Material> _queueSprites;
 
+
+        private static uint _currentLives = 3;
 
         protected override void SetupHP()
         {
             base.SetupHP();
             ShieldHitPoints = maxShieldHitPoints;
-            UpdateUI();
+            UpdateRemainingLivesUI();
+            UpdateHitPointsUI();
         }
 
         public override void TakeDamage(float hitDamage = 1f)
@@ -41,7 +49,7 @@ namespace ProjectDescent.Player.Entity
                 if (ShieldHitPoints >= hitDamage)
                 {
                     ShieldHitPoints -= hitDamage;
-                    UpdateUI();
+                    UpdateHitPointsUI();
                     return;
                 }
                 else
@@ -58,7 +66,7 @@ namespace ProjectDescent.Player.Entity
                 Death();
             }
 
-            UpdateUI();
+            UpdateHitPointsUI();
         }
 
 
@@ -71,7 +79,7 @@ namespace ProjectDescent.Player.Entity
                 if (missingHitPoints >= remainingHealPoints)
                 {
                     HitPoints += remainingHealPoints;
-                    UpdateUI();
+                    UpdateHitPointsUI();
                     return;
                 }
                 else
@@ -94,23 +102,32 @@ namespace ProjectDescent.Player.Entity
                 }
             }
 
-            UpdateUI();
+            UpdateHitPointsUI();
         }
 
 
         public override void Death()
         {
-            Debug.Log("DEATH");
+            _currentLives--;
+
+            if (_currentLives >= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+                return;
+            }
+
+            _currentLives = 3;
+            SceneManager.LoadScene(SceneBuildIndexToLoadOnDefiniteDeath, LoadSceneMode.Single);
         }
 
-        private void UpdateUI()
+        private void UpdateHitPointsUI()
         {
             HPText.text = Mathf.FloorToInt(HitPoints).ToString();
             ShieldText.text = Mathf.FloorToInt(ShieldHitPoints).ToString();
-            UpdateShieldIcon();
+            UpdateShieldIconUI();
         }
 
-        private void UpdateShieldIcon()
+        private void UpdateShieldIconUI()
         {
             if (ShieldPhaseSprites == null || ShieldPhaseSprites.Count == 0)
             {
@@ -121,6 +138,11 @@ namespace ProjectDescent.Player.Entity
             float shieldPercent = ShieldHitPoints / maxShieldHitPoints;
             int phaseIndex = Mathf.FloorToInt(shieldPercent * (ShieldPhaseSprites.Count - 1));
             HPImage.sprite = ShieldPhaseSprites[phaseIndex];
+        }
+
+        private void UpdateRemainingLivesUI()
+        {
+            RemainingLivesText.text = " x " + _currentLives.ToString();
         }
     }
 }
