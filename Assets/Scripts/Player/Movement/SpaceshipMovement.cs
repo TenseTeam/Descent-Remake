@@ -92,9 +92,9 @@ namespace ProjectDescent.Player.Movement
             float pitch = _inputs.MousePitch;
             float roll = _inputs.Roll;
 
-            _rb.AddRelativeTorque(Vector3.up * yaw * YawSpeed);
-            _rb.AddRelativeTorque(Vector3.right * pitch * PitchSpeed);
-            _rb.AddRelativeTorque(Vector3.forward * roll * RollSpeed);
+            Vector3 rotation = new Vector3(pitch * PitchSpeed, yaw * YawSpeed, roll * RollSpeed);
+
+            transform.Rotate(rotation, Space.Self);
         }
 
         /// <summary>
@@ -119,6 +119,11 @@ namespace ProjectDescent.Player.Movement
             Vector3 eulerAngles = transform.localEulerAngles;
             eulerAngles.z = Mathf.LerpAngle(eulerAngles.z, -tiltAngle * Mathf.Sign(_inputs.MouseYaw), TiltSpeed * Time.deltaTime);
             transform.localEulerAngles = eulerAngles;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            _rb.Sleep();
         }
     }
 }

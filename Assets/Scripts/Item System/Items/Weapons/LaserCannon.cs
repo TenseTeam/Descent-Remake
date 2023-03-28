@@ -4,7 +4,6 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
     using UnityEngine;
     using UnityEngine.UI;
     using TMPro;
-    using System;
 
     public class LaserCannon : LevelableWeaponPhysic
     {
@@ -28,7 +27,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 
         private void UpdateLaserAmmoText()
         {
-            LaserAmmo.text = Math.Round(CurrentAmmunition, 1).ToString();
+            LaserAmmo.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
             UpdateLaserBarsUI();
         }
 
