@@ -484,6 +484,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4206207745580799791}
+  - component: {fileID: 438443173631614843}
+  - component: {fileID: 5891393663853301577}
+  - component: {fileID: 8438153275040690094}
+  - component: {fileID: 1230200713261172725}
   m_Layer: 0
   m_Name: Class_Drone2
   m_TagString: Untagged
@@ -513,6 +517,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -71.133, z: 0}
+--- !u!136 &438443173631614843
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3536630845578628501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4918023
+  m_Height: 1.0964514
+  m_Direction: 2
+  m_Center: {x: 0.008197578, y: 0, z: -0.0867331}
+--- !u!114 &5891393663853301577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3536630845578628501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc6ee1462fb54848aa743d04111f92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 65
+  <VFXExplosion>k__BackingField: {fileID: 0}
+--- !u!114 &8438153275040690094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3536630845578628501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1f97e1b72256f428c93c1c941a5e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Damage>k__BackingField:
+    <Max>k__BackingField: 0
+    <Min>k__BackingField: 0
+  <FireRate>k__BackingField: 0.2
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 0
+  startingAmmunition: 0
+  <AmmunitionCostPerShot>k__BackingField: 0
+  <OnShootAudio>k__BackingField:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    spatialBlend: 0
+    mixerGroup: {fileID: 0}
+  <BarrelsPoints>k__BackingField: []
+  <AlternateBarrel>k__BackingField: 0
+  <BulletPrefab>k__BackingField: {fileID: 0}
+  <BulletSpeed>k__BackingField: 0
+--- !u!114 &1230200713261172725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3536630845578628501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53a3b4b8b4b828469dfc4ab3e1d9053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Weapon>k__BackingField: {fileID: 0}
+  <Target>k__BackingField: {fileID: 0}
+  <DetectionRange>k__BackingField: 10
+  <AttackRange>k__BackingField: 10
+  <MovementSpeed>k__BackingField: 2
+  <RotationSpeed>k__BackingField: 2
 --- !u!1 &3553189988117205541
 GameObject:
   m_ObjectHideFlags: 0

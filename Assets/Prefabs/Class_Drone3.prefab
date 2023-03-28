@@ -205,6 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466750624402156242}
+  - component: {fileID: 5508302499642071718}
   m_Layer: 0
   m_Name: Class_Drone3
   m_TagString: Untagged
@@ -234,6 +235,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -112.778, z: 0}
+--- !u!136 &5508302499642071718
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950800020806758504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36500335
+  m_Height: 0.8278561
+  m_Direction: 1
+  m_Center: {x: 0.011950165, y: -0.086072, z: 7.428419e-11}
 --- !u!1 &2166422700486853928
 GameObject:
   m_ObjectHideFlags: 0
