@@ -5,6 +5,7 @@
     using UnityEngine;
     using UnityEngine.UI;
     using TMPro;
+    using System;
 
     public class LevelableWeaponRaycast : WeaponRaycastBase, ILevelableWeapon, IWeaponUI
     {
@@ -78,7 +79,7 @@
         public void UpdateAmmoText()
         {
 
-            AmmoText.text = CurrentAmmunition.ToString();
+            AmmoText.text = Math.Round(CurrentAmmunition, 1).ToString();
         }
 
         public void UpdateLevelText()

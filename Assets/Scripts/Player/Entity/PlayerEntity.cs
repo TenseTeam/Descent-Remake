@@ -76,6 +76,7 @@ namespace ProjectDescent.Player.Entity
             }
 
             _currentLives = 3;
+            ScoreSingleton.instance.ResetScore();
             SceneManager.LoadScene(SceneBuildIndexToLoadOnDefiniteDeath, LoadSceneMode.Single);
         }
 

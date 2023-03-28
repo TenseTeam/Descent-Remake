@@ -5,6 +5,7 @@
     using UnityEngine;
     using TMPro;
     using UnityEngine.UI;
+    using System;
 
     public class LevelableWeaponPhysic : WeaponPhysicBase, ILevelableWeapon, IWeaponUI
     {
@@ -76,7 +77,7 @@
 
         public virtual void UpdateAmmoText()
         {
-            AmmoText.text = CurrentAmmunition.ToString();
+            AmmoText.text = Math.Round(CurrentAmmunition, 1).ToString();
         }
 
         public void UpdateLevelText()
