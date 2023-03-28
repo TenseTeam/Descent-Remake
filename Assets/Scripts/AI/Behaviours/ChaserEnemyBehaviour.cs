@@ -5,6 +5,7 @@
     using ProjectDescent.AI.States;
     using ProjectDescent.ItemSystem.Items.Weapons;
     using UnityEngine;
+    using UnityEngine.AI;
 
     public class ChaserEnemyBehaviour : StateMachine
     {
@@ -17,9 +18,10 @@
 
         [field: SerializeField, Header("Ranges")]
         public float DetectionRange { get; private set; } = 10f;
-
         [field: SerializeField]
-        public float AttackRange { get; private set; } = 10f;
+        public float StoppingDistance { get; set; }
+
+        public LayerMask layerMaskPathRaycast;
 
 
         [field: SerializeField, Header("Speeds")]
@@ -27,13 +29,13 @@
         [field: SerializeField]
         public float RotationSpeed { get; private set; } = 2f;
 
+
         protected override void InitStates()
         {
             base.InitStates();
 
             States.Add("Idle", null);
-            States.Add("Chase", new ChaseTargetState("Chase", transform, Target, RotationSpeed, MovementSpeed));
-            States.Add("Shoot", new ShootState("Shoot", transform, Target, Weapon, RotationSpeed));
+            States.Add("Chase", new ChaseTargetState("Chase", transform, Target, RotationSpeed, MovementSpeed, Weapon, StoppingDistance));
         }
 
         protected override void Update()
@@ -41,12 +43,9 @@
             base.Update();
             float distance = Vector3.Distance(transform.position, Target.position);
 
-            if (distance < DetectionRange && transform.IsPathClear(Target, DetectionRange))
+            if (distance < DetectionRange && transform.IsPathClear(Target, DetectionRange, layerMaskPathRaycast))
             {
                 ChangeState("Chase");
-
-                if (distance < AttackRange)
-                    ChangeState("Shoot");
             }
             else
             {

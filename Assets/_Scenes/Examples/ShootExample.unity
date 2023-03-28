@@ -858,7 +858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &309372098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -954,9 +954,12 @@ MonoBehaviour:
   <Weapon>k__BackingField: {fileID: 309372104}
   <Target>k__BackingField: {fileID: 834952989}
   <DetectionRange>k__BackingField: 100
-  <AttackRange>k__BackingField: 10
-  <MovementSpeed>k__BackingField: 10
-  <RotationSpeed>k__BackingField: 10
+  <StoppingDistance>k__BackingField: 10
+  layerMaskPathRaycast:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  <MovementSpeed>k__BackingField: 3
+  <RotationSpeed>k__BackingField: 3
 --- !u!114 &309372104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3159,11 +3162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b63d4008ffdae049bb5ace311ad9da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 5
-  <MovementAcceleration>k__BackingField: {x: 10, y: 10, z: 10}
-  <RollSpeed>k__BackingField: 0.2
-  <YawSpeed>k__BackingField: 0.2
-  <PitchSpeed>k__BackingField: 0.2
+  <MaxSpeed>k__BackingField: 50
+  <MovementAcceleration>k__BackingField: {x: 60, y: 60, z: 60}
+  <RollSpeed>k__BackingField: 1
+  <YawSpeed>k__BackingField: 1
+  <PitchSpeed>k__BackingField: 1
   <TiltAngleRotation>k__BackingField: 25
   <TiltSpeed>k__BackingField: 1
   <ResettingRotationAngle>k__BackingField: 90
@@ -3528,6 +3531,9 @@ MonoBehaviour:
   <Weapon>k__BackingField: {fileID: 852501244}
   <Target>k__BackingField: {fileID: 834952989}
   <AttackRange>k__BackingField: 10
+  layerMaskPathRaycast:
+    serializedVersion: 2
+    m_Bits: 2147483647
   <RotationSpeed>k__BackingField: 10
 --- !u!1 &898370260
 GameObject:
