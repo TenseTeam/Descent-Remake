@@ -44,12 +44,12 @@ namespace ProjectDescent.Player.Inventory
         {
             base.Update();
 
-            if (_inputs.SwitchWeapon < 0 && IndexWeapon - 1 >= 0)
+            if (_inputs.SwitchWeapon < 0 && IndexWeapon - 1 >= 0 && Weapons[IndexWeapon-1].enabled)
             {
                 ChangeState(GetWeaponStateKey(--IndexWeapon));
             }
 
-            if (_inputs.SwitchWeapon > 0 && IndexWeapon + 1 < Weapons.Count)
+            if (_inputs.SwitchWeapon > 0 && IndexWeapon + 1 < Weapons.Count && Weapons[IndexWeapon + 1].enabled)
             {
                 ChangeState(GetWeaponStateKey(++IndexWeapon));
             }
