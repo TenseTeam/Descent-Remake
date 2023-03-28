@@ -12,13 +12,20 @@ public class KeyDoor : DoorBase
         playerKey = new KeyPickUp();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
         if (playerKey.RedKeyObtained)
         {
             DoorOpening();
-        }
+        }  
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (playerKey.RedKeyObtained)
+        {
+            DoorClosing();
+        }  
     }
 
 
