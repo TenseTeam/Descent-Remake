@@ -9,7 +9,7 @@
     public class ChaseTargetState : State
     {
         public WeaponBase Weapon { get; set; }
-        public float StoppingDistance = 2f;
+        public float StoppingDistance { get; set; }
 
         private Transform _self;
         private Transform _target;
@@ -24,6 +24,7 @@
             _rotationSpeed = rotationSpeed;
             _speed = speed;
             Weapon = weaponUsed;
+            StoppingDistance = stoppingDistance;
         }
 
         public override void Enter()
@@ -43,8 +44,10 @@
 
         private void MoveToTarget()
         {
-            if(Vector3.Distance(_self.position, _target.position) > StoppingDistance)
+            if (Vector3.Distance(_self.position, _target.position) > StoppingDistance)
+            {
                 _self.position = Vector3.MoveTowards(_self.position, _target.position, _speed * Time.deltaTime);
+            }
         }
     }
 }
