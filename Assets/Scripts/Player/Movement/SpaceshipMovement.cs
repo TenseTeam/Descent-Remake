@@ -118,12 +118,7 @@ namespace ProjectDescent.Player.Movement
 
             Vector3 eulerAngles = transform.localEulerAngles;
             eulerAngles.z = Mathf.LerpAngle(eulerAngles.z, -tiltAngle * Mathf.Sign(_inputs.MouseYaw), TiltSpeed * Time.deltaTime);
-            transform.localEulerAngles = eulerAngles;
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            _rb.Sleep();
+            transform.eulerAngles = eulerAngles; 
         }
     }
 }
