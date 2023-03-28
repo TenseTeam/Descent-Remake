@@ -77,6 +77,7 @@
 
         public void UpdateAmmoText()
         {
+
             AmmoText.text = CurrentAmmunition.ToString();
         }
 

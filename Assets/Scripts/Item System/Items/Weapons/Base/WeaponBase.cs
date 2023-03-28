@@ -16,13 +16,11 @@
 
 
         [field: SerializeField, Header("Munitions")]
-        public bool HasIfiniteAmmo { get; set; } = false;
+        public bool HasInfiniteAmmo { get; set; } = false;
 
-        [field: SerializeField]
-        public float MaxAmmunition { get; set; }
+        public float maxAmmunition;
 
-        [field: SerializeField]
-        public float StartingAmmunition { get; set; }
+        public float startingAmmunition;
 
         [field: SerializeField]
         public float AmmunitionCostPerShot { get; set; }
@@ -38,7 +36,7 @@
 
         protected float CurrentAmmunition { get; set; }
 
-        protected bool HasAmmo => (CurrentAmmunition - AmmunitionCostPerShot >= 0f) || HasIfiniteAmmo;
+        protected bool HasAmmo => (CurrentAmmunition - AmmunitionCostPerShot >= 0f) || HasInfiniteAmmo;
 
         private void Start()
         {
@@ -47,10 +45,13 @@
 
         protected virtual void SetupWeapon()
         {
-            if (StartingAmmunition > MaxAmmunition)
-                StartingAmmunition = MaxAmmunition;
+            CurrentAmmunition = startingAmmunition;
 
-            CurrentAmmunition = StartingAmmunition;
+            if (startingAmmunition > maxAmmunition)
+            {
+                startingAmmunition = maxAmmunition;
+                CurrentAmmunition = startingAmmunition;
+            }
         }
 
         public virtual void PullTrigger()
@@ -65,8 +66,8 @@
         {
             CurrentAmmunition += ammoToAdd;
 
-            if (CurrentAmmunition > MaxAmmunition)
-                CurrentAmmunition = MaxAmmunition;
+            if (CurrentAmmunition > maxAmmunition)
+                CurrentAmmunition = maxAmmunition;
         }
 
         protected virtual void BulletGeneration()

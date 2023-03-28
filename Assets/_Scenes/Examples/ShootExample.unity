@@ -973,9 +973,9 @@ MonoBehaviour:
     <Max>k__BackingField: 10
     <Min>k__BackingField: 1
   <FireRate>k__BackingField: 0.2
-  <HasIfiniteAmmo>k__BackingField: 1
-  <MaxAmmunition>k__BackingField: 0
-  <StartingAmmunition>k__BackingField: 0
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 0
+  startingAmmunition: 0
   <AmmunitionCostPerShot>k__BackingField: 0
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
@@ -1131,7 +1131,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1122924548}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1341,6 +1341,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1717944429}
+  - {fileID: 1633480343}
+  - {fileID: 447854327}
   - {fileID: 1521050551}
   - {fileID: 1311848949}
   m_Father: {fileID: 1122924548}
@@ -1614,6 +1617,82 @@ MonoBehaviour:
       m_Action: Switch
       m_Flags: 8
     m_Flags: 0
+--- !u!1 &447854326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447854327}
+  - component: {fileID: 447854329}
+  - component: {fileID: 447854330}
+  m_Layer: 5
+  m_Name: LaserBar2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &447854327
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447854326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 387793255}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 403.18665, y: 229.68845}
+  m_SizeDelta: {x: 297.3432, y: 83.3769}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &447854329
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447854326}
+  m_CullTransparentMesh: 1
+--- !u!114 &447854330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447854326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &477000626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2885,9 +2964,9 @@ MonoBehaviour:
     <Max>k__BackingField: 10
     <Min>k__BackingField: 10
   <FireRate>k__BackingField: 1
-  <HasIfiniteAmmo>k__BackingField: 0
-  <MaxAmmunition>k__BackingField: 100
-  <StartingAmmunition>k__BackingField: 100
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 40
+  startingAmmunition: 50
   <AmmunitionCostPerShot>k__BackingField: 1
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: 62a34e4123e8c5949870b64209b03f18, type: 3}
@@ -2923,9 +3002,9 @@ MonoBehaviour:
     <Max>k__BackingField: 20
     <Min>k__BackingField: 10
   <FireRate>k__BackingField: 1.5
-  <HasIfiniteAmmo>k__BackingField: 0
-  <MaxAmmunition>k__BackingField: 50
-  <StartingAmmunition>k__BackingField: 50
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 50
+  startingAmmunition: 50
   <AmmunitionCostPerShot>k__BackingField: 1
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: 62a34e4123e8c5949870b64209b03f18, type: 3}
@@ -2962,9 +3041,9 @@ MonoBehaviour:
     <Max>k__BackingField: 10
     <Min>k__BackingField: 1
   <FireRate>k__BackingField: 0.5
-  <HasIfiniteAmmo>k__BackingField: 0
-  <MaxAmmunition>k__BackingField: 500
-  <StartingAmmunition>k__BackingField: 500
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 100
+  startingAmmunition: 100
   <AmmunitionCostPerShot>k__BackingField: 1.5
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
@@ -2985,6 +3064,10 @@ MonoBehaviour:
   <LevelText>k__BackingField: {fileID: 368367165}
   <WeaponImage>k__BackingField: {fileID: 605189855}
   <WeaponIcon>k__BackingField: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
+  <LaserAmmo>k__BackingField: {fileID: 1717944430}
+  <LaserAmmoBars>k__BackingField:
+  - {fileID: 1633480346}
+  - {fileID: 447854330}
 --- !u!114 &834952997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3001,9 +3084,9 @@ MonoBehaviour:
     <Max>k__BackingField: 5
     <Min>k__BackingField: 1
   <FireRate>k__BackingField: 0.1
-  <HasIfiniteAmmo>k__BackingField: 0
-  <MaxAmmunition>k__BackingField: 1000
-  <StartingAmmunition>k__BackingField: 800
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 1000
+  startingAmmunition: 500
   <AmmunitionCostPerShot>k__BackingField: 1
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: e482f84a2e257264abac7fbbf643a464, type: 3}
@@ -3038,10 +3121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
-  maxShieldHitPoints: 200
   <SceneBuildIndexToLoadOnDefiniteDeath>k__BackingField: 1
   <HPText>k__BackingField: {fileID: 700698489}
-  <ShieldText>k__BackingField: {fileID: 1751254895}
   <RemainingLivesText>k__BackingField: {fileID: 1183442578}
   <HPImage>k__BackingField: {fileID: 361937177}
   <ShieldPhaseSprites>k__BackingField:
@@ -3086,9 +3167,9 @@ MonoBehaviour:
     <Max>k__BackingField: 10
     <Min>k__BackingField: 1
   <FireRate>k__BackingField: 0.2
-  <HasIfiniteAmmo>k__BackingField: 1
-  <MaxAmmunition>k__BackingField: 0
-  <StartingAmmunition>k__BackingField: 0
+  <HasInfiniteAmmo>k__BackingField: 0
+  maxAmmunition: 0
+  startingAmmunition: 0
   <AmmunitionCostPerShot>k__BackingField: 0
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
@@ -3546,7 +3627,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1122924548}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3938,7 +4019,6 @@ RectTransform:
   m_Children:
   - {fileID: 387793255}
   - {fileID: 700698488}
-  - {fileID: 1751254894}
   - {fileID: 361937176}
   - {fileID: 1183442577}
   - {fileID: 1078135240}
@@ -3981,7 +4061,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1122924548}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4119,7 +4199,7 @@ RectTransform:
   - {fileID: 479418680}
   - {fileID: 605189854}
   m_Father: {fileID: 387793255}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.53634655, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4407,7 +4487,7 @@ RectTransform:
   - {fileID: 816174258}
   - {fileID: 1965816215}
   m_Father: {fileID: 387793255}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.53634655, y: 1}
@@ -4620,6 +4700,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566854827}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1633480342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1633480343}
+  - component: {fileID: 1633480345}
+  - component: {fileID: 1633480346}
+  m_Layer: 5
+  m_Name: LaserBar1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1633480343
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633480342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 387793255}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -323.338, y: 236.47}
+  m_SizeDelta: {x: 377.6676, y: 96.936}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1633480345
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633480342}
+  m_CullTransparentMesh: 1
+--- !u!114 &1633480346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633480342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 1
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1642563158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,7 +4811,7 @@ Transform:
   m_Father: {fileID: 834952989}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1751254893
+--- !u!1 &1717944428
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4663,43 +4819,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1751254894}
-  - component: {fileID: 1751254896}
-  - component: {fileID: 1751254895}
+  - component: {fileID: 1717944429}
+  - component: {fileID: 1717944431}
+  - component: {fileID: 1717944430}
   m_Layer: 5
-  m_Name: ShieldPoints
+  m_Name: LaserAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1751254894
+--- !u!224 &1717944429
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751254893}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1717944428}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1122924548}
-  m_RootOrder: 2
+  m_Father: {fileID: 387793255}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8852593}
-  m_AnchorMax: {x: 0, y: 0.8852593}
-  m_AnchoredPosition: {x: 162.2768, y: -5}
-  m_SizeDelta: {x: 324.5536, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1751254895
+  m_AnchorMin: {x: 0.51900005, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -90.08386, y: 103}
+  m_SizeDelta: {x: -277.5912, y: -282.02554}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1717944430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751254893}
+  m_GameObject: {fileID: 1717944428}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -4713,7 +4869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shield Points
+  m_text: 100000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4740,15 +4896,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 71.4
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 82.1
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4782,13 +4938,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1751254896
+--- !u!222 &1717944431
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751254893}
+  m_GameObject: {fileID: 1717944428}
   m_CullTransparentMesh: 1
 --- !u!1 &1790328103
 GameObject:

@@ -13,9 +13,13 @@ namespace Extension.StateMachine
             States = new Dictionary<string, State>();
         }
 
-        protected virtual void Start()
+        protected virtual void Awake()
         {
             InitStates();
+        }
+
+        protected virtual void Start()
+        {
             CurrentState?.Enter();
         }
 

@@ -10,16 +10,13 @@ namespace ProjectDescent.Player.Entity
 
     public class PlayerEntity : EntityBase
     {
-        public float maxShieldHitPoints = 200f;
-        public float ShieldHitPoints { get; private set; }
 
         [field: SerializeField]
         public int SceneBuildIndexToLoadOnDefiniteDeath { get; set; } = 0;
 
         [field: SerializeField, Header("UI")]
         public TMP_Text HPText { get; private set; }
-        [field: SerializeField]
-        public TMP_Text ShieldText { get; private set; }
+
         [field: SerializeField]
         public TMP_Text RemainingLivesText { get; private set; }
 
@@ -30,12 +27,11 @@ namespace ProjectDescent.Player.Entity
         public List<Sprite> ShieldPhaseSprites { get; set; }
 
 
-        private static uint _currentLives = 3;
+        private static int _currentLives = 3;
 
         protected override void SetupHP()
         {
             base.SetupHP();
-            ShieldHitPoints = maxShieldHitPoints;
             UpdateRemainingLivesUI();
             UpdateHitPointsUI();
         }
@@ -43,21 +39,6 @@ namespace ProjectDescent.Player.Entity
         public override void TakeDamage(float hitDamage = 1f)
         {
             hitDamage = Mathf.Abs(hitDamage);
-
-            if (ShieldHitPoints > 0f)
-            {
-                if (ShieldHitPoints >= hitDamage)
-                {
-                    ShieldHitPoints -= hitDamage;
-                    UpdateHitPointsUI();
-                    return;
-                }
-                else
-                {
-                    hitDamage -= ShieldHitPoints;
-                    ShieldHitPoints = 0f;
-                }
-            }
 
             HitPoints -= hitDamage;
             if (HitPoints <= 0)
@@ -72,34 +53,12 @@ namespace ProjectDescent.Player.Entity
 
         public override void HealHitPoints(float healPoints)
         {
-            float remainingHealPoints = Mathf.Abs(healPoints);
-            if (HitPoints < maxHitPoints)
-            {
-                float missingHitPoints = maxHitPoints - HitPoints;
-                if (missingHitPoints >= remainingHealPoints)
-                {
-                    HitPoints += remainingHealPoints;
-                    UpdateHitPointsUI();
-                    return;
-                }
-                else
-                {
-                    HitPoints += missingHitPoints;
-                    remainingHealPoints -= missingHitPoints;
-                }
-            }
+            healPoints = Mathf.Abs(healPoints);
 
-            if (ShieldHitPoints < maxShieldHitPoints)
+            HitPoints += healPoints;
+            if (HitPoints > maxHitPoints)
             {
-                float missingShieldHitPoints = maxShieldHitPoints - ShieldHitPoints;
-                if (missingShieldHitPoints >= remainingHealPoints)
-                {
-                    ShieldHitPoints += remainingHealPoints;
-                }
-                else
-                {
-                    ShieldHitPoints += missingShieldHitPoints;
-                }
+                HitPoints = maxHitPoints;
             }
 
             UpdateHitPointsUI();
@@ -110,7 +69,7 @@ namespace ProjectDescent.Player.Entity
         {
             _currentLives--;
 
-            if (_currentLives >= 0)
+            if (_currentLives > -1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
                 return;
@@ -123,7 +82,6 @@ namespace ProjectDescent.Player.Entity
         private void UpdateHitPointsUI()
         {
             HPText.text = Mathf.FloorToInt(HitPoints).ToString();
-            ShieldText.text = Mathf.FloorToInt(ShieldHitPoints).ToString();
             UpdateShieldIconUI();
         }
 
@@ -135,7 +93,7 @@ namespace ProjectDescent.Player.Entity
                 return;
             }
 
-            float shieldPercent = ShieldHitPoints / maxShieldHitPoints;
+            float shieldPercent = HitPoints / maxHitPoints;
             int phaseIndex = Mathf.FloorToInt(shieldPercent * (ShieldPhaseSprites.Count - 1));
             HPImage.sprite = ShieldPhaseSprites[phaseIndex];
         }

@@ -74,7 +74,7 @@
             UpdateWeaponName();
         }
 
-        public void UpdateAmmoText()
+        public virtual void UpdateAmmoText()
         {
             AmmoText.text = CurrentAmmunition.ToString();
         }
