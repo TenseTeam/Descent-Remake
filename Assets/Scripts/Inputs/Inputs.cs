@@ -213,15 +213,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Pan"",
-                    ""type"": ""Button"",
-                    ""id"": ""91c9e5e8-9ea0-4924-8a26-4a64058cbc90"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Zoom"",
                     ""type"": ""Value"",
                     ""id"": ""ccb8352c-e656-41e0-8fd7-bbf987975d73"",
@@ -352,39 +343,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""9417fa24-8f3f-4902-aef3-9235cbe7deec"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Axes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aada4a2a-ffc2-4883-b721-ce393c8568de"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pan"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f144064d-13f6-47e6-8a6c-42db8fbf7523"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pan"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Mouse"",
                     ""id"": ""e7fd38d5-e9cb-41f8-8fd1-611624c233d5"",
                     ""path"": ""1DAxis"",
@@ -418,53 +376,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Gamepad"",
-                    ""id"": ""4238ed2b-2d56-4e19-be9a-a7c19a2f5342"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""9f4a86b6-ec06-46f2-93cc-a1f70edca31c"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""8e5ba3a3-ac56-4e5b-af6a-195ef63d351b"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""548ef47d-d113-4109-a2e8-d13d1cad51a3"",
                     ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenClose"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""df39559a-3ebc-46be-b73f-6308c3d9e24a"",
-                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -486,7 +400,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         // Minimap
         m_Minimap = asset.FindActionMap("Minimap", throwIfNotFound: true);
         m_Minimap_Axes = m_Minimap.FindAction("Axes", throwIfNotFound: true);
-        m_Minimap_Pan = m_Minimap.FindAction("Pan", throwIfNotFound: true);
         m_Minimap_Zoom = m_Minimap.FindAction("Zoom", throwIfNotFound: true);
         m_Minimap_OpenClose = m_Minimap.FindAction("OpenClose", throwIfNotFound: true);
     }
@@ -621,7 +534,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Minimap;
     private List<IMinimapActions> m_MinimapActionsCallbackInterfaces = new List<IMinimapActions>();
     private readonly InputAction m_Minimap_Axes;
-    private readonly InputAction m_Minimap_Pan;
     private readonly InputAction m_Minimap_Zoom;
     private readonly InputAction m_Minimap_OpenClose;
     public struct MinimapActions
@@ -629,7 +541,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         private @Inputs m_Wrapper;
         public MinimapActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Axes => m_Wrapper.m_Minimap_Axes;
-        public InputAction @Pan => m_Wrapper.m_Minimap_Pan;
         public InputAction @Zoom => m_Wrapper.m_Minimap_Zoom;
         public InputAction @OpenClose => m_Wrapper.m_Minimap_OpenClose;
         public InputActionMap Get() { return m_Wrapper.m_Minimap; }
@@ -644,9 +555,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Axes.started += instance.OnAxes;
             @Axes.performed += instance.OnAxes;
             @Axes.canceled += instance.OnAxes;
-            @Pan.started += instance.OnPan;
-            @Pan.performed += instance.OnPan;
-            @Pan.canceled += instance.OnPan;
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
@@ -660,9 +568,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Axes.started -= instance.OnAxes;
             @Axes.performed -= instance.OnAxes;
             @Axes.canceled -= instance.OnAxes;
-            @Pan.started -= instance.OnPan;
-            @Pan.performed -= instance.OnPan;
-            @Pan.canceled -= instance.OnPan;
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
@@ -696,7 +601,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     public interface IMinimapActions
     {
         void OnAxes(InputAction.CallbackContext context);
-        void OnPan(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnOpenClose(InputAction.CallbackContext context);
     }

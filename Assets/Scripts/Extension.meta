@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Extension.meta
 guid: a769c132b421a7c47984c46e7a0dc916
+========
+guid: ba98f99c816de2a4fbd011fa72c836e1
+>>>>>>>> feature/ai:Assets/Scripts/AI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -191,15 +191,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Pan",
-                    "type": "Button",
-                    "id": "91c9e5e8-9ea0-4924-8a26-4a64058cbc90",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Zoom",
                     "type": "Value",
                     "id": "ccb8352c-e656-41e0-8fd7-bbf987975d73",
@@ -330,39 +321,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "9417fa24-8f3f-4902-aef3-9235cbe7deec",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Axes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "aada4a2a-ffc2-4883-b721-ce393c8568de",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pan",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f144064d-13f6-47e6-8a6c-42db8fbf7523",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pan",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Mouse",
                     "id": "e7fd38d5-e9cb-41f8-8fd1-611624c233d5",
                     "path": "1DAxis",
@@ -396,53 +354,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Gamepad",
-                    "id": "4238ed2b-2d56-4e19-be9a-a7c19a2f5342",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "9f4a86b6-ec06-46f2-93cc-a1f70edca31c",
-                    "path": "<Gamepad>/rightStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "8e5ba3a3-ac56-4e5b-af6a-195ef63d351b",
-                    "path": "<Gamepad>/rightStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "548ef47d-d113-4109-a2e8-d13d1cad51a3",
                     "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenClose",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "df39559a-3ebc-46be-b73f-6308c3d9e24a",
-                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

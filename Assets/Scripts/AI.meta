@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Extension.meta
+guid: fa2a72b66a77f214bbf7fded2eada1c9
+========
+guid: ba98f99c816de2a4fbd011fa72c836e1
+>>>>>>>> feature/ai:Assets/Scripts/AI.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

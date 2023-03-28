@@ -3,18 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - ScoreUI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - Unwalkable
+  - Enemy
   - Minimap
-  - 
-  - 
+  - PlayerBullets
+  - EnemyBullets
   - 
   - 
   - 
