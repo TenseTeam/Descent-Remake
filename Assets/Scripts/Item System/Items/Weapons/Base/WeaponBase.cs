@@ -38,7 +38,9 @@
         protected bool HasAmmo => (CurrentAmmunition - AmmunitionCostPerShot >= 0f) || HasInfiniteAmmo;
 
         
-        private void Awake()
+        protected virtual void Start() { }
+
+        protected virtual void Awake()
         {
             SetupWeapon();
         }

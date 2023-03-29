@@ -10,6 +10,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
         [field: SerializeField]
         public List<Image> LaserAmmoBars { get; set; }
 
+
         public override void DeselectWeapon()
         {
             base.DeselectWeapon();
