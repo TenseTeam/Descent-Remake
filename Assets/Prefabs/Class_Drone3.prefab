@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &365825654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 365825655}
+  m_Layer: 0
+  m_Name: LeftCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &365825655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365825654}
+  m_LocalRotation: {x: -0, y: 0.046132326, z: -0, w: 0.99893534}
+  m_LocalPosition: {x: -0.332, y: -0.153, z: 0.289}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466750624402156242}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 5.288, z: 0}
+--- !u!1 &694273234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694273235}
+  m_Layer: 0
+  m_Name: RightCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694273235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694273234}
+  m_LocalRotation: {x: -0, y: -0.047789425, z: -0, w: 0.9988575}
+  m_LocalPosition: {x: 0.326, y: -0.154, z: 0.284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466750624402156242}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -5.478, z: 0}
 --- !u!1 &139754822292351368
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +268,9 @@ GameObject:
   m_Component:
   - component: {fileID: 466750624402156242}
   - component: {fileID: 5508302499642071718}
+  - component: {fileID: 1908284052}
+  - component: {fileID: 1908284054}
+  - component: {fileID: 1692857059}
   m_Layer: 0
   m_Name: Class_Drone3
   m_TagString: Untagged
@@ -220,7 +285,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950800020806758504}
-  m_LocalRotation: {x: -0, y: -0.8328167, z: -0, w: 0.5535489}
+  m_LocalRotation: {x: 0, y: -0.83281505, z: 0, w: 0.55355144}
   m_LocalPosition: {x: 325.204, y: 21.049, z: 421.044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -232,6 +297,8 @@ Transform:
   - {fileID: 7835633924475218001}
   - {fileID: 139754822292351365}
   - {fileID: 1863701852072522325}
+  - {fileID: 365825655}
+  - {fileID: 694273235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -112.778, z: 0}
@@ -249,6 +316,73 @@ CapsuleCollider:
   m_Height: 0.8278561
   m_Direction: 1
   m_Center: {x: 0.011950165, y: -0.086072, z: 7.428419e-11}
+--- !u!114 &1908284052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950800020806758504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1f97e1b72256f428c93c1c941a5e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Damage>k__BackingField:
+    <Max>k__BackingField: 12
+    <Min>k__BackingField: 12
+  <FireRate>k__BackingField: 1.5
+  <HasInfiniteAmmo>k__BackingField: 1
+  maxAmmunition: 0
+  startingAmmunition: 0
+  <AmmunitionCostPerShot>k__BackingField: 0
+  <OnShootAudio>k__BackingField:
+    clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
+    volume: 0.5
+    pitch: 1
+    spatialBlend: 1
+    mixerGroup: {fileID: 5285836909947228339, guid: 78fbc5aea23f8b2468693f68af952f6b, type: 2}
+  <BarrelsPoints>k__BackingField:
+  - {fileID: 365825655}
+  - {fileID: 694273235}
+  <AlternateBarrel>k__BackingField: 1
+  <BulletPrefab>k__BackingField: {fileID: 5697096514784772512, guid: e34a2db8f4492c04c84c88618ce399f4, type: 3}
+  <BulletSpeed>k__BackingField: 5
+--- !u!114 &1908284054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950800020806758504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc6ee1462fb54848aa743d04111f92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 120
+  <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+--- !u!114 &1692857059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950800020806758504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53a3b4b8b4b828469dfc4ab3e1d9053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Weapon>k__BackingField: {fileID: 1908284052}
+  <Target>k__BackingField: {fileID: 0}
+  <DetectionRange>k__BackingField: 50
+  <StoppingDistance>k__BackingField: 2
+  layerMaskPathRaycast:
+    serializedVersion: 2
+    m_Bits: 831
+  <MovementSpeed>k__BackingField: 2
+  <RotationSpeed>k__BackingField: 4
 --- !u!1 &2166422700486853928
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +556,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 12, y: 3.4e-44, z: 0, w: 1.0000001}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &412977465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412977466}
+  m_Layer: 6
+  m_Name: Lower_Cannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412977466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412977465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.002, y: -0.158, z: -0.066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4206207745580799791}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &547285867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547285868}
+  m_Layer: 6
+  m_Name: Upper_Cannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547285868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547285867}
+  m_LocalRotation: {x: -0, y: -0.009290665, z: -0, w: 0.99995685}
+  m_LocalPosition: {x: 0.001, y: 0.167, z: -0.079}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4206207745580799791}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -1.065, z: 0}
 --- !u!1 &1008467068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +73,7 @@ GameObject:
   - component: {fileID: 1008467069}
   - component: {fileID: 1008467071}
   - component: {fileID: 1008467070}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire_VFX (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +186,7 @@ GameObject:
   - component: {fileID: 1942094048}
   - component: {fileID: 1942094050}
   - component: {fileID: 1942094049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +299,7 @@ GameObject:
   - component: {fileID: 6318497901692661381}
   - component: {fileID: 3396827277292442436}
   - component: {fileID: 5506738039050898669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cannon_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +382,7 @@ GameObject:
   - component: {fileID: 7836712226262670291}
   - component: {fileID: 3617871187841089977}
   - component: {fileID: 8298700952222770746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Afterburner_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +465,7 @@ GameObject:
   - component: {fileID: 2205883972076232190}
   - component: {fileID: 1238701610289239765}
   - component: {fileID: 3295929312462274900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Afterburner_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +550,7 @@ GameObject:
   - component: {fileID: 5891393663853301577}
   - component: {fileID: 8438153275040690094}
   - component: {fileID: 1230200713261172725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Class_Drone2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,6 +576,8 @@ Transform:
   - {fileID: 1942094048}
   - {fileID: 1008467069}
   - {fileID: 7407676782150399965}
+  - {fileID: 412977466}
+  - {fileID: 547285868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -71.133, z: 0}
@@ -544,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 65
-  <VFXExplosion>k__BackingField: {fileID: 0}
+  <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
 --- !u!114 &8438153275040690094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,23 +622,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Damage>k__BackingField:
-    <Max>k__BackingField: 0
-    <Min>k__BackingField: 0
-  <FireRate>k__BackingField: 0.2
-  <HasInfiniteAmmo>k__BackingField: 0
+    <Max>k__BackingField: 6
+    <Min>k__BackingField: 6
+  <FireRate>k__BackingField: 2
+  <HasInfiniteAmmo>k__BackingField: 1
   maxAmmunition: 0
   startingAmmunition: 0
   <AmmunitionCostPerShot>k__BackingField: 0
   <OnShootAudio>k__BackingField:
-    clip: {fileID: 0}
-    volume: 0
+    clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
+    volume: 1
     pitch: 0
     spatialBlend: 0
-    mixerGroup: {fileID: 0}
-  <BarrelsPoints>k__BackingField: []
-  <AlternateBarrel>k__BackingField: 0
-  <BulletPrefab>k__BackingField: {fileID: 0}
-  <BulletSpeed>k__BackingField: 0
+    mixerGroup: {fileID: 5285836909947228339, guid: 78fbc5aea23f8b2468693f68af952f6b, type: 2}
+  <BarrelsPoints>k__BackingField:
+  - {fileID: 412977466}
+  - {fileID: 547285868}
+  <AlternateBarrel>k__BackingField: 1
+  <BulletPrefab>k__BackingField: {fileID: 5697096514784772512, guid: 6f9ae9ce62c855b4484b6d14ac153a45, type: 3}
+  <BulletSpeed>k__BackingField: 3
 --- !u!114 &1230200713261172725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,12 +653,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53a3b4b8b4b828469dfc4ab3e1d9053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Weapon>k__BackingField: {fileID: 0}
+  <Weapon>k__BackingField: {fileID: 8438153275040690094}
   <Target>k__BackingField: {fileID: 0}
-  <DetectionRange>k__BackingField: 10
-  <AttackRange>k__BackingField: 10
+  <DetectionRange>k__BackingField: 50
+  <StoppingDistance>k__BackingField: 2
+  layerMaskPathRaycast:
+    serializedVersion: 2
+    m_Bits: 831
   <MovementSpeed>k__BackingField: 2
-  <RotationSpeed>k__BackingField: 2
+  <RotationSpeed>k__BackingField: 4
 --- !u!1 &3553189988117205541
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +673,7 @@ GameObject:
   - component: {fileID: 7407676782150399965}
   - component: {fileID: 6973130482653875581}
   - component: {fileID: 224992271780372390}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +788,7 @@ GameObject:
   - component: {fileID: 1087046649875894434}
   - component: {fileID: 8347804241375521176}
   - component: {fileID: 8820422740129797958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cannon_Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
