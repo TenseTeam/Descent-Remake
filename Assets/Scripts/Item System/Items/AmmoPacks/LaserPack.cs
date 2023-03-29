@@ -12,7 +12,7 @@
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out LaserCannon weap))
+            if (other.TryGetComponent(out LaserCannon weap) && weap.enabled)
             {
                 weap.AddAmmunition(AmmoQuantity);
                 Destroy(gameObject);

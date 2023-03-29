@@ -11,6 +11,8 @@
         public Image WeaponImage { get; set; }
         public Sprite WeaponIcon { get; set; }
 
+        public bool IsSelected { get; set; }
+
         void UpdateWeaponName();
         void UpdateAmmoText();
         void UpdateWeaponIcon();

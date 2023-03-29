@@ -3679,11 +3679,10 @@ MonoBehaviour:
   <MaxLevel>k__BackingField: 4
   <DamageIncreasePerLevel>k__BackingField: 1
   <WeaponNameText>k__BackingField: {fileID: 129832369}
-  <AmmoText>k__BackingField: {fileID: 2035559418}
+  <AmmoText>k__BackingField: {fileID: 1717944430}
   <LevelText>k__BackingField: {fileID: 690154907}
   <WeaponImage>k__BackingField: {fileID: 605189855}
   <WeaponIcon>k__BackingField: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
-  <LaserAmmo>k__BackingField: {fileID: 1717944430}
   <LaserAmmoBars>k__BackingField:
   - {fileID: 1633480346}
   - {fileID: 447854330}

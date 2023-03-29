@@ -30,6 +30,8 @@
         public Image WeaponImage { get; set; }
         [field: SerializeField]
         public Sprite WeaponIcon { get; set; }
+
+        public bool IsSelected { get; set; }
         #endregion
 
         public void IncreaseLevel(uint levelsToAdd = 1)
@@ -56,9 +58,14 @@
                 UpdateAmmoText();
         }
 
-        public override void Select()
+        public override void DeselectWeapon()
         {
-            base.Select();
+            IsSelected = false;
+        }
+
+        public override void SelectWeapon()
+        {
+            IsSelected = true;
             UpdateAllWeaponUI();
         }
 

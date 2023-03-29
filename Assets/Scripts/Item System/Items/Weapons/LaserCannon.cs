@@ -8,14 +8,11 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
     public class LaserCannon : LevelableWeaponPhysic
     {
         [field: SerializeField]
-        public TMP_Text LaserAmmo { get; private set; } 
-
-        [field: SerializeField]
         public List<Image> LaserAmmoBars { get; set; }
 
-        public override void Deselect()
+        public override void DeselectWeapon()
         {
-            base.Deselect();
+            base.DeselectWeapon();
             LevelText.text = "";
         }
 
@@ -27,13 +24,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 
         public override void UpdateAmmoText()
         {
-            AmmoText.text = "";
-            UpdateLaserAmmoText();
-        }
-
-        private void UpdateLaserAmmoText()
-        {
-            LaserAmmo.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
+            AmmoText.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
             UpdateLaserBarsUI();
         }
 

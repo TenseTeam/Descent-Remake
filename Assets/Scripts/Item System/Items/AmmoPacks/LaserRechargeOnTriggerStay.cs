@@ -12,7 +12,7 @@ namespace ProjectDescent.ItemSystem.Items.Ammopacks
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.TryGetComponent(out LaserCannon weap))
+            if (other.TryGetComponent(out LaserCannon weap) && weap.enabled)
             {
                 weap.AddAmmunition(RechargeVelocity * Time.deltaTime);
             }

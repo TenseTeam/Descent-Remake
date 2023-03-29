@@ -35,5 +35,13 @@
                 }
             }
         }
+
+        public override void SelectWeapon()
+        {
+        }
+
+        public override void DeselectWeapon()
+        {
+        }
     }
 }

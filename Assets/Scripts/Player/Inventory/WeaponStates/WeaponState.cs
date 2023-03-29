@@ -20,12 +20,12 @@ namespace ProjectDescent.Player.Inventory
 
         public override void Enter()
         {
-            Gun.Select();
+            Gun.SelectWeapon();
         }
 
         public override void Exit()
         {
-            Gun.Deselect();
+            Gun.DeselectWeapon();
         }
 
         public override void Process()
