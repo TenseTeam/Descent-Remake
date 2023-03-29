@@ -10,6 +10,8 @@ namespace ProjectDescent.Player.Entity
 
     public class PlayerEntity : EntityBase
     {
+        [field: SerializeField, Header("Spawn")]
+        public Transform SpawnPoint { get; private set; }
 
         [field: SerializeField]
         public int SceneBuildIndexToLoadOnDefiniteDeath { get; set; } = 0;
@@ -71,7 +73,9 @@ namespace ProjectDescent.Player.Entity
 
             if (_currentLives > -1)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+                transform.position = SpawnPoint.position;
+                HealHitPoints(maxHitPoints);
+                UpdateRemainingLivesUI();
                 return;
             }
 
