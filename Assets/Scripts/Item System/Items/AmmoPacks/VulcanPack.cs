@@ -15,6 +15,7 @@
             if (other.TryGetComponent(out VulcanGun weap) && weap.enabled)
             {
                 weap.AddAmmunition(AmmoQuantity);
+                weap.UpdateAmmoText();
                 Destroy(gameObject);
             }
         }

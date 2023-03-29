@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
+  startingHitPoints: 0
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
   <ScoreToAddOnKill>k__BackingField: 0
   <Animator>k__BackingField: {fileID: 0}
@@ -1393,6 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
+  startingHitPoints: 0
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
   <ScoreToAddOnKill>k__BackingField: 0
 --- !u!1 &313444074
@@ -3668,7 +3670,7 @@ MonoBehaviour:
   <HasInfiniteAmmo>k__BackingField: 0
   maxAmmunition: 100
   startingAmmunition: 100
-  <AmmunitionCostPerShot>k__BackingField: 1.5
+  <AmmunitionCostPerShot>k__BackingField: 0.3
   <OnShootAudio>k__BackingField:
     clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
     volume: 1
@@ -3742,7 +3744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cc052296c910f4fb099fdbd8cd5820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 100
+  maxHitPoints: 200
+  startingHitPoints: 50
   <SpawnPoint>k__BackingField: {fileID: 1077949273}
   <SceneBuildIndexToLoadOnDefiniteDeath>k__BackingField: 1
   <HPText>k__BackingField: {fileID: 700698489}
@@ -3819,6 +3822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
+  startingHitPoints: 0
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
   <ScoreToAddOnKill>k__BackingField: 0
 --- !u!65 &852501247
