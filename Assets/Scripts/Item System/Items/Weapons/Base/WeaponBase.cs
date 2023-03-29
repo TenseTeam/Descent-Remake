@@ -31,19 +31,19 @@
         [field: SerializeField, Header("Barrels")]
         public Transform[] BarrelsPoints { get; set; }
 
-        public bool IsSelected { get; private set; }
         public bool IsShooting { get; private set; }
 
         protected float CurrentAmmunition { get; set; }
 
         protected bool HasAmmo => (CurrentAmmunition - AmmunitionCostPerShot >= 0f) || HasInfiniteAmmo;
 
-        private void Start()
+        
+        private protected void Start()
         {
             SetupWeapon();
         }
 
-        protected virtual void SetupWeapon()
+        public virtual void SetupWeapon()
         {
             CurrentAmmunition = startingAmmunition;
 
@@ -53,6 +53,9 @@
                 CurrentAmmunition = startingAmmunition;
             }
         }
+
+        public abstract void DeselectWeapon();
+        public abstract void SelectWeapon();
 
         public virtual void PullTrigger()
         {
@@ -75,15 +78,7 @@
             OnShootAudio.PlayClipAtPoint(transform.position);
         }
 
-        public virtual void Select() 
-        {
-            IsSelected = true;
-        } // Not sure about it, it can't be abstract otherwise it will constrain every child to implement this method
 
-        public virtual void Deselect()
-        {
-            IsSelected = false;
-        }
 
         private IEnumerator ShootingRoutine()
         {

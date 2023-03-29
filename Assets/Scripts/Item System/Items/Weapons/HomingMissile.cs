@@ -15,10 +15,17 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
         public Image WeaponImage { get; set; }
         [field: SerializeField]
         public Sprite WeaponIcon { get; set; }
+        public bool IsSelected { get; set; }
 
-        public override void Select()
+        public override void DeselectWeapon()
         {
-            base.Select();
+            IsSelected = false;
+            AmmoText.text = "";
+        }
+
+        public override void SelectWeapon()
+        {
+            IsSelected = true;
             UpdateAllWeaponUI();
         }
 
@@ -42,6 +49,12 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
         public void UpdateWeaponName()
         {
             WeaponNameText.text = GetType().Name;
+        }
+
+        public override void PullTrigger()
+        {
+            base.PullTrigger();
+            UpdateAmmoText();
         }
     }
 }

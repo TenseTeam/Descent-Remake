@@ -15,7 +15,7 @@ namespace ProjectDescent.Player.Inventory
         private int IndexWeapon { get; set; }
         private WeponInventoryInputsController _inputs;
 
-        private string GetWeaponStateKey(int index) => /*Weapons[index].GetType().Name+*/ index.ToString();
+        private string GetWeaponStateKey(int index) => Weapons[index].GetInstanceID().ToString();
 
         protected override void Awake()
         {
@@ -27,15 +27,11 @@ namespace ProjectDescent.Player.Inventory
         {
             base.InitStates();
 
-            for (int i = 0; i < Weapons.Count; i++)
+            foreach (WeaponBase weap in Weapons)
             {
-                States.Add(i.ToString(), new WeaponState(GetWeaponStateKey(i), Weapons[i], () => _inputs.IsShooting));
+                States.Add(weap.GetInstanceID().ToString(), new WeaponState(weap.GetInstanceID().ToString(), weap, () => _inputs.IsShooting));
             }
-        }
 
-        protected override void Start()
-        {
-            base.Start();
             IndexWeapon = 0;
             ChangeState(GetWeaponStateKey(IndexWeapon));
         }

@@ -42,5 +42,13 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
                 OnShootAudio.PlayClipAtPoint(barrel.transform.position);
             }
         }
+
+        public override void SelectWeapon()
+        {
+        }
+
+        public override void DeselectWeapon()
+        {
+        }
     }
 }
