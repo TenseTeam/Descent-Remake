@@ -13,6 +13,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
         [field: SerializeField]
         public List<Image> LaserAmmoBars { get; set; }
 
+
         public override void AddAmmunition(float ammoToAdd)
         {
             base.AddAmmunition(ammoToAdd);

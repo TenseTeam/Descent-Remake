@@ -8,7 +8,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
     public class LevelUpLaser : MonoBehaviour
     {
         [field: SerializeField]
-        public uint LevelsToIncrease { get; set; }
+        public uint LevelsToIncrease { get; set; } = 1;
 
         private void OnTriggerEnter(Collider other)
         {
