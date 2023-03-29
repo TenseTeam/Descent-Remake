@@ -70,6 +70,7 @@ namespace ProjectDescent.Player.Entity
         public override void Death()
         {
             _currentLives--;
+            ScoreSingleton.instance.ResetScore();
 
             if (_currentLives > -1)
             {
@@ -80,7 +81,6 @@ namespace ProjectDescent.Player.Entity
             }
 
             _currentLives = 3;
-            ScoreSingleton.instance.ResetScore();
             SceneManager.LoadScene(SceneBuildIndexToLoadOnDefiniteDeath, LoadSceneMode.Single);
         }
 
