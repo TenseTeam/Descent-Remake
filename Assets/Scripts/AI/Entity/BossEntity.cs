@@ -8,9 +8,12 @@ namespace ProjectDescent.AI.Behaviours
         [field: SerializeField]
         public Animator Animator { get; private set; }
 
+        [field: SerializeField]
+        public string AnimatorTriggerParameter { get; set; }
+
         public override void Death()
         {
-            Animator.SetTrigger("open");
+            Animator.SetTrigger(AnimatorTriggerParameter);
             base.Death();
         }
     }

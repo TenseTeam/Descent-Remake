@@ -399,7 +399,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+  <ScoreToAddOnKill>k__BackingField: 0
   <Animator>k__BackingField: {fileID: 0}
+  <AnimatorTriggerParameter>k__BackingField: 
 --- !u!1 &101550093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+  <ScoreToAddOnKill>k__BackingField: 0
 --- !u!1 &313444074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,6 +3816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+  <ScoreToAddOnKill>k__BackingField: 0
 --- !u!65 &852501247
 BoxCollider:
   m_ObjectHideFlags: 0
