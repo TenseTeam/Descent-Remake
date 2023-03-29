@@ -8,7 +8,10 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
     public class HomingMissile : WeaponPhysicBase, IWeaponUI
     {
         [field: SerializeField, Header("UI")]
-        public TMP_Text WeaponNameText { get ; set; }
+        public string WeaponName { get; set; } = "Homing Missile";
+
+        [field: SerializeField]
+        public TMP_Text WeaponNameText { get; set; }
         [field: SerializeField]
         public TMP_Text AmmoText { get; set; }
         [field: SerializeField]
@@ -48,7 +51,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 
         public void UpdateWeaponName()
         {
-            WeaponNameText.text = GetType().Name;
+            WeaponNameText.text = WeaponName;
         }
 
         public override void PullTrigger()

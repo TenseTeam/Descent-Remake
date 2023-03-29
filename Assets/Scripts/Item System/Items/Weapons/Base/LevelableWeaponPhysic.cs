@@ -19,6 +19,9 @@
         #region UI
 
         [field: SerializeField, Header("UI")]
+        public string WeaponName { get; set; } = "Weapon";
+
+        [field: SerializeField]
         public TMP_Text WeaponNameText { get; set; }
         [field: SerializeField]
         public TMP_Text AmmoText { get ; set; }
@@ -99,7 +102,7 @@
 
         public void UpdateWeaponName()
         {
-            WeaponNameText.text = GetType().Name;
+            WeaponNameText.text = WeaponName;
         }
     }
 }

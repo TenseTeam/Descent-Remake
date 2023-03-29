@@ -6,6 +6,7 @@
 
     interface IWeaponUI
     {
+        public string WeaponName { get; set; }
         public TMP_Text WeaponNameText { get; set; }
         public TMP_Text AmmoText { get; set; }
         public Image WeaponImage { get; set; }
