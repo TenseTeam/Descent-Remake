@@ -15,6 +15,7 @@ namespace ProjectDescent.ItemSystem.Items.Ammopacks
             if(other.TryGetComponent(out HomingMissile weap) && weap.enabled)
             {
                 weap.AddAmmunition(AmmoQuantity);
+                weap.UpdateAmmoText();
                 Destroy(gameObject);
             }
         }
