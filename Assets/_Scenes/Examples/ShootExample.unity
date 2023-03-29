@@ -3607,6 +3607,7 @@ MonoBehaviour:
   <AlternateBarrel>k__BackingField: 0
   <BulletPrefab>k__BackingField: {fileID: 8298943863187331390, guid: 876c3bfa32f00bd40b8460217d3b0ba0, type: 3}
   <BulletSpeed>k__BackingField: 10
+  <WeaponName>k__BackingField: Concussion Missile
   <WeaponNameText>k__BackingField: {fileID: 1982048921}
   <AmmoText>k__BackingField: {fileID: 898370262}
   <WeaponImage>k__BackingField: {fileID: 1965816216}
@@ -3643,6 +3644,7 @@ MonoBehaviour:
   <AlternateBarrel>k__BackingField: 1
   <BulletPrefab>k__BackingField: {fileID: 8298943863187331390, guid: 725e50e8198de6343aea78a952f7e6b2, type: 3}
   <BulletSpeed>k__BackingField: 10
+  <WeaponName>k__BackingField: Homing Missile
   <WeaponNameText>k__BackingField: {fileID: 1982048921}
   <AmmoText>k__BackingField: {fileID: 898370262}
   <WeaponImage>k__BackingField: {fileID: 1965816216}
@@ -3681,6 +3683,7 @@ MonoBehaviour:
   <BulletSpeed>k__BackingField: 50
   <MaxLevel>k__BackingField: 4
   <DamageIncreasePerLevel>k__BackingField: 1
+  <WeaponName>k__BackingField: Weapon
   <WeaponNameText>k__BackingField: {fileID: 129832369}
   <AmmoText>k__BackingField: {fileID: 1717944430}
   <LevelText>k__BackingField: {fileID: 690154907}
@@ -3722,6 +3725,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   <VFXOnHit>k__BackingField: {fileID: 8633959118235103003, guid: f0ed7cde3e538e247a6d69d7e63c22e3, type: 3}
+  <WeaponName>k__BackingField: Vulcan-Gun
   <WeaponNameText>k__BackingField: {fileID: 129832369}
   <AmmoText>k__BackingField: {fileID: 2035559418}
   <WeaponImage>k__BackingField: {fileID: 605189855}
