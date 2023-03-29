@@ -24,7 +24,7 @@
         {
             HitPoints -= Mathf.Abs(hitDamage);
 
-            if (HitPoints < 0f)
+            if (HitPoints <= 0.1f)
             {
                 HitPoints = 0f;
                 Death();
