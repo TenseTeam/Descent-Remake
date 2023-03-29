@@ -715,10 +715,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 253495869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083445eb7c4084c4a9c413925de33310, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e7033a96d5b89843998127bb43ee65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LevelsToIncrease>k__BackingField: 1
 --- !u!1 &256095924
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +952,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1982048920}
-  - {fileID: 690154906}
   m_Father: {fileID: 1521050551}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1401,141 +1399,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361937175}
   m_CullTransparentMesh: 1
---- !u!1 &368367163
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 368367164}
-  - component: {fileID: 368367166}
-  - component: {fileID: 368367165}
-  m_Layer: 5
-  m_Name: Level
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &368367164
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368367163}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 729987351}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8437355, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: -0.10983, y: -0.6174}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &368367165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368367163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 1
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 72.65
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 82.1
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &368367166
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368367163}
-  m_CullTransparentMesh: 1
 --- !u!1 &387793254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1432,7 @@ RectTransform:
   - {fileID: 1717944429}
   - {fileID: 1633480343}
   - {fileID: 447854327}
+  - {fileID: 690154906}
   - {fileID: 1521050551}
   - {fileID: 1311848949}
   m_Father: {fileID: 1122924548}
@@ -2718,7 +2582,7 @@ GameObject:
   - component: {fileID: 690154908}
   - component: {fileID: 690154907}
   m_Layer: 5
-  m_Name: Level
+  m_Name: LaserLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2736,13 +2600,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 304403432}
-  m_RootOrder: 1
+  m_Father: {fileID: 387793255}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8437355, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: -0.10983, y: -0.6174}
+  m_AnchoredPosition: {x: -420.40503, y: 202}
+  m_SizeDelta: {x: -77.97116, y: -282.69193}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &690154907
 MonoBehaviour:
@@ -3007,7 +2871,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 129832368}
-  - {fileID: 368367164}
   m_Father: {fileID: 1311848949}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3440,11 +3303,8 @@ MonoBehaviour:
   <AlternateBarrel>k__BackingField: 0
   <BulletPrefab>k__BackingField: {fileID: 8298943863187331390, guid: 876c3bfa32f00bd40b8460217d3b0ba0, type: 3}
   <BulletSpeed>k__BackingField: 10
-  <MaxLevel>k__BackingField: 4
-  <DamageIncreasePerLevel>k__BackingField: 1
   <WeaponNameText>k__BackingField: {fileID: 1982048921}
   <AmmoText>k__BackingField: {fileID: 898370262}
-  <LevelText>k__BackingField: {fileID: 690154907}
   <WeaponImage>k__BackingField: {fileID: 1965816216}
   <WeaponIcon>k__BackingField: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
 --- !u!114 &834952995
@@ -3479,11 +3339,8 @@ MonoBehaviour:
   <AlternateBarrel>k__BackingField: 1
   <BulletPrefab>k__BackingField: {fileID: 8298943863187331390, guid: 725e50e8198de6343aea78a952f7e6b2, type: 3}
   <BulletSpeed>k__BackingField: 10
-  <MaxLevel>k__BackingField: 4
-  <DamageIncreasePerLevel>k__BackingField: 1
   <WeaponNameText>k__BackingField: {fileID: 1982048921}
   <AmmoText>k__BackingField: {fileID: 898370262}
-  <LevelText>k__BackingField: {fileID: 690154907}
   <WeaponImage>k__BackingField: {fileID: 1965816216}
   <WeaponIcon>k__BackingField: {fileID: 21300000, guid: cdb88fdb0cf46b244a667edaff21c7df, type: 3}
 --- !u!114 &834952996
@@ -3522,7 +3379,7 @@ MonoBehaviour:
   <DamageIncreasePerLevel>k__BackingField: 1
   <WeaponNameText>k__BackingField: {fileID: 129832369}
   <AmmoText>k__BackingField: {fileID: 2035559418}
-  <LevelText>k__BackingField: {fileID: 368367165}
+  <LevelText>k__BackingField: {fileID: 690154907}
   <WeaponImage>k__BackingField: {fileID: 605189855}
   <WeaponIcon>k__BackingField: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
   <LaserAmmo>k__BackingField: {fileID: 1717944430}
@@ -3562,11 +3419,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   <VFXOnHit>k__BackingField: {fileID: 8633959118235103003, guid: f0ed7cde3e538e247a6d69d7e63c22e3, type: 3}
-  <MaxLevel>k__BackingField: 4
-  <DamageIncreasePerLevel>k__BackingField: 1
   <WeaponNameText>k__BackingField: {fileID: 129832369}
   <AmmoText>k__BackingField: {fileID: 2035559418}
-  <LevelText>k__BackingField: {fileID: 368367165}
   <WeaponImage>k__BackingField: {fileID: 605189855}
   <WeaponIcon>k__BackingField: {fileID: 21300000, guid: 0525793900d728a42936791a8a6de63b, type: 3}
 --- !u!114 &834952998
@@ -4664,7 +4518,7 @@ RectTransform:
   - {fileID: 479418680}
   - {fileID: 605189854}
   m_Father: {fileID: 387793255}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.53634655, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5124,7 +4978,7 @@ RectTransform:
   - {fileID: 816174258}
   - {fileID: 1965816215}
   m_Father: {fileID: 387793255}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.53634655, y: 1}
@@ -6199,10 +6053,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1811894404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f42385dd5991842ad0442106cf0d28, type: 3}
+  m_Script: {fileID: 11500000, guid: d27042cde140c6d48b7beb2a595f2857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LevelsToIncrease>k__BackingField: 1
 --- !u!1 &1821799525
 GameObject:
   m_ObjectHideFlags: 0
