@@ -14,9 +14,9 @@ public class ScoreSingleton : MonoBehaviour
 {
     public static ScoreSingleton instance; //static instance of ScoreSingleton
 
-    [field: SerializeField, Header("UI Text")]
-    public TMP_Text ScoreText { get; private set; } // Reference to the text component for displaying the score
-    public float Multiplier { get; set; }
+    public float Multiplier { get; set; } = 1;
+
+    private TMP_Text _scoreText { get; set; } // Reference to the text component for displaying the score
 
     private float _score; // Reference to the scriptable object for storing score
 
@@ -41,7 +41,14 @@ public class ScoreSingleton : MonoBehaviour
     //Event that is called every time a new scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        UpdateText();
+        //Check if an object with the "ScoreUI" tag exists in the scene
+        if (GameObjectFinder.TryFindGameObjectWithTag("ScoreUI", out GameObject scoreUI))
+        {
+            // Get the Text component from the object and store it in _scoreText
+            _scoreText = scoreUI.GetComponent<TextMeshProUGUI>();
+            // Update the text with the current score
+            UpdateText();
+        }
     }
 
     /// <summary>
@@ -83,6 +90,6 @@ public class ScoreSingleton : MonoBehaviour
     /// </summary>
     private void UpdateText()
     {
-        ScoreText.text = _score.ToString();
+        _scoreText.text = _score.ToString();
     }
 }
