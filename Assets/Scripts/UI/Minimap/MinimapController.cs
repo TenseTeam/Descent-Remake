@@ -12,6 +12,7 @@ namespace ProjectDescent.UI
         public Camera cam;
         public Transform target;
         public Vector3 distanceOffset;
+        public GameObject uiToDisable;
 
         [Header("Camera Movement")]
         public float rotationSpeed = 10f;
@@ -75,9 +76,11 @@ namespace ProjectDescent.UI
             {
                 cam.depth = depthOnEnable;
                 IsMapOpen = true;
+                uiToDisable.SetActive(false);
                 return;
             }
 
+            uiToDisable.SetActive(true);
             cam.depth = camStartDepth;
             IsMapOpen = false;
         }
