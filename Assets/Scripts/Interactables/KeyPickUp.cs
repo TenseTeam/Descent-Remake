@@ -7,10 +7,6 @@ public class KeyPickUp : MonoBehaviour
     public bool RedKeyObtained = false;
     public GameObject UIRedKey;
 
-    private void Start()
-    {
-        UIRedKey = GetComponent<GameObject>();
-    }
     // Update is called once per frame
     void Update()
     {
