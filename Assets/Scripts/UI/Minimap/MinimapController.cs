@@ -66,7 +66,7 @@ namespace ProjectDescent.UI
         private void ZoomCamera()
         {
             Vector3 zoom = new Vector3(0, 0, _inputs.Zoom * zoomScale);
-            zoom = cam.transform.forward * zoom.z * Time.deltaTime;
+            zoom = cam.transform.forward * zoom.z;
             cam.transform.localPosition += zoom;
         }
 

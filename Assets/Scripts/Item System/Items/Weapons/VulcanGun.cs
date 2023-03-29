@@ -8,6 +8,9 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
     public class VulcanGun : WeaponRaycastBase, IWeaponUI
     {
         [field: SerializeField, Header("UI")]
+        public string WeaponName { get; set; } = "Vulcan-Gun";
+
+        [field: SerializeField]
         public TMP_Text WeaponNameText { get; set; }
         [field: SerializeField]
         public TMP_Text AmmoText { get; set; }
@@ -48,7 +51,7 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 
         public void UpdateWeaponName()
         {
-            WeaponNameText.text = GetType().Name;
+            WeaponNameText.text = WeaponName;
         }
 
         public override void PullTrigger()
