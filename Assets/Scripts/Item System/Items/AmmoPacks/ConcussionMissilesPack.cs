@@ -12,7 +12,7 @@ namespace ProjectDescent.ItemSystem.Items.Ammopacks
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.TryGetComponent(out ConcussionMissile weap))
+            if(other.TryGetComponent(out ConcussionMissile weap) && weap.enabled)
             {
                 weap.AddAmmunition(AmmoQuantity);
                 Destroy(gameObject);
