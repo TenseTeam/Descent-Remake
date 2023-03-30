@@ -932,10 +932,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 206775509}
   target: {fileID: 786541765}
-  distanceOffset: {x: 0, y: 5, z: -10}
+  distanceOffset: {x: 0, y: 0, z: -40}
   uiToDisable: {fileID: 7634542411545064600}
-  rotationSpeed: 10
-  zoomScale: 100
+  rotationSpeed: 50
+  zoomScale: 10
   depthOnEnable: 1
 --- !u!114 &1891819700
 MonoBehaviour:

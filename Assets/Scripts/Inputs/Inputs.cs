@@ -229,6 +229,33 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RequestZoom"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f496b97-91f1-45fd-9f01-b06043898684"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pan"",
+                    ""type"": ""Button"",
+                    ""id"": ""fce7f121-99d1-4979-ac08-d99cc5a2ffd7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Recenter"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ad11ff8-d992-48ee-8ebf-10c0a0b9b158"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -385,6 +412,39 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""OpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffcbb4ae-f366-4c4e-98ed-bd5affe64f23"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RequestZoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae13f272-6655-4884-b320-dea4c825d5e8"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c837dc88-427f-4151-9dd5-c48a45021852"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recenter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -402,6 +462,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Minimap_Axes = m_Minimap.FindAction("Axes", throwIfNotFound: true);
         m_Minimap_Zoom = m_Minimap.FindAction("Zoom", throwIfNotFound: true);
         m_Minimap_OpenClose = m_Minimap.FindAction("OpenClose", throwIfNotFound: true);
+        m_Minimap_RequestZoom = m_Minimap.FindAction("RequestZoom", throwIfNotFound: true);
+        m_Minimap_Pan = m_Minimap.FindAction("Pan", throwIfNotFound: true);
+        m_Minimap_Recenter = m_Minimap.FindAction("Recenter", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -536,6 +599,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Minimap_Axes;
     private readonly InputAction m_Minimap_Zoom;
     private readonly InputAction m_Minimap_OpenClose;
+    private readonly InputAction m_Minimap_RequestZoom;
+    private readonly InputAction m_Minimap_Pan;
+    private readonly InputAction m_Minimap_Recenter;
     public struct MinimapActions
     {
         private @Inputs m_Wrapper;
@@ -543,6 +609,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @Axes => m_Wrapper.m_Minimap_Axes;
         public InputAction @Zoom => m_Wrapper.m_Minimap_Zoom;
         public InputAction @OpenClose => m_Wrapper.m_Minimap_OpenClose;
+        public InputAction @RequestZoom => m_Wrapper.m_Minimap_RequestZoom;
+        public InputAction @Pan => m_Wrapper.m_Minimap_Pan;
+        public InputAction @Recenter => m_Wrapper.m_Minimap_Recenter;
         public InputActionMap Get() { return m_Wrapper.m_Minimap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -561,6 +630,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @OpenClose.started += instance.OnOpenClose;
             @OpenClose.performed += instance.OnOpenClose;
             @OpenClose.canceled += instance.OnOpenClose;
+            @RequestZoom.started += instance.OnRequestZoom;
+            @RequestZoom.performed += instance.OnRequestZoom;
+            @RequestZoom.canceled += instance.OnRequestZoom;
+            @Pan.started += instance.OnPan;
+            @Pan.performed += instance.OnPan;
+            @Pan.canceled += instance.OnPan;
+            @Recenter.started += instance.OnRecenter;
+            @Recenter.performed += instance.OnRecenter;
+            @Recenter.canceled += instance.OnRecenter;
         }
 
         private void UnregisterCallbacks(IMinimapActions instance)
@@ -574,6 +652,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @OpenClose.started -= instance.OnOpenClose;
             @OpenClose.performed -= instance.OnOpenClose;
             @OpenClose.canceled -= instance.OnOpenClose;
+            @RequestZoom.started -= instance.OnRequestZoom;
+            @RequestZoom.performed -= instance.OnRequestZoom;
+            @RequestZoom.canceled -= instance.OnRequestZoom;
+            @Pan.started -= instance.OnPan;
+            @Pan.performed -= instance.OnPan;
+            @Pan.canceled -= instance.OnPan;
+            @Recenter.started -= instance.OnRecenter;
+            @Recenter.performed -= instance.OnRecenter;
+            @Recenter.canceled -= instance.OnRecenter;
         }
 
         public void RemoveCallbacks(IMinimapActions instance)
@@ -603,5 +690,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnAxes(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnOpenClose(InputAction.CallbackContext context);
+        void OnRequestZoom(InputAction.CallbackContext context);
+        void OnPan(InputAction.CallbackContext context);
+        void OnRecenter(InputAction.CallbackContext context);
     }
 }

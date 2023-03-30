@@ -14,6 +14,9 @@ namespace ProjectDescent.InputControllers
             Inputs.Enable();
         }
 
+
+        public bool IsPanning => Inputs.Minimap.Pan.IsPressed();
+        public bool IsRequestingZoom => Inputs.Minimap.RequestZoom.IsPressed();
         public Vector3 Axes => Inputs.Minimap.Axes.ReadValue<Vector2>();
         public float Zoom => Inputs.Minimap.Zoom.ReadValue<float>();
     }

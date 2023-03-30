@@ -12,7 +12,6 @@ using UnityEngine.UI;
 public class UIVolumeSettings : MonoBehaviour
 {
     public AudioMixer mixer;
-    public AudioSource masterTry, musicTry, effectTry;
     public Slider masterSlider, musicSlider, effectsSlider;
 
 
@@ -36,10 +35,6 @@ public class UIVolumeSettings : MonoBehaviour
             mixer.SetFloat("Music", 0);
             mixer.SetFloat("Effects", 0);
         }
-
-        masterTry.Stop(); // This way on application start you cant hear the sound on changing the slider
-        musicTry.Stop();
-        effectTry.Stop();
     }
 
     /// <summary>
@@ -51,7 +46,6 @@ public class UIVolumeSettings : MonoBehaviour
 
         mixer.GetFloat("Master", out float v);
 
-        masterTry.Play();
         SaveManager.Audio.SaveVolume((int)masterSlider.value, (int)musicSlider.value, (int)effectsSlider.value);
     }
 
@@ -61,7 +55,6 @@ public class UIVolumeSettings : MonoBehaviour
     public void SetMusic()
     {
         mixer.SetFloat("Music", musicSlider.value);
-        musicTry.Play();
         SaveManager.Audio.SaveVolume((int)masterSlider.value, (int)musicSlider.value, (int)effectsSlider.value);
     }
 
@@ -71,7 +64,6 @@ public class UIVolumeSettings : MonoBehaviour
     public void SetEffects()
     {
         mixer.SetFloat("Effects", effectsSlider.value);
-        effectTry.Play();
         SaveManager.Audio.SaveVolume((int)masterSlider.value, (int)musicSlider.value, (int)effectsSlider.value);
     }
 
