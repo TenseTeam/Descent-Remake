@@ -14,6 +14,7 @@ namespace ProjectDescent.UI
         public Transform target;
         public Vector3 distanceOffset;
         public GameObject uiToDisable;
+        public GameObject minimapUI;
 
         [Header("Camera Movement")]
         public float panningSpeed = 10f;
@@ -109,11 +110,13 @@ namespace ProjectDescent.UI
                 cam.depth = depthOnEnable;
                 IsMapOpen = true;
                 uiToDisable.SetActive(false);
+                minimapUI.SetActive(true);
                 CameraSetup();
                 return;
             }
 
             TogglePlayerInputs(false);
+            minimapUI.SetActive(false);
             uiToDisable.SetActive(true);
             cam.depth = camStartDepth;
             IsMapOpen = false;
