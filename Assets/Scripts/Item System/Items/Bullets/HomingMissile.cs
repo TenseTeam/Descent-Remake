@@ -24,8 +24,7 @@
         protected override void SetupBullet()
         {
             base.SetupBullet();
-
-            
+            StartCoroutine(LockOnRoutine());
         }
 
         private void Update()
