@@ -337,7 +337,7 @@ MonoBehaviour:
   startingAmmunition: 0
   <AmmunitionCostPerShot>k__BackingField: 0
   <OnShootAudio>k__BackingField:
-    clip: {fileID: 8300000, guid: 7595af5705acb0946a1765b0eb8b9cc0, type: 3}
+    clip: {fileID: 8300000, guid: 509a023a410e8a04a9afda9662a4684f, type: 3}
     volume: 0.5
     pitch: 1
     spatialBlend: 1
@@ -365,7 +365,7 @@ MonoBehaviour:
   <PossibleItemsDrop>k__BackingField:
   - {fileID: 5716829320442575934, guid: f398125369e08b2429b5869c803f2523, type: 3}
   <DropRate>k__BackingField: 20
-  <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+  <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: e996d667eaecc8d41b620bbe2c7a38c9, type: 3}
   <ScoreToAddOnKill>k__BackingField: 800
 --- !u!114 &1692857059
 MonoBehaviour:
