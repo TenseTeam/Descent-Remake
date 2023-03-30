@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 44804874}
   - component: {fileID: 44804868}
   - component: {fileID: 44804867}
+  - component: {fileID: 44804875}
   m_Layer: 6
   m_Name: EnemyBoss
   m_TagString: Enemy
@@ -666,9 +667,30 @@ MonoBehaviour:
   <PossibleItemsDrop>k__BackingField: []
   <DropRate>k__BackingField: 0
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
-  <ScoreToAddOnKill>k__BackingField: 0
-  <Animator>k__BackingField: {fileID: 0}
-  <AnimatorTriggerParameter>k__BackingField: 
+  <ScoreToAddOnKill>k__BackingField: 1
+  <Animator>k__BackingField: {fileID: 44804875}
+  <AnimatorTriggerParameter>k__BackingField: Open
+  <Countdown>k__BackingField: {fileID: 513780290}
+--- !u!95 &44804875
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44804866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e969175687c48e94abca1579622bc2c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &83038202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3680,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060d0450ae42f0d4bbd9b43d45f3456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Text>k__BackingField: 'AAA
+
+    asds'
   <Time>k__BackingField: 10
   <TimerText>k__BackingField: {fileID: 1715304547}
 --- !u!114 &513780291
@@ -11531,7 +11556,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'AAA
+
+    asds0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
