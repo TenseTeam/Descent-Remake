@@ -5,14 +5,15 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    [field: SerializeField, Header("Timer")]
+    [field: SerializeField, Header("Timer"), TextArea(3, 10)]
+    public string Text { get; private set; }
+    [field: SerializeField]
     public int Time { get; set; }
 
     [field: SerializeField]
     public TMP_Text TimerText { get; private set; }
 
-
-    [ContextMenu("Try")]
+    [ContextMenu("AA")]
     public void StartTimer()
     {
         StartCoroutine(CountdownRoutine());
@@ -20,10 +21,10 @@ public class CountdownTimer : MonoBehaviour
 
     private IEnumerator CountdownRoutine()
     {
-        while(Time >= 0)
+        while(Time > 0)
         {
-            TimerText.text = Time.ToString();
             Time--;
+            TimerText.text = Text + Time.ToString();
             yield return new WaitForSeconds(1);
         }
 

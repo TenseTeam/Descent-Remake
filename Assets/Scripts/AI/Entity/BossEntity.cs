@@ -11,9 +11,13 @@ namespace ProjectDescent.AI.Behaviours
         [field: SerializeField]
         public string AnimatorTriggerParameter { get; set; }
 
+        [field: SerializeField]
+        public CountdownTimer Countdown { get; private set; }
+
         public override void Death()
         {
             Animator.SetTrigger(AnimatorTriggerParameter);
+            Countdown.StartTimer();
             base.Death();
         }
     }
