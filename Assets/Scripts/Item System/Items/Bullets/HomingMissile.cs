@@ -20,11 +20,16 @@
         {
             base.SetupBullet();
 
-            if(gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest)
-            && closest.TryGetComponent(out Renderer rend) && rend.isVisible)
-            { 
-                _target = closest.transform;
-                StartCoroutine(LockOnRoutine());
+            if(gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
+            {
+                Renderer rend = closest.GetComponentInChildren<Renderer>();
+
+                Debug.Log(rend.transform.name);
+                if (rend.isVisible)
+                {
+                    _target = closest.transform;
+                    StartCoroutine(LockOnRoutine());
+                }
             }
         }
 
