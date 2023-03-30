@@ -43,7 +43,7 @@
             base.Update();
             float distance = Vector3.Distance(transform.position, Target.position);
 
-            if (distance < DetectionRange && transform.IsPathClear(Target, DetectionRange, layerMaskPathRaycast))
+            if (distance < DetectionRange && transform.IsPathClear(Target, layerMaskPathRaycast))
             {
                 ChangeState("Chase");
             }
