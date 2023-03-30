@@ -17,17 +17,13 @@
         [field: SerializeField, Header("Path Raycast")]
         public LayerMask PathLayerMask { get; private set; }
 
+        private Transform _target;
+
         protected override void SetupBullet()
         {
             base.SetupBullet();
 
-            if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
-            {
-                if (transform.IsPathClear(closest.transform, PathLayerMask))
-                {
-                    StartCoroutine(LockOnRoutine(closest.transform));
-                }
-            }
+            StartCoroutine(LockOnRoutine());
         }
 
         private void Update()
@@ -42,15 +38,26 @@
 
         protected override void OnHit(Transform hittedTransform)
         {
-            StopCoroutine("LockOnRoutine");
+            StopCoroutine(LockOnRoutine());
             base.OnHit(hittedTransform);
         }
 
-        private IEnumerator LockOnRoutine(Transform target)
+        private IEnumerator LockOnRoutine()
         {
             while (true)
             {
-                transform.LookAtLerp(target, RotationSpeed * Time.deltaTime);
+                if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest)
+                && transform.IsPathClear(closest.transform, PathLayerMask))
+                {
+                    Renderer rend = closest.GetComponentInChildren<Renderer>();
+
+                    if (rend.isVisible)
+                    {
+                        _target = closest.transform;
+                        transform.LookAtLerp(_target, RotationSpeed * Time.deltaTime);
+                    }
+                }
+
                 yield return new WaitForEndOfFrame();
             }
         }
