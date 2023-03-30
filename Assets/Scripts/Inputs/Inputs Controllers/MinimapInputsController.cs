@@ -4,16 +4,25 @@ namespace ProjectDescent.InputControllers
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class MinimapInputsController : MonoBehaviour
+    public class MinimapInputsController : InputsController
     {
         public Inputs Inputs { get; private set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             Inputs = new Inputs();
+            Enable();
+        }
+
+        public override void Enable()
+        {
             Inputs.Enable();
         }
 
+        public override void Disable()
+        {
+            Inputs.Disable();
+        }
 
         public bool IsPanning => Inputs.Minimap.Pan.IsPressed();
         public bool IsRequestingZoom => Inputs.Minimap.RequestZoom.IsPressed();

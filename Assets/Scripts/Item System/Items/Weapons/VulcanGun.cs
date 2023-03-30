@@ -41,7 +41,8 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 
         public virtual void UpdateAmmoText()
         {
-            AmmoText.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
+            if (IsSelected)
+                AmmoText.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
         }
 
         public void UpdateWeaponIcon()

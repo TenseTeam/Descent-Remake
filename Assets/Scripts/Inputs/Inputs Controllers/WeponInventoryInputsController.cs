@@ -5,7 +5,7 @@
     using UnityEngine;
     using UnityEngine.InputSystem;
 
-    public class WeponInventoryInputsController : MonoBehaviour
+    public class WeponInventoryInputsController : InputsController
     {
         [field: SerializeField]
         public InputAction ShootAction { get; private set; }
@@ -13,13 +13,13 @@
         [field: SerializeField]
         public InputAction SwitchAction { get; private set; }
 
-        private void OnEnable()
+        public override void Enable()
         {
             ShootAction.Enable();
             SwitchAction.Enable();
         }
 
-        private void OnDisable()
+        public override void Disable()
         {
             ShootAction.Disable();
             SwitchAction.Disable();

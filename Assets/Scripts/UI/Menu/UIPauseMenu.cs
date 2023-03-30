@@ -19,7 +19,8 @@ namespace ProjectDescent.UI
         public GameObject PauseMainUI { get; set; }
 
         [field: SerializeField]
-        public List<WeponInventoryInputsController> PlayerWeaponInputs { get; set; }
+        public List<InputsController> InputsControllerToDisable { get; set; }
+
 
         public bool IsPaused { get; private set; }
 
@@ -34,7 +35,6 @@ namespace ProjectDescent.UI
 
         private void PauseIn(InputAction.CallbackContext obj)
         {
-            Debug.Log("HA");
             PauseToggle();
         }
 
@@ -54,9 +54,12 @@ namespace ProjectDescent.UI
 
         private void TogglePlayerInputs()
         {
-            foreach (WeponInventoryInputsController weapInv in PlayerWeaponInputs)
+            foreach (InputsController inp in InputsControllerToDisable)
             {
-                weapInv.enabled = !IsPaused;
+                if (IsPaused)
+                    inp.Disable();
+                else
+                    inp.Enable();
             }
         }
 

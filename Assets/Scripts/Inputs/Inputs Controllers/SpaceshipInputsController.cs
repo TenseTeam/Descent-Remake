@@ -6,7 +6,7 @@ namespace ProjectDescent.InputControllers
     /// <summary>
     /// Class for managing the inputs of the spaceship
     /// </summary>
-    public class SpaceshipInputsController : MonoBehaviour
+    public class SpaceshipInputsController : InputsController
     {
         [field: SerializeField, Range(0f, 1f)]
         public float Deadzone { get; private set; } = 0.2f;
@@ -18,6 +18,16 @@ namespace ProjectDescent.InputControllers
         {
             Inputs = new Inputs();
             Inputs.Enable();
+        }
+
+        public override void Enable()
+        {
+            Inputs.Enable();
+        }
+
+        public override void Disable()
+        {
+            Inputs.Disable();
         }
 
         public Vector3 MovementAxis => Inputs.Aircraft.Movement.ReadValue<Vector3>();
@@ -53,5 +63,6 @@ namespace ProjectDescent.InputControllers
 
             return 0f;
         }
+
     }
 }

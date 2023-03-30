@@ -16,9 +16,8 @@ public class ScoreSingleton : MonoBehaviour
 
     public float Multiplier { get; set; } = 1;
 
-    private TMP_Text _scoreText { get; set; } // Reference to the text component for displaying the score
-
-    private float _score; // Reference to the scriptable object for storing score
+    public TMP_Text ScoreText { get; set; } // Reference to the text component for displaying the score
+    private float _score = 0f; // Reference to the scriptable object for storing score
 
     private void Awake()
     {
@@ -27,7 +26,6 @@ public class ScoreSingleton : MonoBehaviour
         {
             // If not, set this object as the instance and subscribe to the SceneLoaded event
             instance = this;
-            SceneManager.sceneLoaded += OnSceneLoaded;
             // Prevent this object from being destroyed when changing scenes
             DontDestroyOnLoad(this);
         }
@@ -35,19 +33,6 @@ public class ScoreSingleton : MonoBehaviour
         {
             // If an instance already exists, destroy this object
             Destroy(gameObject);
-        }
-    }
-
-    //Event that is called every time a new scene is loaded
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //Check if an object with the "ScoreUI" tag exists in the scene
-        if (GameObjectFinder.TryFindGameObjectWithTag("ScoreUI", out GameObject scoreUI))
-        {
-            // Get the Text component from the object and store it in _scoreText
-            _scoreText = scoreUI.GetComponent<TextMeshProUGUI>();
-            // Update the text with the current score
-            UpdateText();
         }
     }
 
@@ -90,6 +75,6 @@ public class ScoreSingleton : MonoBehaviour
     /// </summary>
     private void UpdateText()
     {
-        _scoreText.text = _score.ToString();
+        ScoreText.text = _score.ToString();
     }
 }

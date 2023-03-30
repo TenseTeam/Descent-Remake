@@ -65,7 +65,7 @@
             {
                 gObject = GameObject.FindGameObjectWithTag(tag); //Try to take it
             }
-            catch (System.Exception)
+            catch 
             {
                 gObject = null;
                 return false;
@@ -78,7 +78,6 @@
         {
             try
             {
-                Debug.Log("Trovate");
                 gObject = GameObject.Find(name); //Try to take it
             }
             catch (System.Exception)
