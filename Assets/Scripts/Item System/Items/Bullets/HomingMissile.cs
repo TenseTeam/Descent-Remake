@@ -14,17 +14,22 @@
         [field: SerializeField]
         public float RotationSpeed { get; set; } = 2f;
 
+        [field: SerializeField, Header("Path Raycast")]
+        public float Range { get; private set; } = 100f;
+        [field: SerializeField]
+        public LayerMask PathLayerMask { get; private set; }
+
         private Transform _target;
 
         protected override void SetupBullet()
         {
             base.SetupBullet();
 
-            if(gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
+            if(gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest)
+                && transform.IsPathClear(closest.transform, Range, PathLayerMask))
             {
                 Renderer rend = closest.GetComponentInChildren<Renderer>();
 
-                Debug.Log(rend.transform.name);
                 if (rend.isVisible)
                 {
                     _target = closest.transform;

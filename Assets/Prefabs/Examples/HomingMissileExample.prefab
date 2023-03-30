@@ -131,3 +131,7 @@ MonoBehaviour:
   <TimeBeforeDestruction>k__BackingField: 10
   <LockOnTargetTag>k__BackingField: Enemy
   <RotationSpeed>k__BackingField: 10
+  <Range>k__BackingField: 100
+  <PathLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 2147483647
