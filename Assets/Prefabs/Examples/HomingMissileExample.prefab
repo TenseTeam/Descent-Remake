@@ -134,4 +134,4 @@ MonoBehaviour:
   <Range>k__BackingField: 100
   <PathLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 64
