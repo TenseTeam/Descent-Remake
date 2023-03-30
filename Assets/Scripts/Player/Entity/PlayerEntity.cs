@@ -28,12 +28,19 @@ namespace ProjectDescent.Player.Entity
         [field: SerializeField]
         public List<Sprite> ShieldPhaseSprites { get; set; }
 
-
-        private static int _currentLives = 3;
+        [Header("Lives")]
+        public static int maxLives = 3;
+        [Range(0, 3)]public int startingMaxLives = 3;
+        private int _currentLives;
 
         protected override void SetupHP()
         {
             base.SetupHP();
+
+            _currentLives = startingMaxLives;
+            if (startingMaxLives > maxLives) // just for the future, it is not needed due to the Range
+                _currentLives = maxLives;
+
             UpdateRemainingLivesUI();
             UpdateHitPointsUI();
         }
@@ -42,10 +49,10 @@ namespace ProjectDescent.Player.Entity
         {
             hitDamage = Mathf.Abs(hitDamage);
 
-            HitPoints -= hitDamage;
-            if (HitPoints <= 0)
+            hitPoints -= hitDamage;
+            if (hitPoints <= 0)
             {
-                HitPoints = 0;
+                hitPoints = 0;
                 Death();
             }
 
@@ -57,10 +64,10 @@ namespace ProjectDescent.Player.Entity
         {
             healPoints = Mathf.Abs(healPoints);
 
-            HitPoints += healPoints;
-            if (HitPoints > maxHitPoints)
+            hitPoints += healPoints;
+            if (hitPoints > maxHitPoints)
             {
-                HitPoints = maxHitPoints;
+                hitPoints = maxHitPoints;
             }
 
             UpdateHitPointsUI();
@@ -75,18 +82,18 @@ namespace ProjectDescent.Player.Entity
             if (_currentLives > -1)
             {
                 transform.position = SpawnPoint.position;
-                HealHitPoints(maxHitPoints);
+                hitPoints = startingHitPoints;
                 UpdateRemainingLivesUI();
                 return;
             }
 
-            _currentLives = 3;
+            _currentLives = maxLives;
             SceneManager.LoadScene(SceneBuildIndexToLoadOnDefiniteDeath, LoadSceneMode.Single);
         }
 
         private void UpdateHitPointsUI()
         {
-            HPText.text = Mathf.FloorToInt(HitPoints).ToString();
+            HPText.text = Mathf.FloorToInt(hitPoints).ToString();
             UpdateShieldIconUI();
         }
 
@@ -98,7 +105,7 @@ namespace ProjectDescent.Player.Entity
                 return;
             }
 
-            float shieldPercent = HitPoints / maxHitPoints;
+            float shieldPercent = hitPoints / maxHitPoints;
             int phaseIndex = Mathf.FloorToInt(shieldPercent * (ShieldPhaseSprites.Count - 1));
             HPImage.sprite = ShieldPhaseSprites[phaseIndex];
         }
