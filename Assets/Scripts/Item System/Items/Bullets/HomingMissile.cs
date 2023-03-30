@@ -15,8 +15,6 @@
         public float RotationSpeed { get; set; } = 2f;
 
         [field: SerializeField, Header("Path Raycast")]
-        public float Range { get; private set; } = 100f;
-        [field: SerializeField]
         public LayerMask PathLayerMask { get; private set; }
 
         protected override void SetupBullet()
@@ -25,7 +23,7 @@
 
             if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
             {
-                if (transform.IsPathClear(closest.transform, Range, PathLayerMask))
+                if (transform.IsPathClear(closest.transform, PathLayerMask))
                 {
                     StartCoroutine(LockOnRoutine(closest.transform));
                 }

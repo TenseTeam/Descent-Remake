@@ -36,7 +36,7 @@
             base.Update();
             float distance = Vector3.Distance(transform.position, Target.position);
 
-            if (distance < AttackRange && transform.IsPathClear(Target, AttackRange, layerMaskPathRaycast))
+            if (distance < AttackRange && transform.IsPathClear(Target, layerMaskPathRaycast))
             {
                 ChangeState("Shoot");
             }
