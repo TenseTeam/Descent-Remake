@@ -15,6 +15,7 @@ namespace ProjectDescent.UI
         public GameObject uiToDisable;
 
         [Header("Camera Movement")]
+        public float panningSpeed = 10f;
         public float rotationSpeed = 10f;
 
         [Header("Zoom")]
@@ -27,40 +28,66 @@ namespace ProjectDescent.UI
         private MinimapInputsController _inputs;
         public bool IsMapOpen { get; private set; }
 
+
+        private Vector3 _effectiveTargetPosition;
+
         private void Start()
         {
             _inputs = GetComponent<MinimapInputsController>();
 
             _inputs.Inputs.Minimap.OpenClose.performed += OpenMap;
+            _inputs.Inputs.Minimap.Recenter.performed += RecenterTarget;
 
             camStartDepth = cam.depth;
             CameraSetup();
         }
 
+
         private void Update()
         {
-            ManageCamera();
+            if(IsMapOpen)
+                ManageCamera();
         }
 
         private void CameraSetup()
         {
-            cam.transform.LookAt(target);
+            _effectiveTargetPosition = target.position;
             cam.transform.position = target.position + distanceOffset;
+            cam.transform.LookAt(target);
         }
 
         private void ManageCamera()
         {
             RotateCamera();
+            PanCamera();
             ZoomCamera();
+        }
+
+
+        private void RecenterTarget(InputAction.CallbackContext obj)
+        {
+            CameraSetup();
         }
 
         private void RotateCamera()
         {
-            Quaternion targetRotation = Quaternion.LookRotation(target.position - cam.transform.position);
-            cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            if (_inputs.IsRequestingZoom)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(_effectiveTargetPosition - cam.transform.position);
+                cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
-            cam.transform.RotateAround(target.position, Vector3.up, -_inputs.Axes.x * rotationSpeed * Time.deltaTime);
-            cam.transform.RotateAround(target.position, cam.transform.right, _inputs.Axes.y * rotationSpeed * Time.deltaTime);
+                cam.transform.RotateAround(_effectiveTargetPosition, Vector3.up, -_inputs.Axes.x * rotationSpeed * Time.deltaTime);
+                cam.transform.RotateAround(_effectiveTargetPosition, cam.transform.right, _inputs.Axes.y * rotationSpeed * Time.deltaTime);
+            }
+        }
+
+        private void PanCamera()
+        {
+            if (_inputs.IsPanning)
+            {
+                cam.transform.Translate(_inputs.Axes.x * panningSpeed * Time.deltaTime, _inputs.Axes.y * panningSpeed * Time.deltaTime, 0f, Space.Self);
+                _effectiveTargetPosition += cam.transform.right * _inputs.Axes.x * panningSpeed * Time.deltaTime + cam.transform.up * _inputs.Axes.y * panningSpeed * Time.deltaTime;
+            }
         }
 
         private void ZoomCamera()
@@ -77,6 +104,7 @@ namespace ProjectDescent.UI
                 cam.depth = depthOnEnable;
                 IsMapOpen = true;
                 uiToDisable.SetActive(false);
+                CameraSetup();
                 return;
             }
 
