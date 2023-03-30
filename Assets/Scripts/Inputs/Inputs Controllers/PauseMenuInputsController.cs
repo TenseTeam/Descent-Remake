@@ -5,22 +5,21 @@ namespace ProjectDescent.InputControllers
     using UnityEngine;
     using UnityEngine.InputSystem;
 
-    public class PauseMenuInputsController : MonoBehaviour
+    public class PauseMenuInputsController : InputsController
     {
         [field: SerializeField]
         public InputAction OpenPauseMenuAction { get; private set; }
 
-        private void OnEnable()
+        public override void Enable()
         {
-            OpenPauseMenuAction.Enable();
             OpenPauseMenuAction.Enable();
         }
 
-        private void OnDisable()
+        public override void Disable()
         {
             OpenPauseMenuAction.Disable();
-            OpenPauseMenuAction.Disable();
         }
+
     }
 
 }

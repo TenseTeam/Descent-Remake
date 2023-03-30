@@ -4,6 +4,7 @@ namespace ProjectDescent.UI
     using System;
     using UnityEngine;
     using UnityEngine.InputSystem;
+    using System.Collections.Generic;
 
     [RequireComponent(typeof(MinimapInputsController))]
     public class MinimapController : MonoBehaviour
@@ -27,6 +28,9 @@ namespace ProjectDescent.UI
         private float camStartDepth;
         private MinimapInputsController _inputs;
         public bool IsMapOpen { get; private set; }
+
+        [field: SerializeField]
+        public List<InputsController> InputsControllerToDisable { get; set; }
 
 
         private Vector3 _effectiveTargetPosition;
@@ -93,7 +97,7 @@ namespace ProjectDescent.UI
         private void ZoomCamera()
         {
             Vector3 zoom = new Vector3(0, 0, _inputs.Zoom * zoomScale);
-            zoom = cam.transform.forward * zoom.z;
+            zoom = cam.transform.forward * zoom.z * Time.deltaTime;
             cam.transform.localPosition += zoom;
         }
 
@@ -101,6 +105,7 @@ namespace ProjectDescent.UI
         {
             if (!IsMapOpen)
             {
+                TogglePlayerInputs(true);
                 cam.depth = depthOnEnable;
                 IsMapOpen = true;
                 uiToDisable.SetActive(false);
@@ -108,9 +113,22 @@ namespace ProjectDescent.UI
                 return;
             }
 
+            TogglePlayerInputs(false);
             uiToDisable.SetActive(true);
             cam.depth = camStartDepth;
             IsMapOpen = false;
         }
+
+        private void TogglePlayerInputs(bool enable)
+        {
+            foreach (InputsController inp in InputsControllerToDisable)
+            {
+                if (enable)
+                    inp.Disable();
+                else
+                    inp.Enable();
+            }
+        }
+
     }
 }
