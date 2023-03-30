@@ -16,8 +16,19 @@ public class ScoreSingleton : MonoBehaviour
 
     public float Multiplier { get; set; } = 1;
 
-    public TMP_Text ScoreText { get; set; } // Reference to the text component for displaying the score
+    public TMP_Text ScoreText
+    {
+        get => _scoreUI;
+        set
+        {
+            _scoreUI = value;
+            UpdateText();
+        }
+    }
+
+
     private float _score = 0f; // Reference to the scriptable object for storing score
+    private TMP_Text _scoreUI;
 
     private void Awake()
     {
@@ -75,6 +86,6 @@ public class ScoreSingleton : MonoBehaviour
     /// </summary>
     private void UpdateText()
     {
-        ScoreText.text = _score.ToString();
+        _scoreUI.text = _score.ToString();
     }
 }
