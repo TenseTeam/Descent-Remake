@@ -9,11 +9,9 @@ public class CountdownTimer : MonoBehaviour
     public string Text { get; private set; }
     [field: SerializeField]
     public int Time { get; set; }
-
     [field: SerializeField]
     public TMP_Text TimerText { get; private set; }
 
-    [ContextMenu("AA")]
     public void StartTimer()
     {
         StartCoroutine(CountdownRoutine());
