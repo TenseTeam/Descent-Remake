@@ -6563,7 +6563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 200
-  startingHitPoints: 50
+  startingHitPoints: 100
   <SpawnPoint>k__BackingField: {fileID: 1077949273}
   <SceneBuildIndexToLoadOnDefiniteDeath>k__BackingField: 1
   <HPText>k__BackingField: {fileID: 700698489}
@@ -6573,6 +6573,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
   - {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
   - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  startingMaxLives: 0
 --- !u!1 &841243704
 GameObject:
   m_ObjectHideFlags: 0

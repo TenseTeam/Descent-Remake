@@ -9,8 +9,8 @@
         public float maxHitPoints;
         public float startingHitPoints;
 
-        public float HitPoints { get; set; }
-
+        protected float hitPoints;
+         
         private void Start()
         {
             SetupHP();
@@ -18,32 +18,32 @@
 
         protected virtual void SetupHP()
         {
-            HitPoints = startingHitPoints;
+            hitPoints = startingHitPoints;
 
-            if (HitPoints > startingHitPoints)
+            if (hitPoints > startingHitPoints)
             {
                 startingHitPoints = maxHitPoints;
-                HitPoints = startingHitPoints;
+                hitPoints = startingHitPoints;
             }
         }
 
         public virtual void TakeDamage(float hitDamage = 1f)
         {
-            HitPoints -= Mathf.Abs(hitDamage);
+            hitPoints -= Mathf.Abs(hitDamage);
 
-            if (HitPoints <= 0.1f)
+            if (hitPoints <= 0.1f)
             {
-                HitPoints = 0f;
+                hitPoints = 0f;
                 Death();
             }
         }
 
         public virtual void HealHitPoints(float healPoints)
         {
-            HitPoints += Mathf.Abs(healPoints);
+            hitPoints += Mathf.Abs(healPoints);
 
-            if (HitPoints > maxHitPoints)
-                HitPoints = maxHitPoints;
+            if (hitPoints > maxHitPoints)
+                hitPoints = maxHitPoints;
         }
 
         public virtual void Death()
