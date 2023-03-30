@@ -11,23 +11,23 @@ public class DoorBase : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         DoorOpening();
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         DoorClosing();
     }
 
     protected void DoorOpening()
     {
-        anim.SetTrigger("DoorOpens");
+        anim.SetTrigger("Open");
     }
 
     protected void DoorClosing()
     {
-        anim.SetTrigger("DoorCloses");
+        anim.SetTrigger("Close");
     }
 }

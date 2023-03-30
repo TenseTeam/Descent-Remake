@@ -361,7 +361,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 120
+  startingHitPoints: 120
+  <PossibleItemsDrop>k__BackingField:
+  - {fileID: 5716829320442575934, guid: f398125369e08b2429b5869c803f2523, type: 3}
+  <DropRate>k__BackingField: 20
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+  <ScoreToAddOnKill>k__BackingField: 800
 --- !u!114 &1692857059
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3280548090486848555}
   - component: {fileID: 1885040728812483470}
   - component: {fileID: 4453485845312309060}
+  - component: {fileID: 7587996863134902342}
+  - component: {fileID: 598856605}
+  - component: {fileID: 5634891102197341709}
   m_Layer: 0
   m_Name: Vulcan_Gun_Ammo
   m_TagString: Untagged
@@ -25,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2795901629155354257}
-  m_LocalRotation: {x: -0, y: 0.08004871, z: -0, w: 0.99679095}
+  m_LocalRotation: {x: 0, y: 0.08005109, z: 0, w: 0.9967908}
   m_LocalPosition: {x: 25.25, y: 7.062, z: -7.584999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.1299555, y: 2.1299546, z: 2.1299555}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +86,49 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7587996863134902342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795901629155354257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d98a10f53870f64997aa4b169adce8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AmmoQuantity>k__BackingField: 1250
+--- !u!95 &598856605
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795901629155354257}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70dfb8237f0a55846a9453feae15c5df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &5634891102197341709
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795901629155354257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.055445705, y: 0.15357476, z: 0.0786419}
+  m_Center: {x: 0, y: 0, z: 0}

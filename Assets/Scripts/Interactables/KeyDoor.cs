@@ -7,25 +7,28 @@ public class KeyDoor : DoorBase
     private KeyPickUp playerKey;
 
     // Start is called before the first frame update
-    void Start()
+
+
+    protected override void OnTriggerEnter(Collider other)
     {
-        playerKey = new KeyPickUp();
+        if (other.TryGetComponent(out KeyPickUp pick))
+        {
+            if (pick.RedKeyObtained)
+            {
+                DoorOpening();
+            }  
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerExit(Collider other)
     {
-        if (playerKey.RedKeyObtained)
+        if (other.TryGetComponent(out KeyPickUp pick))
         {
-            DoorOpening();
-        }  
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (playerKey.RedKeyObtained)
-        {
-            DoorClosing();
-        }  
+            if (pick.RedKeyObtained)
+            {
+                DoorClosing();
+            }
+        }
     }
 
 

@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 1230200713261172725}
   m_Layer: 6
   m_Name: Class_Drone2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,7 +608,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 65
+  startingHitPoints: 65
+  <PossibleItemsDrop>k__BackingField:
+  - {fileID: 5716829320442575934, guid: f398125369e08b2429b5869c803f2523, type: 3}
+  <DropRate>k__BackingField: 10
   <VFXExplosion>k__BackingField: {fileID: 8633959118235103003, guid: 61a1872bd94de8e4c9e9370a23040930, type: 3}
+  <ScoreToAddOnKill>k__BackingField: 400
 --- !u!114 &8438153275040690094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +664,7 @@ MonoBehaviour:
   <StoppingDistance>k__BackingField: 2
   layerMaskPathRaycast:
     serializedVersion: 2
-    m_Bits: 831
+    m_Bits: 1855
   <MovementSpeed>k__BackingField: 2
   <RotationSpeed>k__BackingField: 4
 --- !u!1 &3553189988117205541

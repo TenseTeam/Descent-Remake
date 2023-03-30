@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b59090db877541b1b84ca3f34abaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TimeBeforeDestruction>k__BackingField: 1
+  <TimeBeforeDestruction>k__BackingField: 0.1
   <Damage>k__BackingField: 60

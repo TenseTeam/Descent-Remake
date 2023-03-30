@@ -207,5 +207,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215d2ef9b83159444a2b57cb9ade0b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <VFXOnHit>k__BackingField: {fileID: 8633959118235103003, guid: 324924283da40d04abee7ab04ffacbd3, type: 3}
+  <VFXOnHit>k__BackingField: {fileID: 8633959118235103003, guid: 35afe6ef43b9e97439d5beb53625fe4d, type: 3}
   <TimeBeforeDestruction>k__BackingField: 10

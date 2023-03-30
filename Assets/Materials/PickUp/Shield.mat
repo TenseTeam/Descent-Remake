@@ -42,8 +42,8 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - Vector2_ED508732: {r: 0.2, g: 1, b: 0, a: 0}
-    - _Base_Color: {r: 0, g: 0.143979, b: 0.4999999, a: 0}
-    - _Emissive_Color: {r: 0.05882353, g: 0.05882353, b: 0.7490196, a: 0}
+    - _Base_Color: {r: 0, g: 0.061111417, b: 0.49803922, a: 0}
+    - _Emissive_Color: {r: 0.05882351, g: 0.44492617, b: 0.7490196, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7416438655086685562
 MonoBehaviour:

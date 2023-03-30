@@ -92,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5523887681211990453}
+  - component: {fileID: 3033461200734448770}
+  - component: {fileID: 1990992938040309697}
   m_Layer: 0
   m_Name: Homing_Missile_Pack
   m_TagString: Untagged
@@ -106,9 +108,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5180012827774835471}
-  m_LocalRotation: {x: -0, y: 0.40238455, z: -0, w: 0.9154707}
+  m_LocalRotation: {x: 0, y: 0.40238714, z: 0, w: 0.9154696}
   m_LocalPosition: {x: 25.07, y: 7.062, z: -7.5339994}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.1299553, y: 2.1299546, z: 2.1299553}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 861313957308600624}
@@ -116,6 +118,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 47.455, z: 0}
+--- !u!114 &3033461200734448770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180012827774835471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bff1a105d56924fab6aac469628d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AmmoQuantity>k__BackingField: 4
+--- !u!65 &1990992938040309697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180012827774835471}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09788627, y: 0.20132083, z: 0.11408148}
+  m_Center: {x: -0.0014570878, y: -0.001614075, z: -0.0016983587}
 --- !u!1 &7202748782788727407
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +155,7 @@ GameObject:
   - component: {fileID: 8582015489554309383}
   - component: {fileID: 7851649170285412317}
   - component: {fileID: 591801458620393512}
+  - component: {fileID: 512951566}
   m_Layer: 0
   m_Name: Homing_Missile_Pack
   m_TagString: Untagged
@@ -199,3 +228,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &512951566
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202748782788727407}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70dfb8237f0a55846a9453feae15c5df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
