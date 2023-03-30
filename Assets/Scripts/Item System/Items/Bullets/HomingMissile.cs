@@ -19,13 +19,17 @@
         [field: SerializeField]
         public LayerMask PathLayerMask { get; private set; }
 
-        private Transform _target;
-
         protected override void SetupBullet()
         {
             base.SetupBullet();
 
-            StartCoroutine(LockOnRoutine());
+            if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
+            {
+                if (transform.IsPathClear(closest.transform, Range, PathLayerMask))
+                {
+                    StartCoroutine(LockOnRoutine(closest.transform));
+                }
+            }
         }
 
         private void Update()
@@ -40,24 +44,15 @@
 
         protected override void OnHit(Transform hittedTransform)
         {
-            StopCoroutine(LockOnRoutine());
+            StopCoroutine("LockOnRoutine");
             base.OnHit(hittedTransform);
         }
 
-        private IEnumerator LockOnRoutine()
+        private IEnumerator LockOnRoutine(Transform target)
         {
             while (true)
             {
-                if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
-                {
-                    _target = closest.transform;
-                    Debug.DrawLine(transform.position, _target.position, Color.yellow);
-                    if (transform.IsPathClear(_target, Range, PathLayerMask))
-                    {
-                        transform.LookAtLerp(_target, RotationSpeed * Time.deltaTime);
-                    }
-                }
-
+                transform.LookAtLerp(target, RotationSpeed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
         }
