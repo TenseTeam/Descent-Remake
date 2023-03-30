@@ -138,4 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <TimeBeforeDestruction>k__BackingField: 0.1
-  <Damage>k__BackingField: 60
+  <Damage>k__BackingField: 10

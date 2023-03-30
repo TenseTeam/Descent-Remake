@@ -47,7 +47,7 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 0.018997505
   m_Height: 0.17995107
-  m_Direction: 0
+  m_Direction: 2
   m_Center: {x: 0.0019993782, y: 0, z: 0.00023178756}
 --- !u!54 &8971473560501684937
 Rigidbody:
@@ -81,6 +81,9 @@ MonoBehaviour:
   <TimeBeforeDestruction>k__BackingField: 10
   <LockOnTargetTag>k__BackingField: Enemy
   <RotationSpeed>k__BackingField: 5
+  <PathLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!1 &5942196592020681980
 GameObject:
   m_ObjectHideFlags: 0

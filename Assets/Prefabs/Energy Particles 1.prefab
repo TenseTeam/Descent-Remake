@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5050989692566827393}
   - component: {fileID: 8435522379506292368}
   - component: {fileID: 3973068699358214073}
+  - component: {fileID: 1628864700923221849}
   m_Layer: 0
   m_Name: Energy Particles 1
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5050989692566827519}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.86145, y: 1.4900322, z: -16.202637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -141,3 +142,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.49768066, y: 0.6225214, z: 0.47665405}
   m_Center: {x: 0.04928589, y: -0.049784184, z: -0.07884216}
+--- !u!114 &1628864700923221849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050989692566827519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e060495f66694364b9375b78817ed9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bumpableTags:
+  - Player
+  audioEffect:
+    clip: {fileID: 8300000, guid: ed0df6832258994449f10d2a3e93c04d, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend: 0
+    mixerGroup: {fileID: 5285836909947228339, guid: 78fbc5aea23f8b2468693f68af952f6b, type: 2}
