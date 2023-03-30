@@ -25,11 +25,8 @@ namespace ProjectDescent.ItemSystem.Items.Weapons
 
         public override void UpdateAmmoText()
         {
-            if (IsSelected)
-            {
-                AmmoText.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
-                UpdateLaserBarsUI();
-            }
+            AmmoText.text = Mathf.FloorToInt(CurrentAmmunition).ToString();
+            UpdateLaserBarsUI();
         }
 
         private void UpdateLaserBarsUI()
