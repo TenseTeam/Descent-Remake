@@ -44,7 +44,12 @@ namespace ProjectDescent.UI
         public void PauseToggle()
         {
             IsPaused = !IsPaused;
-            Time.timeScale = IsPaused ? 0 : 1;
+
+            if (IsPaused)
+                SetTimeScale(0);
+            else
+                SetTimeScale(1);
+
             TogglePlayerInputs();
             PanelPauseUI.SetActive(IsPaused);
 
@@ -71,6 +76,11 @@ namespace ProjectDescent.UI
             }
 
             PauseMainUI.SetActive(true);
+        }
+
+        public void SetTimeScale(int t)
+        {
+            Time.timeScale = t;
         }
     }
 }
