@@ -12,7 +12,7 @@
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out VulcanGun weap) && weap.enabled)
+            if (other.TryGetComponent(out VulcanGun weap))
             {
                 weap.AddAmmunition(AmmoQuantity);
                 weap.UpdateAmmoText();
