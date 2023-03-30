@@ -25,12 +25,7 @@
         {
             base.SetupBullet();
 
-            if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest)
-                && closest.GetComponentInChildren<Renderer>().isVisible)
-            {
-                _target = closest.transform;
-                StartCoroutine(LockOnRoutine());
-            }
+            StartCoroutine(LockOnRoutine());
         }
 
         private void Update()
@@ -53,9 +48,14 @@
         {
             while (true)
             {
-                if(transform.IsPathClear(_target, Range, PathLayerMask))
+                if (gameObject.TryGetClosestGameObjectWithTag(LockOnTargetTag, out GameObject closest))
                 {
-                    transform.LookAtLerp(_target, RotationSpeed * Time.deltaTime);
+                    _target = closest.transform;
+                    Debug.DrawLine(transform.position, _target.position, Color.yellow);
+                    if (transform.IsPathClear(_target, Range, PathLayerMask))
+                    {
+                        transform.LookAtLerp(_target, RotationSpeed * Time.deltaTime);
+                    }
                 }
 
                 yield return new WaitForEndOfFrame();

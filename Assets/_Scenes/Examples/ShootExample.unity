@@ -6794,7 +6794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
-  startingHitPoints: 1
+  startingHitPoints: 999
   <PossibleItemsDrop>k__BackingField:
   - {fileID: 919132149155446097, guid: 568d67bde1c91cc4cb5e2b7accb8411e, type: 3}
   - {fileID: 919132149155446097, guid: d90e09525435c2346855949ad65a1ad7, type: 3}
