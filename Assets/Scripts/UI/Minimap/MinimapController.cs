@@ -97,8 +97,8 @@ namespace ProjectDescent.UI
         private void ZoomCamera()
         {
             Vector3 zoom = new Vector3(0, 0, _inputs.Zoom * zoomScale);
-            zoom = cam.transform.forward * zoom.z * Time.deltaTime;
-            cam.transform.localPosition += zoom;
+            zoom = cam.transform.forward * zoom.z;
+            cam.transform.localPosition += zoom * Time.deltaTime;
         }
 
         private void OpenMap(InputAction.CallbackContext obj)
