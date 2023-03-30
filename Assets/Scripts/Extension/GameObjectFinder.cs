@@ -41,11 +41,11 @@
         /// <returns>True if the gameobject was found, False if not.</returns>
         public static bool TryGetClosestGameObjectWithTag(this GameObject self, string tag, out GameObject closest)
         {
-            GameObject[] gameObjetcs = GameObject.FindGameObjectsWithTag(tag);
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
 
-            if (gameObjetcs.Length > 0)
+            if (gameObjects.Length > 0)
             {
-                closest = GetClosestGameObject(self, gameObjetcs);
+                closest = GetClosestGameObject(self, gameObjects);
                 return true;
             }
 
