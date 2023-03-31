@@ -14552,6 +14552,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1215520406}
   <AnimatorTriggerParameter>k__BackingField: Open
   <Countdown>k__BackingField: {fileID: 2095909484}
+  <CountdownTime>k__BackingField: 60
 --- !u!1 &1147828847
 GameObject:
   m_ObjectHideFlags: 0
@@ -29372,6 +29373,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2095909483}
   - component: {fileID: 2095909484}
+  - component: {fileID: 2095909486}
+  - component: {fileID: 2095909485}
   m_Layer: 0
   m_Name: Countdown
   m_TagString: Untagged
@@ -29409,8 +29412,33 @@ MonoBehaviour:
   <Text>k__BackingField: 'Escape the mine!
 
 '
-  <Time>k__BackingField: 60
   <TimerText>k__BackingField: {fileID: 1603094805}
+--- !u!114 &2095909485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095909482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1f3318a8d639149b2a2e4f258d4443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2095909486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095909482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba14b36e3173d14ebabe632d77c4758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 1
+  sceneToLoad: MainMenu
 --- !u!1001 &2100672048
 PrefabInstance:
   m_ObjectHideFlags: 0
