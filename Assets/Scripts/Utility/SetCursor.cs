@@ -13,8 +13,6 @@ public class SetCursor : MonoBehaviour
     {
         Cursor.visible = isVisibile;
         Cursor.lockState = cursorLockMode;
-
-        if(cursorTexture)
-            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 }
