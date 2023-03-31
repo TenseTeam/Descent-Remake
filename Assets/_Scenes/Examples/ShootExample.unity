@@ -520,7 +520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &44804867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +671,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 44804875}
   <AnimatorTriggerParameter>k__BackingField: Open
   <Countdown>k__BackingField: {fileID: 513780290}
+  <CountdownTime>k__BackingField: 10
 --- !u!95 &44804875
 Animator:
   serializedVersion: 5
@@ -969,7 +970,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 72.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2123,7 +2124,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 73.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3522,7 +3523,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 74
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3832,7 +3833,6 @@ MonoBehaviour:
   <Text>k__BackingField: 'AAA
 
     asds'
-  <Time>k__BackingField: 10
   <TimerText>k__BackingField: {fileID: 1715304547}
 --- !u!114 &513780291
 MonoBehaviour:
@@ -5050,7 +5050,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 72.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5532,7 +5532,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 73.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6149,7 +6149,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 74
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6748,7 +6748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &852501244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7224,7 +7224,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 73.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14103,7 +14103,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.1
+  m_fontSize: 72.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

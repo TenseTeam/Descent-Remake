@@ -1,31 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-
-public class CountdownTimer : MonoBehaviour
+namespace ProjectDescent.UI.Countdown
 {
-    [field: SerializeField, Header("Timer"), TextArea(3, 10)]
-    public string Text { get; private set; }
-    [field: SerializeField]
-    public int Time { get; set; }
-    [field: SerializeField]
-    public TMP_Text TimerText { get; private set; }
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using TMPro;
 
-    public void StartTimer()
+    public class CountdownTimer : MonoBehaviour
     {
-        StartCoroutine(CountdownRoutine());
-    }
+        [field: SerializeField, Header("Timer"), TextArea(3, 10)]
+        public string Text { get; private set; }
 
-    private IEnumerator CountdownRoutine()
-    {
-        while(Time > 0)
+        [field: SerializeField]
+        public TMP_Text TimerText { get; private set; }
+
+        public void StartTimer(int time)
         {
-            Time--;
-            TimerText.text = Text + Time.ToString();
-            yield return new WaitForSeconds(1);
+            StartCoroutine(CountdownRoutine(time));
         }
 
-        SendMessage("SetAction", SendMessageOptions.DontRequireReceiver);
+        private IEnumerator CountdownRoutine(int time)
+        {
+            while (time > 0)
+            {
+                yield return new WaitForSeconds(1);
+                TimerText.text = Text + time.ToString();
+                time--;
+            }
+
+            SendMessage("SetAction", SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
